@@ -42,7 +42,7 @@
   <a href="index.html" class="hover:text-accent-light transition-colors">Главная</a>
   <a href="branches.html" class="text-accent-light">Филиалы</a>
   <a href="online.html" class="hover:text-accent-light transition-colors">Онлайн-обучение</a>
-  <a href="index.html#contacts" class="hover:text-accent-light transition-colors">Контакты</a>
+  <a href="contacts.html" class="hover:text-accent-light transition-colors">Контакты</a>
   <a href="#apply" onclick="closeMobileMenu()" class="bg-primary text-white px-8 py-3 rounded-xl mt-4">Записаться</a>
 </div>
 
@@ -55,10 +55,9 @@
     <a href="index.html" class="hover:text-primary transition-colors">Главная</a>
     <a href="branches.html" class="text-primary">Филиалы</a>
     <a href="online.html" class="hover:text-primary transition-colors">Онлайн</a>
-    <a href="index.html#contacts" class="hover:text-primary transition-colors">Контакты</a>
+    <a href="contacts.html" class="hover:text-primary transition-colors">Контакты</a>
   </nav>
   <div class="flex items-center gap-3">
-    <a href="#apply" class="bg-primary text-white px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity">Записаться</a>
     <button onclick="openMobileMenu()" class="md:hidden flex items-center justify-center p-2 text-primary">
       <span class="material-symbols-outlined text-3xl">menu</span>
     </button>
@@ -143,35 +142,34 @@
       <span class="material-symbols-outlined">chevron_right</span>
     </button>
 
-    <!-- Bottom: text + dots -->
-    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex items-end justify-between pointer-events-none z-10">
-      <div>
-        <h1 class="text-white text-3xl md:text-5xl font-extrabold tracking-tight mb-1">Филиал Акушинского</h1>
-        <p class="text-white/80 text-sm md:text-base max-w-xl">ул. 5-я Линия Акушинского, 25 — уютный филиал для изучения Священного Корана.</p>
-      </div>
-      <!-- Dots -->
-      <div class="flex gap-1.5 mb-1 pointer-events-auto flex-wrap justify-end max-w-[200px]" id="sliderDots">
-        <button onclick="goToSlide(0)" class="w-2 h-2 rounded-full bg-white transition-all" data-dot="0"></button>
-        <button onclick="goToSlide(1)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="1"></button>
-        <button onclick="goToSlide(2)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="2"></button>
-        <button onclick="goToSlide(3)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="3"></button>
-        <button onclick="goToSlide(4)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="4"></button>
-        <button onclick="goToSlide(5)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="5"></button>
-        <button onclick="goToSlide(6)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="6"></button>
-        <button onclick="goToSlide(7)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="7"></button>
-        <button onclick="goToSlide(8)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="8"></button>
-        <button onclick="goToSlide(9)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="9"></button>
-        <button onclick="goToSlide(10)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="10"></button>
-        <button onclick="goToSlide(11)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="11"></button>
-        <button onclick="goToSlide(12)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="12"></button>
-        <button onclick="goToSlide(13)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="13"></button>
-        <button onclick="goToSlide(14)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="14"></button>
-        <button onclick="goToSlide(15)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="15"></button>
-        <button onclick="goToSlide(16)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="16"></button>
-        <button onclick="goToSlide(17)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="17"></button>
-        <button onclick="goToSlide(18)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="18"></button>
-      </div>
+    <!-- Bottom: title only -->
+    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 pointer-events-none z-10">
+      <h1 class="text-white text-3xl md:text-5xl font-extrabold tracking-tight mb-1">Филиал Акушинского</h1>
+      <p class="text-white/80 text-sm md:text-base max-w-xl">ул. 5-я Линия Акушинского, 25</p>
     </div>
+  </div>
+
+  <!-- Slider Dots (below slider) -->
+  <div class="flex gap-1.5 justify-center py-3 flex-wrap" id="sliderDots">
+    <button onclick="goToSlide(0)" class="w-2 h-2 rounded-full bg-primary transition-all" data-dot="0"></button>
+    <button onclick="goToSlide(1)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="1"></button>
+    <button onclick="goToSlide(2)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="2"></button>
+    <button onclick="goToSlide(3)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="3"></button>
+    <button onclick="goToSlide(4)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="4"></button>
+    <button onclick="goToSlide(5)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="5"></button>
+    <button onclick="goToSlide(6)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="6"></button>
+    <button onclick="goToSlide(7)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="7"></button>
+    <button onclick="goToSlide(8)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="8"></button>
+    <button onclick="goToSlide(9)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="9"></button>
+    <button onclick="goToSlide(10)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="10"></button>
+    <button onclick="goToSlide(11)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="11"></button>
+    <button onclick="goToSlide(12)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="12"></button>
+    <button onclick="goToSlide(13)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="13"></button>
+    <button onclick="goToSlide(14)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="14"></button>
+    <button onclick="goToSlide(15)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="15"></button>
+    <button onclick="goToSlide(16)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="16"></button>
+    <button onclick="goToSlide(17)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="17"></button>
+    <button onclick="goToSlide(18)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="18"></button>
   </div>
 
   <!-- Lightbox -->
@@ -197,7 +195,6 @@
       <section>
         <div class="flex items-center justify-between mb-6">
           <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-200">Расписание занятий</h2>
-          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Осень 2024</span>
         </div>
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Boys -->
@@ -375,7 +372,7 @@
         <div class="w-full aspect-video rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-800 mb-4 relative">
           <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBywEd0s3G9eLlLOSFTD11zovAukBjyF-qegvbQLWnbIppZ_OxFXri9hwk4Uy6rHSYQ59q7c0GWQ3VPseeMmUxyTYekxWmVOCv1z5ED4HkJgxfoWQXItNPpBJHOzGzeTU1S2AVpYG6ZKaZR9XNPi4C_Ag3vpqdmBSgtmDIhSbXyjEToetW9uPAIS1PJqIVJogz95sJbYHIuegMHmFwwgkC4BnHPiPedYgALpM37AUhLKjw6VbtJdf1kGxPL_beAFiEdrQKLNh2sZKXd" alt="Карта"/>
         </div>
-        <a href="https://maps.google.com" target="_blank" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors text-sm">
+        <a href="https://yandex.ru/maps/?text=ул.+5-я+Линия+Акушинского,+25,+Махачкала&mode=routes" target="_blank" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors text-sm">
           <span class="material-symbols-outlined text-sm">directions</span> Проложить маршрут
         </a>
       </div>
@@ -517,9 +514,9 @@
       el.style.opacity = i === currentSlide ? '1' : '0';
     });
     document.querySelectorAll('[data-dot]').forEach((dot, i) => {
-      dot.classList.toggle('bg-white', i === currentSlide);
+      dot.classList.toggle('bg-primary', i === currentSlide);
       dot.classList.toggle('w-5', i === currentSlide);
-      dot.classList.toggle('bg-white/40', i !== currentSlide);
+      dot.classList.toggle('bg-slate-300', i !== currentSlide);
       dot.classList.toggle('w-2', i !== currentSlide);
     });
   }

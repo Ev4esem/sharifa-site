@@ -43,7 +43,7 @@
   <a href="index.html" class="text-accent-light">Главная</a>
   <a href="branches.html" class="hover:text-accent-light transition-colors">Филиалы</a>
   <a href="online.html" class="hover:text-accent-light transition-colors">Онлайн-обучение</a>
-  <a href="#contacts" onclick="closeMobileMenu()" class="hover:text-accent-light transition-colors">Контакты</a>
+  <a href="contacts.html" onclick="closeMobileMenu()" class="hover:text-accent-light transition-colors">Контакты</a>
   <a href="#apply" onclick="closeMobileMenu()" class="bg-primary text-white px-8 py-3 rounded-xl mt-4">Записаться</a>
 </div>
 
@@ -56,10 +56,9 @@
     <a href="index.html" class="text-primary">Главная</a>
     <a href="branches.html" class="hover:text-primary transition-colors">Филиалы</a>
     <a href="online.html" class="hover:text-primary transition-colors">Онлайн</a>
-    <a href="#contacts" class="hover:text-primary transition-colors">Контакты</a>
+    <a href="contacts.html" class="hover:text-primary transition-colors">Контакты</a>
   </nav>
   <div class="flex items-center gap-3">
-    <a href="#apply" class="bg-primary text-white px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity">Записаться</a>
     <button onclick="openMobileMenu()" class="md:hidden flex items-center justify-center p-2 text-primary">
       <span class="material-symbols-outlined text-3xl">menu</span>
     </button>
@@ -73,11 +72,9 @@
       <div class="absolute inset-0 opacity-50 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCgoCDsDIXq4eJRS4uUhoDlB4a6NvmWHSbJs5_5Xmt8bdDxkBg67G50bbl4pAxDRVUeepySySjrKKiKCW97b5Iin-KLJkRQhuqMaoSEU-0Dbx52boV3_I2PniLsxmU8Rfjn255jAebrsUcqLjdBhq6Bt5wWrvEc7z1jC281x8kT_ZgyLlbO50rWrJAj-NVXPe3AmjqXxPXjFoDvFRm7-mvZ49Lc7VE4ORbN-lhTRANajeFFVdEBo6YpdkXJ_cugREZuaBbEC4l2HVVJ");'></div>
       <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
       <div class="relative z-10 max-w-2xl">
-        <div class="flex justify-center mb-6">
-          <img src="logo-full.png" alt="SHARIFA" class="w-52 h-52 md:w-64 md:h-64 object-contain drop-shadow-2xl"/>
+        <div class="flex justify-center mb-12">
+          <img src="logo-full.png" alt="SHARIFA" class="w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-2xl"/>
         </div>
-        <h1 class="text-white text-4xl md:text-5xl font-black mb-4 leading-tight">Школа изучения Корана</h1>
-        <p class="text-white/80 text-lg mb-10">Обучение Корану для детей и взрослых</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="branches.html" class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform">Выбрать филиал</a>
           <a href="online.html" class="bg-white text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all">Онлайн-обучение</a>
@@ -86,63 +83,17 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="px-6 py-20 max-w-7xl mx-auto" id="about">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <h2 class="text-3xl font-extrabold mb-4 tracking-tight">Наша миссия и преимущества</h2>
-        <p class="text-text-muted dark:text-slate-400 text-base mb-8 leading-relaxed">В SHARIFA мы объединяем традиционные коранические учения с современным педагогическим мастерством. Наша цель — сделать знание Корана доступным для каждого.</p>
-        <div class="grid grid-cols-1 gap-4">
-          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-accent-blue dark:border-slate-700">
-            <span class="material-symbols-outlined text-primary mb-4 text-3xl block">verified</span>
-            <h3 class="font-bold text-lg mb-2">Экспертные наставники</h3>
-            <p class="text-text-muted text-sm">Квалифицированные преподаватели с международными сертификатами. Стандартизированная учебная программа.</p>
-          </div>
-          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-accent-blue dark:border-slate-700">
-            <span class="material-symbols-outlined text-primary mb-4 text-3xl block">school</span>
-            <h3 class="font-bold text-lg mb-2">Духовное развитие</h3>
-            <p class="text-text-muted text-sm">Глубокие знания и практическая мудрость. Мы воспитываем не только знание, но и характер.</p>
-          </div>
-          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-accent-blue dark:border-slate-700">
-            <span class="material-symbols-outlined text-primary mb-4 text-3xl block">groups</span>
-            <h3 class="font-bold text-lg mb-2">Дружное сообщество</h3>
-            <p class="text-text-muted text-sm">Поддерживающая среда для студентов и их семей. Совместные мероприятия и события.</p>
-          </div>
-        </div>
-        <div class="mt-10 flex flex-wrap gap-10">
-          <div>
-            <p class="text-3xl font-black text-primary">5</p>
-            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted">Филиалов</p>
-          </div>
-          <div>
-            <p class="text-3xl font-black text-primary">500+</p>
-            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted">Студентов</p>
-          </div>
-          <div>
-            <p class="text-3xl font-black text-primary">99%</p>
-            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted">Успешность</p>
-          </div>
-        </div>
-      </div>
-      <div class="hidden lg:block">
-        <div class="aspect-square rounded-3xl overflow-hidden bg-accent-blue/30">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgoCDsDIXq4eJRS4uUhoDlB4a6NvmWHSbJs5_5Xmt8bdDxkBg67G50bbl4pAxDRVUeepySySjrKKiKCW97b5Iin-KLJkRQhuqMaoSEU-0Dbx52boV3_I2PniLsxmU8Rfjn255jAebrsUcqLjdBhq6Bt5wWrvEc7z1jC281x8kT_ZgyLlbO50rWrJAj-NVXPe3AmjqXxPXjFoDvFRm7-mvZ49Lc7VE4ORbN-lhTRANajeFFVdEBo6YpdkXJ_cugREZuaBbEC4l2HVVJ" alt="Школа Корана" class="w-full h-full object-cover opacity-80"/>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Branches Section -->
   <section class="px-6 py-20 bg-accent-blue/30 dark:bg-slate-800/30" id="branches">
     <div class="max-w-7xl mx-auto">
-      <div class="flex justify-between items-end mb-12">
-        <div>
-          <h2 class="text-3xl font-extrabold tracking-tight mb-2">Наши филиалы</h2>
+      <div class="mb-12">
+        <h2 class="text-3xl font-extrabold tracking-tight mb-2">Наши филиалы</h2>
+        <div class="flex items-center justify-between">
           <p class="text-text-muted dark:text-slate-400">Найдите учебный центр рядом с вами</p>
+          <a href="branches.html" class="text-primary font-bold flex items-center gap-1 hover:underline text-sm whitespace-nowrap ml-4">
+            Все <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
         </div>
-        <a href="branches.html" class="text-primary font-bold flex items-center gap-2 hover:underline text-sm">
-          Смотреть все <span class="material-symbols-outlined text-base">arrow_forward</span>
-        </a>
       </div>
       <div class="flex overflow-x-auto gap-8 pb-6 snap-x snap-mandatory no-scrollbar scroll-smooth">
         <!-- Branch Card 1 -->
@@ -235,41 +186,6 @@
     </div>
   </section>
 
-  <!-- Contacts Section -->
-  <section class="px-6 py-20 max-w-7xl mx-auto" id="contacts">
-    <h2 class="text-3xl font-extrabold tracking-tight mb-12">Контакты</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="flex items-center gap-5">
-        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-          <span class="material-symbols-outlined text-2xl">call</span>
-        </div>
-        <div>
-          <p class="text-sm font-semibold text-text-muted mb-1">Телефон</p>
-          <a href="tel:+79884241515" class="text-lg font-bold hover:text-primary transition-colors">+7 (988) 424-15-15</a>
-        </div>
-      </div>
-      <div class="flex items-center gap-5">
-        <div class="w-14 h-14 rounded-full bg-green-500/10 flex items-center justify-center text-green-600 flex-shrink-0">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12.012 2c-5.508 0-9.987 4.479-9.987 9.987 0 1.763.462 3.421 1.262 4.853L2.009 22l5.364-1.407c1.377.75 2.956 1.181 4.639 1.181 5.508 0 9.988-4.479 9.988-9.987 0-5.507-4.48-9.987-9.988-9.987zM6.57 16.658l-.307-.488a7.991 7.991 0 01-1.223-4.183c0-4.403 3.582-7.986 7.985-7.986s7.985 3.583 7.985 7.986-3.582 7.986-7.985 7.986c-1.52 0-3.007-.426-4.296-1.233l-.508-.318-3.185.835.834-3.11z"/>
-          </svg>
-        </div>
-        <div>
-          <p class="text-sm font-semibold text-text-muted mb-1">WhatsApp</p>
-          <a href="https://wa.me/79884241515" class="text-lg font-bold hover:text-primary transition-colors">+7 (988) 424-15-15</a>
-        </div>
-      </div>
-      <div class="flex items-center gap-5">
-        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-          <span class="material-symbols-outlined text-2xl">mail</span>
-        </div>
-        <div>
-          <p class="text-sm font-semibold text-text-muted mb-1">Почта</p>
-          <a href="mailto:sharifa.school@mail.ru" class="text-lg font-bold hover:text-primary transition-colors">sharifa.school@mail.ru</a>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <!-- Footer -->
@@ -287,7 +203,7 @@
             <li><a href="index.html" class="hover:text-white transition-colors">Главная</a></li>
             <li><a href="branches.html" class="hover:text-white transition-colors">Филиалы</a></li>
             <li><a href="online.html" class="hover:text-white transition-colors">Онлайн</a></li>
-            <li><a href="#contacts" class="hover:text-white transition-colors">Контакты</a></li>
+            <li><a href="contacts.html" class="hover:text-white transition-colors">Контакты</a></li>
           </ul>
         </div>
         <div>
