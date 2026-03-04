@@ -66,33 +66,72 @@
 </header>
 
 <main class="max-w-6xl mx-auto w-full px-4 md:px-10 py-8">
-  <!-- Hero Section -->
-  <div class="relative w-full rounded-xl overflow-hidden mb-8 h-80 md:h-[450px]">
-    <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAERigB97mD_RcaVj1wCSYXMfqwEdpRB51KaNGyOIqljHW91FRONnimuRpiR2gy7emkcAcyefoqOCkv1eAJKSIb28RnKh0veFkq3Axz37IXRsdlfEJwmpD4GjxOFCO34UrsVIBlFGUvUPhg5RSYjAkpEJ8fw7lkI8HzUSR7w_HofHLYEigqLEgmtTMYo3hZ9lBKqjIQ2KLBVVUnXgfREsSxEz0RIZ-Qo6zYiXwUczGwUeGR0S1RS4DQB8zNRgYzBMQbGSEtablEJDNR");'></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
-    <a href="index.html" class="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-white/30 transition-colors">
+  <!-- Hero Slider -->
+  <div class="relative w-full rounded-xl overflow-hidden mb-8 h-80 md:h-[450px] group" id="heroSlider">
+
+    <!-- Slides -->
+    <div class="absolute inset-0 transition-opacity duration-700 opacity-100 cursor-pointer" data-slide="0" onclick="openLightbox(0)">
+      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAERigB97mD_RcaVj1wCSYXMfqwEdpRB51KaNGyOIqljHW91FRONnimuRpiR2gy7emkcAcyefoqOCkv1eAJKSIb28RnKh0veFkq3Axz37IXRsdlfEJwmpD4GjxOFCO34UrsVIBlFGUvUPhg5RSYjAkpEJ8fw7lkI8HzUSR7w_HofHLYEigqLEgmtTMYo3hZ9lBKqjIQ2KLBVVUnXgfREsSxEz0RIZ-Qo6zYiXwUczGwUeGR0S1RS4DQB8zNRgYzBMQbGSEtablEJDNR");'></div>
+    </div>
+    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="1" onclick="openLightbox(1)">
+      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBerkm5CfjIsVAapUbb3z31dTkF1ECqIU3ljsvyqNM35P1iOnF_1ZqGAGrFiLBVqBUmzP4BKd4Ern04mDfJSHzqXxHIWxrqdYvOI6i-JmSCh_7W5LoZ1RRIBYzMXrwxENnKpDoDBIiNKzNg4fgz1S5PJIa5YpxH1Tt0oJArvi4c9x2O_h1bt-zVk2VkHKmvXgP4_QonAkcJx9lqCn6SRSROyLx-yE6WMvDt7FMpAvvrxLBH0O67ZSBD-uD0Z31H74TcEozIQMNEqWA8");'></div>
+    </div>
+    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="2" onclick="openLightbox(2)">
+      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATwz2UA0yfmjiHC3SUxhiYcoFZWZbvipAoT1aQeJBoekQJlK_VA6fuFbTrWb_FhnN1uOO41h7MerfVKk4hVj_bt6kSUV6tToB3MY1Wbst3N_5S9bUEMCZM-lXxzBHBahOB8cZ2wl1xDxttse2JtIqvmN1BwoPcJOQT6d0DrWj00iFcxvASL6NO7L2s9T39GLa0mwVmTzHL2i4GXjuqhL8vQ1TT7-qhqS2_w9Ga9AikVqAFkgLfS8ZPhWcl2bLjbkewlomEvqYzJJHB");'></div>
+    </div>
+    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="3" onclick="openLightbox(3)">
+      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAupl5OoSMB-a_7FHcpNN_UVtxgOiAT_FjxryCxnLx7Wey4igvhZn21QiVu-FC09cyZDA78uoiPIFlYPjVHKgop6rDMrnpb_cJqUOtaQDY4JN7Dgti2JjpqlRaEexRWc_nsBLQUR0HziISkStoJ3HTH49933cKKpX5NRC8IJfEsQkIJKUos7K__47VitqkAv0obISWyx_gCFxkAJVuDo6Ic1k1D1yol1dCQZ6NLrCkeVGu-G0pjnlwGuHJiKMV98DXMVwdnFT4PqWDo");'></div>
+    </div>
+
+    <!-- Gradient + Text -->
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent pointer-events-none"></div>
+    <a href="branches.html" class="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-white/30 transition-colors z-10">
       <span class="material-symbols-outlined text-base">arrow_back</span> Назад
     </a>
-    <div class="absolute bottom-0 left-0 p-8">
-      <h1 class="text-white text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Центральный филиал</h1>
-      <p class="text-white/90 text-base md:text-lg max-w-xl">Спокойная обстановка, посвящённая изучению и сохранению Священного Корана для всех возрастов.</p>
+
+    <!-- Arrow Left -->
+    <button onclick="slideChange(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 backdrop-blur-sm">
+      <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <!-- Arrow Right -->
+    <button onclick="slideChange(1)" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 backdrop-blur-sm">
+      <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+
+    <!-- Bottom: text + dots -->
+    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex items-end justify-between pointer-events-none z-10">
+      <div>
+        <h1 class="text-white text-3xl md:text-5xl font-extrabold tracking-tight mb-1">Центральный филиал</h1>
+        <p class="text-white/80 text-sm md:text-base max-w-xl">Спокойная обстановка, посвящённая изучению и сохранению Священного Корана для всех возрастов.</p>
+      </div>
+      <!-- Dots -->
+      <div class="flex gap-2 mb-1 pointer-events-auto" id="sliderDots">
+        <button onclick="goToSlide(0)" class="w-2 h-2 rounded-full bg-white transition-all" data-dot="0"></button>
+        <button onclick="goToSlide(1)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="1"></button>
+        <button onclick="goToSlide(2)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="2"></button>
+        <button onclick="goToSlide(3)" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-dot="3"></button>
+      </div>
     </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-[200] bg-black/95 hidden items-center justify-center" onclick="closeLightbox()">
+    <button class="absolute top-5 right-5 text-white bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 flex items-center justify-center transition-colors z-10">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <button onclick="event.stopPropagation(); lbChange(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-white/10 hover:bg-white/20 rounded-full w-12 h-12 flex items-center justify-center transition-colors z-10">
+      <span class="material-symbols-outlined text-3xl">chevron_left</span>
+    </button>
+    <img id="lightboxImg" src="" alt="" class="max-w-[90vw] max-h-[85vh] rounded-xl object-contain shadow-2xl" onclick="event.stopPropagation()"/>
+    <button onclick="event.stopPropagation(); lbChange(1)" class="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-white/10 hover:bg-white/20 rounded-full w-12 h-12 flex items-center justify-center transition-colors z-10">
+      <span class="material-symbols-outlined text-3xl">chevron_right</span>
+    </button>
+    <p id="lightboxCounter" class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/60 text-sm"></p>
   </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
     <!-- Left Column: Gallery + Schedule -->
     <div class="lg:col-span-2 space-y-10">
-
-      <!-- Gallery -->
-      <section>
-        <h2 class="text-xl font-bold mb-4 text-slate-800 dark:text-slate-200">Фотогалерея</h2>
-        <div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-4 pb-4">
-          <div class="flex-shrink-0 w-[80%] md:w-[45%] aspect-[4/3] rounded-xl bg-cover bg-center snap-center shadow-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBerkm5CfjIsVAapUbb3z31dTkF1ECqIU3ljsvyqNM35P1iOnF_1ZqGAGrFiLBVqBUmzP4BKd4Ern04mDfJSHzqXxHIWxrqdYvOI6i-JmSCh_7W5LoZ1RRIBYzMXrwxENnKpDoDBIiNKzNg4fgz1S5PJIa5YpxH1Tt0oJArvi4c9x2O_h1bt-zVk2VkHKmvXgP4_QonAkcJx9lqCn6SRSROyLx-yE6WMvDt7FMpAvvrxLBH0O67ZSBD-uD0Z31H74TcEozIQMNEqWA8");'></div>
-          <div class="flex-shrink-0 w-[80%] md:w-[45%] aspect-[4/3] rounded-xl bg-cover bg-center snap-center shadow-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATwz2UA0yfmjiHC3SUxhiYcoFZWZbvipAoT1aQeJBoekQJlK_VA6fuFbTrWb_FhnN1uOO41h7MerfVKk4hVj_bt6kSUV6tToB3MY1Wbst3N_5S9bUEMCZM-lXxzBHBahOB8cZ2wl1xDxttse2JtIqvmN1BwoPcJOQT6d0DrWj00iFcxvASL6NO7L2s9T39GLa0mwVmTzHL2i4GXjuqhL8vQ1TT7-qhqS2_w9Ga9AikVqAFkgLfS8ZPhWcl2bLjbkewlomEvqYzJJHB");'></div>
-          <div class="flex-shrink-0 w-[80%] md:w-[45%] aspect-[4/3] rounded-xl bg-cover bg-center snap-center shadow-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAupl5OoSMB-a_7FHcpNN_UVtxgOiAT_FjxryCxnLx7Wey4igvhZn21QiVu-FC09cyZDA78uoiPIFlYPjVHKgop6rDMrnpb_cJqUOtaQDY4JN7Dgti2JjpqlRaEexRWc_nsBLQUR0HziISkStoJ3HTH49933cKKpX5NRC8IJfEsQkIJKUos7K__47VitqkAv0obISWyx_gCFxkAJVuDo6Ic1k1D1yol1dCQZ6NLrCkeVGu-G0pjnlwGuHJiKMV98DXMVwdnFT4PqWDo");'></div>
-          <div class="flex-shrink-0 w-[80%] md:w-[45%] aspect-[4/3] rounded-xl bg-cover bg-center snap-center shadow-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAvrBJWiLXddmcL_cJrsSDVgxM9w-HYg-sWNLD-zMqMaXXb_ls89gXnKph8aiApWx0loHR6HQnkaWAokJzZM84s8elGndK9taflc6CycKJs1HJgM32cvBofeSYCwJTbGGdAq0nf-zHDVJczwWYWnuVYUOV1q_kOdQOTAfjMpA8XmpEih-hq7_oXgxjXdVw6eOm0BJo6PtBIbbHio1G6Pp_RZ_EcIsaLf39cbwv2Ng09WYgoap_mf9ChtYJ9NpgI2e0Bu0pHkmKGLHup");'></div>
-        </div>
-      </section>
 
       <!-- Schedule -->
       <section>
@@ -370,6 +409,7 @@
 </footer>
 
 <script>
+  /* ── Mobile menu ── */
   function openMobileMenu() {
     document.getElementById('mobileMenu').classList.remove('hidden');
     document.getElementById('mobileMenu').classList.add('flex');
@@ -380,11 +420,91 @@
     document.getElementById('mobileMenu').classList.remove('flex');
     document.body.style.overflow = '';
   }
+
+  /* ── Form ── */
   function submitForm(e) {
     e.preventDefault();
     document.getElementById('applyForm').classList.add('hidden');
     document.getElementById('formSuccess').classList.remove('hidden');
   }
+
+  /* ── Slider ── */
+  const slideImages = [
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuAERigB97mD_RcaVj1wCSYXMfqwEdpRB51KaNGyOIqljHW91FRONnimuRpiR2gy7emkcAcyefoqOCkv1eAJKSIb28RnKh0veFkq3Axz37IXRsdlfEJwmpD4GjxOFCO34UrsVIBlFGUvUPhg5RSYjAkpEJ8fw7lkI8HzUSR7w_HofHLYEigqLEgmtTMYo3hZ9lBKqjIQ2KLBVVUnXgfREsSxEz0RIZ-Qo6zYiXwUczGwUeGR0S1RS4DQB8zNRgYzBMQbGSEtablEJDNR",
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuBerkm5CfjIsVAapUbb3z31dTkF1ECqIU3ljsvyqNM35P1iOnF_1ZqGAGrFiLBVqBUmzP4BKd4Ern04mDfJSHzqXxHIWxrqdYvOI6i-JmSCh_7W5LoZ1RRIBYzMXrwxENnKpDoDBIiNKzNg4fgz1S5PJIa5YpxH1Tt0oJArvi4c9x2O_h1bt-zVk2VkHKmvXgP4_QonAkcJx9lqCn6SRSROyLx-yE6WMvDt7FMpAvvrxLBH0O67ZSBD-uD0Z31H74TcEozIQMNEqWA8",
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuATwz2UA0yfmjiHC3SUxhiYcoFZWZbvipAoT1aQeJBoekQJlK_VA6fuFbTrWb_FhnN1uOO41h7MerfVKk4hVj_bt6kSUV6tToB3MY1Wbst3N_5S9bUEMCZM-lXxzBHBahOB8cZ2wl1xDxttse2JtIqvmN1BwoPcJOQT6d0DrWj00iFcxvASL6NO7L2s9T39GLa0mwVmTzHL2i4GXjuqhL8vQ1TT7-qhqS2_w9Ga9AikVqAFkgLfS8ZPhWcl2bLjbkewlomEvqYzJJHB",
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuAupl5OoSMB-a_7FHcpNN_UVtxgOiAT_FjxryCxnLx7Wey4igvhZn21QiVu-FC09cyZDA78uoiPIFlYPjVHKgop6rDMrnpb_cJqUOtaQDY4JN7Dgti2JjpqlRaEexRWc_nsBLQUR0HziISkStoJ3HTH49933cKKpX5NRC8IJfEsQkIJKUos7K__47VitqkAv0obISWyx_gCFxkAJVuDo6Ic1k1D1yol1dCQZ6NLrCkeVGu-G0pjnlwGuHJiKMV98DXMVwdnFT4PqWDo"
+  ];
+  let currentSlide = 0;
+
+  function updateSlider() {
+    document.querySelectorAll('[data-slide]').forEach((el, i) => {
+      el.style.opacity = i === currentSlide ? '1' : '0';
+    });
+    document.querySelectorAll('[data-dot]').forEach((dot, i) => {
+      dot.classList.toggle('bg-white', i === currentSlide);
+      dot.classList.toggle('w-5', i === currentSlide);
+      dot.classList.toggle('bg-white/40', i !== currentSlide);
+      dot.classList.toggle('w-2', i !== currentSlide);
+    });
+  }
+
+  function slideChange(dir) {
+    currentSlide = (currentSlide + dir + slideImages.length) % slideImages.length;
+    updateSlider();
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    updateSlider();
+  }
+
+  /* Swipe support */
+  (function() {
+    const slider = document.getElementById('heroSlider');
+    let startX = 0;
+    slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) slideChange(diff > 0 ? 1 : -1);
+    });
+  })();
+
+  /* ── Lightbox ── */
+  let lbIndex = 0;
+
+  function openLightbox(index) {
+    lbIndex = index;
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightboxImg').src = slideImages[lbIndex];
+    document.getElementById('lightboxCounter').textContent = (lbIndex + 1) + ' / ' + slideImages.length;
+    lb.classList.remove('hidden');
+    lb.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    lb.classList.add('hidden');
+    lb.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function lbChange(dir) {
+    lbIndex = (lbIndex + dir + slideImages.length) % slideImages.length;
+    document.getElementById('lightboxImg').src = slideImages[lbIndex];
+    document.getElementById('lightboxCounter').textContent = (lbIndex + 1) + ' / ' + slideImages.length;
+  }
+
+  /* Keyboard navigation */
+  document.addEventListener('keydown', e => {
+    const lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('hidden')) {
+      if (e.key === 'ArrowRight') lbChange(1);
+      if (e.key === 'ArrowLeft') lbChange(-1);
+      if (e.key === 'Escape') closeLightbox();
+    }
+  });
 </script>
 </body>
 </html>
