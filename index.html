@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="light" lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>SHARIFA — Школа Корана</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#324c69",
+            "background-light": "#f5fcfe",
+            "background-dark": "#111821",
+            "accent-blue": "#cedbea",
+            "accent-muted": "#8696ad",
+            "text-main": "#0e131b",
+            "text-muted": "#506d95"
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+          borderRadius: { "DEFAULT": "0.75rem", "lg": "0.75rem", "xl": "0.75rem", "full": "9999px" }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 font-display">
+
+<!-- Mobile Menu Overlay -->
+<div id="mobileMenu" class="fixed inset-0 z-[100] bg-background-dark/95 hidden flex-col items-center justify-center text-white text-xl font-bold gap-10 text-center">
+  <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-white">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <a href="index.html" class="hover:text-accent-blue transition-colors">Главная</a>
+  <a href="branch.html" class="hover:text-accent-blue transition-colors">Филиалы</a>
+  <a href="online.html" class="hover:text-accent-blue transition-colors">Онлайн-обучение</a>
+  <a href="#contacts" onclick="closeMobileMenu()" class="hover:text-accent-blue transition-colors">Контакты</a>
+  <a href="#apply" onclick="closeMobileMenu()" class="bg-primary text-white px-8 py-3 rounded-xl mt-4">Записаться</a>
+</div>
+
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-accent-blue dark:border-slate-800">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img alt="SHARIFA" class="h-9 w-auto" src="logo-text.png"/>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-text-muted">
+      <a href="index.html" class="text-primary">Главная</a>
+      <a href="branches.html" class="hover:text-primary transition-colors">Филиалы</a>
+      <a href="online.html" class="hover:text-primary transition-colors">Онлайн</a>
+      <a href="#contacts" class="hover:text-primary transition-colors">Контакты</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#apply" class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">Записаться</a>
+      <button onclick="openMobileMenu()" class="md:hidden p-2 text-text-main dark:text-slate-100">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section class="px-6 py-12 md:py-20 max-w-7xl mx-auto">
+    <div class="relative overflow-hidden rounded-xl md:rounded-3xl bg-slate-900 flex flex-col items-center justify-center text-center p-8 min-h-[450px]">
+      <div class="absolute inset-0 opacity-50 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCgoCDsDIXq4eJRS4uUhoDlB4a6NvmWHSbJs5_5Xmt8bdDxkBg67G50bbl4pAxDRVUeepySySjrKKiKCW97b5Iin-KLJkRQhuqMaoSEU-0Dbx52boV3_I2PniLsxmU8Rfjn255jAebrsUcqLjdBhq6Bt5wWrvEc7z1jC281x8kT_ZgyLlbO50rWrJAj-NVXPe3AmjqXxPXjFoDvFRm7-mvZ49Lc7VE4ORbN-lhTRANajeFFVdEBo6YpdkXJ_cugREZuaBbEC4l2HVVJ");'></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+      <div class="relative z-10 max-w-2xl">
+        <div class="flex justify-center mb-6">
+          <img src="logo-full.png" alt="SHARIFA" class="w-52 h-52 md:w-64 md:h-64 object-contain drop-shadow-2xl"/>
+        </div>
+        <h1 class="text-white text-4xl md:text-5xl font-black mb-4 leading-tight">Школа изучения Корана</h1>
+        <p class="text-white/80 text-lg mb-10">Обучение Корану для детей и взрослых</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="branches.html" class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform">Выбрать филиал</a>
+          <a href="online.html" class="bg-white text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all">Онлайн-обучение</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="px-6 py-20 max-w-7xl mx-auto" id="about">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-3xl font-extrabold mb-4 tracking-tight">Наша миссия и преимущества</h2>
+        <p class="text-text-muted dark:text-slate-400 text-base mb-8 leading-relaxed">В SHARIFA мы объединяем традиционные коранические учения с современным педагогическим мастерством. Наша цель — сделать знание Корана доступным для каждого.</p>
+        <div class="grid grid-cols-1 gap-4">
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-accent-blue dark:border-slate-700">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl block">verified</span>
+            <h3 class="font-bold text-lg mb-2">Экспертные наставники</h3>
+            <p class="text-text-muted text-sm">Квалифицированные преподаватели с международными сертификатами. Стандартизированная учебная программа.</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-accent-blue dark:border-slate-700">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl block">school</span>
+            <h3 class="font-bold text-lg mb-2">Духовное развитие</h3>
+            <p class="text-text-muted text-sm">Глубокие знания и практическая мудрость. Мы воспитываем не только знание, но и характер.</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-accent-blue dark:border-slate-700">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl block">groups</span>
+            <h3 class="font-bold text-lg mb-2">Дружное сообщество</h3>
+            <p class="text-text-muted text-sm">Поддерживающая среда для студентов и их семей. Совместные мероприятия и события.</p>
+          </div>
+        </div>
+        <div class="mt-10 flex flex-wrap gap-10">
+          <div>
+            <p class="text-3xl font-black text-primary">5</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted">Филиалов</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black text-primary">500+</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted">Студентов</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black text-primary">99%</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted">Успешность</p>
+          </div>
+        </div>
+      </div>
+      <div class="hidden lg:block">
+        <div class="aspect-square rounded-3xl overflow-hidden bg-accent-blue/30">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgoCDsDIXq4eJRS4uUhoDlB4a6NvmWHSbJs5_5Xmt8bdDxkBg67G50bbl4pAxDRVUeepySySjrKKiKCW97b5Iin-KLJkRQhuqMaoSEU-0Dbx52boV3_I2PniLsxmU8Rfjn255jAebrsUcqLjdBhq6Bt5wWrvEc7z1jC281x8kT_ZgyLlbO50rWrJAj-NVXPe3AmjqXxPXjFoDvFRm7-mvZ49Lc7VE4ORbN-lhTRANajeFFVdEBo6YpdkXJ_cugREZuaBbEC4l2HVVJ" alt="Школа Корана" class="w-full h-full object-cover opacity-80"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Branches Section -->
+  <section class="px-6 py-20 bg-accent-blue/30 dark:bg-slate-800/30" id="branches">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight mb-2">Наши филиалы</h2>
+          <p class="text-text-muted dark:text-slate-400">Найдите учебный центр рядом с вами</p>
+        </div>
+        <a href="branches.html" class="text-primary font-bold flex items-center gap-2 hover:underline text-sm">
+          Смотреть все <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+      <div class="flex overflow-x-auto gap-8 pb-6 snap-x snap-mandatory no-scrollbar scroll-smooth">
+        <!-- Branch Card 1 -->
+        <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-72 md:w-80 snap-center">
+          <div class="h-56 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBX1VEAFZGdojdXCWT7vhxv9W6yRK5kf-qXLSuRmDAvxLufAfkIoia6kUle807mI3YUFy_oyMEcsjNUmyBRVAw2HFmtkfx7gcHPJjEIk6ZhLevjE21SRcqgQFZ9RKA3Bsaj_w57W9bYNB1NZtNWAt0abu_f-jgXGSrqrHb9D8CR7A3i181RnWz9fFLGjZwsYcidwBoIjnOl4S0JpYItkK9RDOkZ5cvf_pJlf7ditGywDH667YlHmMAU5BIjpzCdCVLiD6aK8UPbemBR");'></div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Гамидова, 22Б</h3>
+            <div class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-6">
+              <span class="material-symbols-outlined text-sm mt-1">location_on</span>
+              <p class="text-sm">просп. Гамидова, 22Б, Махачкала</p>
+            </div>
+            <a href="branches.html" class="block w-full bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center">Подробнее</a>
+          </div>
+        </div>
+        <!-- Branch Card 2 -->
+        <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-72 md:w-80 snap-center">
+          <div class="h-56 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdRHKSHLqiXaSeeRe-S9A-C7tkg-4m96q4MXgxNLpM4ZAk7Bi_1Nor_MSZHAEY2a1vymtWcot10ksbjIZDGc2wiZROU29jM25kFtmfy1usR6K0tk87u_dDZwK0Bf_uARYrDp_UKA2Hjlf2Wa3f5UMs4R6o-epihot5uaSw1nfrO9DrhBcurSJN5YHfKZrlfdO9-4xFN2y0tI7uOmjhY5BFWy1_IgQrFRwOEJC_wz1T9tTrGBP38iBnrwd8_D9FWYHBY8TnNOurAtHw");'></div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Петра I, 107</h3>
+            <div class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-6">
+              <span class="material-symbols-outlined text-sm mt-1">location_on</span>
+              <p class="text-sm">просп. Петра I, 107, Махачкала</p>
+            </div>
+            <a href="branches.html" class="block w-full bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center">Подробнее</a>
+          </div>
+        </div>
+        <!-- Branch Card 3 -->
+        <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-72 md:w-80 snap-center">
+          <div class="h-56 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9QOCu8abj48O6pckRE7e0bRA-tg956zL3qisa7MrF7dz1obDVtEwoyZBG40pb6pinolbUN--EvamcB2AkJxKRVHOQ42C8kuwh360fZsZogZdi1M_fU_aemn6Pt1NeKddb7G6ARP54UkQH3JI5RwAEIg20hTT5a_DRxJix4fFa_xKSJlA-fyy2rtrjIiKqab_JAgF7LaOw9tQJImqjLJxCfTtTF8jJwL2JvRR1FGshyt0ZOIlSvr4uFwhfkt7jzjCC2fOYG2X4xmaz");'></div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Сурхаева, 12Б</h3>
+            <div class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-6">
+              <span class="material-symbols-outlined text-sm mt-1">location_on</span>
+              <p class="text-sm">ул. Сурхаева, 12Б, Махачкала</p>
+            </div>
+            <a href="branches.html" class="block w-full bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center">Подробнее</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Online Direction Banner -->
+  <section class="px-6 py-20 max-w-7xl mx-auto" id="online">
+    <div class="bg-primary rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
+      <div class="absolute right-0 top-0 w-1/3 h-full bg-white/5 skew-x-12 -mr-20 hidden md:block"></div>
+      <div class="relative z-10 flex-1">
+        <span class="inline-block bg-white/20 text-white px-4 py-1 rounded-full text-sm font-bold mb-6">Новый формат</span>
+        <h2 class="text-white text-4xl font-black mb-6 tracking-tight">Учитесь из любой точки мира</h2>
+        <p class="text-white/80 text-lg mb-10 max-w-lg leading-relaxed">Получите доступ к нашей полной учебной программе, не выходя из дома. Интерактивные живые занятия, личные наставники и сообщество учащихся со всего мира.</p>
+        <a href="online.html" class="inline-flex bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg items-center gap-3 hover:scale-105 transition-transform">
+          Обзор онлайн-курсов <span class="material-symbols-outlined">rocket_launch</span>
+        </a>
+      </div>
+      <div class="relative z-10 w-full md:w-1/3 aspect-video bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk_pVXsce7QTU9gFRV05Bl2P86KVkQklquG77emp0PC2aVq-63ZjDwG7v1wiqcN_0Gs_N_5t1lzP_knIyf3kqwiMzBszJzXCYcMJhD3xdCVgkfXlnvX3PU3lbgelTjxlX6xGXAaKBjZzm6HApTzdPIpiSZ5BkhsJodeDXLYoddoNiZYlecAWcOgXihWgoCAmhCR1_0CwKKP8V2JX3gKUcDVuyUNwfIDynJPAfNFhVpg-8lMPe2NpCRJrNUgKEYrOLRHqxfk4YeFrM_" alt="Онлайн обучение"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form Section -->
+  <section class="px-6 py-20 bg-accent-blue/20 dark:bg-slate-800/20" id="apply">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-extrabold tracking-tight mb-3">Записаться на обучение</h2>
+        <p class="text-text-muted dark:text-slate-400">Оставьте заявку и мы свяжемся с вами в ближайшее время</p>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-accent-blue dark:border-slate-700 p-8">
+        <form id="applyForm" onsubmit="submitForm(event)" class="space-y-5">
+          <div>
+            <label class="block text-sm font-semibold text-text-main dark:text-slate-200 mb-2">Имя *</label>
+            <input type="text" name="name" required placeholder="Ваше имя" class="w-full bg-background-light dark:bg-slate-900 border border-accent-blue dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-text-main dark:text-slate-100"/>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-text-main dark:text-slate-200 mb-2">Номер телефона *</label>
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" class="w-full bg-background-light dark:bg-slate-900 border border-accent-blue dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-text-main dark:text-slate-100"/>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-text-main dark:text-slate-200 mb-2">Комментарий</label>
+            <textarea name="comment" rows="4" placeholder="Возраст ребёнка, предпочтительное время занятий, вопросы..." class="w-full bg-background-light dark:bg-slate-900 border border-accent-blue dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-text-main dark:text-slate-100 resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-base hover:opacity-90 transition-opacity">Отправить заявку</button>
+        </form>
+        <div id="formSuccess" class="hidden text-center py-8">
+          <span class="material-symbols-outlined text-5xl text-green-500 mb-4 block">check_circle</span>
+          <h3 class="text-xl font-bold mb-2">Заявка отправлена!</h3>
+          <p class="text-text-muted dark:text-slate-400">Мы свяжемся с вами в ближайшее время.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts Section -->
+  <section class="px-6 py-20 max-w-7xl mx-auto" id="contacts">
+    <h2 class="text-3xl font-extrabold tracking-tight mb-12">Контакты</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="flex items-center gap-5">
+        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+          <span class="material-symbols-outlined text-2xl">call</span>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-text-muted mb-1">Телефон</p>
+          <a href="tel:+79884241515" class="text-lg font-bold hover:text-primary transition-colors">+7 (988) 424-15-15</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-5">
+        <div class="w-14 h-14 rounded-full bg-green-500/10 flex items-center justify-center text-green-600 flex-shrink-0">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.012 2c-5.508 0-9.987 4.479-9.987 9.987 0 1.763.462 3.421 1.262 4.853L2.009 22l5.364-1.407c1.377.75 2.956 1.181 4.639 1.181 5.508 0 9.988-4.479 9.988-9.987 0-5.507-4.48-9.987-9.988-9.987zM6.57 16.658l-.307-.488a7.991 7.991 0 01-1.223-4.183c0-4.403 3.582-7.986 7.985-7.986s7.985 3.583 7.985 7.986-3.582 7.986-7.985 7.986c-1.52 0-3.007-.426-4.296-1.233l-.508-.318-3.185.835.834-3.11z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-text-muted mb-1">WhatsApp</p>
+          <a href="https://wa.me/79884241515" class="text-lg font-bold hover:text-primary transition-colors">+7 (988) 424-15-15</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-5">
+        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+          <span class="material-symbols-outlined text-2xl">mail</span>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-text-muted mb-1">Почта</p>
+          <a href="mailto:sharifa.school@mail.ru" class="text-lg font-bold hover:text-primary transition-colors">sharifa.school@mail.ru</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-background-dark text-slate-400 mt-10">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row justify-between gap-8">
+      <div>
+        <img alt="SHARIFA" class="h-8 w-auto mb-4 brightness-0 invert" src="logo.png"/>
+        <p class="text-sm max-w-xs leading-relaxed">Сеть школ по изучению Священного Корана. Традиции и современность.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <h4 class="text-white font-bold mb-3">Страницы</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-white transition-colors">Главная</a></li>
+            <li><a href="branches.html" class="hover:text-white transition-colors">Филиалы</a></li>
+            <li><a href="online.html" class="hover:text-white transition-colors">Онлайн</a></li>
+            <li><a href="#contacts" class="hover:text-white transition-colors">Контакты</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-3">Контакты</h4>
+          <ul class="space-y-2">
+            <li><a href="tel:+79884241515" class="hover:text-white transition-colors">+7 (988) 424-15-15</a></li>
+            <li><a href="mailto:sharifa.school@mail.ru" class="hover:text-white transition-colors">sharifa.school@mail.ru</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 mt-10 pt-6 text-sm text-center">
+      © 2024 SHARIFA. Все права защищены.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('hidden');
+    document.getElementById('mobileMenu').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('hidden');
+    document.getElementById('mobileMenu').classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('applyForm').classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+  }
+</script>
+</body>
+</html>

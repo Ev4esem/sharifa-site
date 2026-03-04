@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html class="light" lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>SHARIFA — Все филиалы</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#324c69",
+            "background-light": "#f5fcfe",
+            "background-dark": "#111821",
+            "accent-blue": "#cedbea",
+            "accent-muted": "#8696ad",
+            "text-main": "#0e131b",
+            "text-muted": "#506d95"
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+          borderRadius: { "DEFAULT": "0.75rem", "lg": "0.75rem", "xl": "0.75rem", "full": "9999px" }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+    .review-text { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .review-text.expanded { display: block; -webkit-line-clamp: unset; }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 font-display">
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="fixed inset-0 z-[100] bg-background-dark/95 hidden flex-col items-center justify-center text-white text-xl font-bold gap-10 text-center">
+  <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-white">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <a href="index.html" class="hover:text-accent-blue transition-colors">Главная</a>
+  <a href="branches.html" class="text-accent-blue">Филиалы</a>
+  <a href="online.html" class="hover:text-accent-blue transition-colors">Онлайн-обучение</a>
+  <a href="#apply" onclick="closeMobileMenu()" class="bg-primary text-white px-8 py-3 rounded-xl mt-4">Записаться</a>
+</div>
+
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-accent-blue dark:border-slate-800">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="index.html">
+      <img alt="SHARIFA" class="h-12 w-auto" src="logo-text.png"/>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-text-muted">
+      <a href="index.html" class="hover:text-primary transition-colors">Главная</a>
+      <a href="branches.html" class="text-primary">Филиалы</a>
+      <a href="online.html" class="hover:text-primary transition-colors">Онлайн</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#apply" class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">Записаться</a>
+      <button onclick="openMobileMenu()" class="md:hidden p-2">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Page Hero -->
+  <section class="px-6 py-14 max-w-7xl mx-auto text-center">
+    <a href="index.html" class="inline-flex items-center gap-2 text-text-muted hover:text-primary transition-colors text-sm font-semibold mb-6">
+      <span class="material-symbols-outlined text-base">arrow_back</span> На главную
+    </a>
+    <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Наши филиалы</h1>
+    <p class="text-text-muted dark:text-slate-400 text-lg max-w-xl mx-auto">Найдите ближайший к вам центр и запишитесь на занятия</p>
+  </section>
+
+  <!-- Search Bar -->
+  <section class="px-6 pb-8 max-w-7xl mx-auto">
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-4 flex flex-col sm:flex-row gap-3">
+      <div class="flex items-center gap-3 flex-1 bg-background-light dark:bg-slate-900 rounded-xl px-4 py-2.5">
+        <span class="material-symbols-outlined text-text-muted text-xl">search</span>
+        <input type="text" id="searchInput" placeholder="Поиск по адресу..." oninput="filterBranches()" class="flex-1 bg-transparent outline-none text-sm text-text-main dark:text-slate-100 placeholder-text-muted dark:placeholder-slate-500"/>
+      </div>
+      <div class="flex items-center gap-3 bg-background-light dark:bg-slate-900 rounded-xl px-4 py-2.5">
+        <span class="material-symbols-outlined text-text-muted text-xl">location_city</span>
+        <select id="cityFilter" onchange="filterBranches()" class="bg-transparent outline-none text-sm text-text-main dark:text-slate-100 cursor-pointer">
+          <option value="">Все города</option>
+          <option value="махачкала">Махачкала</option>
+          <option value="каспийск">Каспийск</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Branches Grid -->
+  <section class="px-6 pb-20 max-w-7xl mx-auto">
+    <div id="branchesGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+      <!-- ─── Филиал 1: просп. Гамидова ─── -->
+      <div class="branch-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+           data-name="Гамидова" data-city="махачкала" data-address="просп. Гамидова, 22Б">
+
+        <!-- Фото-заглушка (замените src на реальное фото) -->
+        <div class="h-52 bg-cover bg-center relative bg-primary/20 flex items-center justify-center"
+             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBX1VEAFZGdojdXCWT7vhxv9W6yRK5kf-qXLSuRmDAvxLufAfkIoia6kUle807mI3YUFy_oyMEcsjNUmyBRVAw2HFmtkfx7gcHPJjEIk6ZhLevjE21SRcqgQFZ9RKA3Bsaj_w57W9bYNB1NZtNWAt0abu_f-jgXGSrqrHb9D8CR7A3i181RnWz9fFLGjZwsYcidwBoIjnOl4S0JpYItkK9RDOkZ5cvf_pJlf7ditGywDH667YlHmMAU5BIjpzCdCVLiD6aK8UPbemBR");'>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+          <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Открыт</span>
+          <span class="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg">Махачкала</span>
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-xl font-bold mb-1">Sharifa — просп. Гамидова</h3>
+          <a href="https://maps.google.com/?q=просп.+Гамидова+22Б+Махачкала" target="_blank"
+             class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-4 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-sm mt-0.5 flex-shrink-0">location_on</span>
+            <span class="text-sm">просп. Гамидова, 22Б, Махачкала</span>
+          </a>
+
+          <!-- Расписание -->
+          <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4 mb-4">
+            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">schedule</span> Режим работы
+            </p>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between">
+                <span class="text-text-muted">Пн — Сб</span>
+                <span class="font-semibold">09:00 – 18:00</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-text-muted">Воскресенье</span>
+                <span class="font-semibold text-red-500">Выходной</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Контакт -->
+          <a href="tel:+79884241515" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary transition-colors mb-4">
+            <span class="material-symbols-outlined text-sm">call</span> +7 (988) 424-15-15
+          </a>
+
+          <!-- Отзывы -->
+          <div class="mb-5 space-y-3">
+            <p class="text-xs font-bold text-text-muted uppercase tracking-wider flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span> Отзывы
+            </p>
+
+            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
+              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+              </div>
+              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r1-1">Шикарное место для деток и не только. Тут человек получает духовное облегчение, улучшает связь со Всевышним. А самое главное, учится читать самую прекрасную речь — Коран. Пусть Всевышний облегчит и укрепит знания на пути, примет все старания и приумножит многократно.</p>
+              <button onclick="toggleReview('r1-1',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
+              <p class="text-xs font-semibold mt-1.5">Индира Муслимова</p>
+            </div>
+
+            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
+              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+              </div>
+              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r1-2">Преподаватели здесь настоящие профессионалы, которые с искренним теплом и вниманием подходят к каждому ребенку, создавая комфортную и поддерживающую атмосферу. Занятия проходят интересно и разнообразно, что позволяет детям с радостью приходить на уроки. Очень благодарна школе «Шарифа» за вклад в духовное развитие!</p>
+              <button onclick="toggleReview('r1-2',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
+              <p class="text-xs font-semibold mt-1.5">Асия Алиева</p>
+            </div>
+
+            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
+              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+              </div>
+              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r1-3">Дети ходят с удовольствием. Нравится подход и подача материала — всё в лёгкой, но при этом доступной форме. Созданы условия для получения знаний, угощения — приятный бонус, которыми радуют деток. Пусть Всевышний воздаст Благом в обоих Мирах!</p>
+              <button onclick="toggleReview('r1-3',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
+              <p class="text-xs font-semibold mt-1.5">Зухра Р.</p>
+            </div>
+
+            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
+              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+              </div>
+              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r1-4">Очень нравится ваша школа! Двое моих детей ходили. За пару месяцев научились читать Коран. Дочка и дальше продолжает обучение, ни за что не хочет уходить. Прекрасные преподаватели, отличный руководитель!</p>
+              <button onclick="toggleReview('r1-4',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
+              <p class="text-xs font-semibold mt-1.5">Залина И.</p>
+            </div>
+          </div>
+
+          <div class="mt-auto flex gap-3">
+            <a href="https://maps.google.com/?q=просп.+Гамидова+22Б+Махачкала" target="_blank"
+               class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">directions</span> Маршрут
+            </a>
+            <a href="#apply" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity text-center text-sm">Записаться</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Филиал 2: просп. Петра I ─── -->
+      <div class="branch-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+           data-name="Петра" data-city="махачкала" data-address="просп. Петра I, 107">
+
+        <div class="h-52 bg-cover bg-center relative"
+             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdRHKSHLqiXaSeeRe-S9A-C7tkg-4m96q4MXgxNLpM4ZAk7Bi_1Nor_MSZHAEY2a1vymtWcot10ksbjIZDGc2wiZROU29jM25kFtmfy1usR6K0tk87u_dDZwK0Bf_uARYrDp_UKA2Hjlf2Wa3f5UMs4R6o-epihot5uaSw1nfrO9DrhBcurSJN5YHfKZrlfdO9-4xFN2y0tI7uOmjhY5BFWy1_IgQrFRwOEJC_wz1T9tTrGBP38iBnrwd8_D9FWYHBY8TnNOurAtHw");'>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+          <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Открыт</span>
+          <span class="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg">Махачкала</span>
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-xl font-bold mb-1">Sharifa — просп. Петра I</h3>
+          <a href="https://maps.google.com/?q=просп.+Петра+I+107+Махачкала" target="_blank"
+             class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-4 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-sm mt-0.5 flex-shrink-0">location_on</span>
+            <span class="text-sm">просп. Петра I, 107, Махачкала</span>
+          </a>
+
+          <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4 mb-4">
+            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">schedule</span> Режим работы
+            </p>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between">
+                <span class="text-text-muted">Пн — Сб</span>
+                <span class="font-semibold">09:00 – 18:00</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-text-muted">Воскресенье</span>
+                <span class="font-semibold text-red-500">Выходной</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:+79884241515" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary transition-colors mb-4">
+            <span class="material-symbols-outlined text-sm">call</span> +7 (988) 424-15-15
+          </a>
+
+          <!-- Отзыв -->
+          <div class="mb-5">
+            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span> Отзывы
+            </p>
+            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
+              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1">Школа очень приятная. Учат Корану, много кто научился, я сейчас там учусь. Учителя очень доброжелательные.</p>
+              <p class="text-xs font-semibold mt-1.5">Зейд Джангишиев</p>
+            </div>
+          </div>
+
+          <div class="mt-auto flex gap-3">
+            <a href="https://maps.google.com/?q=просп.+Петра+I+107+Махачкала" target="_blank"
+               class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">directions</span> Маршрут
+            </a>
+            <a href="#apply" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity text-center text-sm">Записаться</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Филиал 3: ул. Сурхаева ─── -->
+      <div class="branch-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+           data-name="Сурхаева" data-city="махачкала" data-address="ул. Сурхаева, 12Б">
+
+        <div class="h-52 bg-cover bg-center relative"
+             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9QOCu8abj48O6pckRE7e0bRA-tg956zL3qisa7MrF7dz1obDVtEwoyZBG40pb6pinolbUN--EvamcB2AkJxKRVHOQ42C8kuwh360fZsZogZdi1M_fU_aemn6Pt1NeKddb7G6ARP54UkQH3JI5RwAEIg20hTT5a_DRxJix4fFa_xKSJlA-fyy2rtrjIiKqab_JAgF7LaOw9tQJImqjLJxCfTtTF8jJwL2JvRR1FGshyt0ZOIlSvr4uFwhfkt7jzjCC2fOYG2X4xmaz");'>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+          <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Открыт</span>
+          <span class="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg">Махачкала</span>
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-xl font-bold mb-1">Sharifa — ул. Сурхаева</h3>
+          <a href="https://maps.google.com/?q=ул.+Сурхаева+12Б+Махачкала" target="_blank"
+             class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-4 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-sm mt-0.5 flex-shrink-0">location_on</span>
+            <span class="text-sm">ул. Сурхаева, 12Б, Махачкала</span>
+          </a>
+
+          <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4 mb-4">
+            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">schedule</span> Режим работы
+            </p>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between">
+                <span class="text-text-muted">Пн — Вс</span>
+                <span class="font-semibold">09:00 – 19:00</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-text-muted">Воскресенье</span>
+                <span class="font-semibold">09:00 – 19:00</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:+79884241515" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary transition-colors mb-4">
+            <span class="material-symbols-outlined text-sm">call</span> +7 (988) 424-15-15
+          </a>
+
+          <div class="mb-5">
+            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span> Отзывы
+            </p>
+            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
+              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+              </div>
+              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r3-1">Прекрасные преподаватели, отличный руководитель. Двое моих детей за пару месяцев научились читать Коран. Дочка и дальше продолжает обучение, ни за что не хочет уходить!</p>
+              <button onclick="toggleReview('r3-1',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
+              <p class="text-xs font-semibold mt-1.5">Залина И.</p>
+            </div>
+          </div>
+
+          <div class="mt-auto flex gap-3">
+            <a href="https://maps.google.com/?q=ул.+Сурхаева+12Б+Махачкала" target="_blank"
+               class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">directions</span> Маршрут
+            </a>
+            <a href="#apply" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity text-center text-sm">Записаться</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Филиал 4: ул. 5-я Линия Акушинского ─── -->
+      <div class="branch-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+           data-name="Акушинского" data-city="махачкала" data-address="ул. 5-я Линия Акушинского, 25">
+
+        <div class="h-52 bg-cover bg-center relative"
+             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAERigB97mD_RcaVj1wCSYXMfqwEdpRB51KaNGyOIqljHW91FRONnimuRpiR2gy7emkcAcyefoqOCkv1eAJKSIb28RnKh0veFkq3Axz37IXRsdlfEJwmpD4GjxOFCO34UrsVIBlFGUvUPhg5RSYjAkpEJ8fw7lkI8HzUSR7w_HofHLYEigqLEgmtTMYo3hZ9lBKqjIQ2KLBVVUnXgfREsSxEz0RIZ-Qo6zYiXwUczGwUeGR0S1RS4DQB8zNRgYzBMQbGSEtablEJDNR");'>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+          <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Открыт</span>
+          <span class="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg">Махачкала</span>
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-xl font-bold mb-1">Sharifa — 5-я Линия Акушинского</h3>
+          <a href="https://maps.google.com/?q=ул.+5-я+Линия+Акушинского+25+Махачкала" target="_blank"
+             class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-4 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-sm mt-0.5 flex-shrink-0">location_on</span>
+            <span class="text-sm">ул. 5-я Линия Акушинского, 25, Махачкала</span>
+          </a>
+
+          <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4 mb-4">
+            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">schedule</span> Режим работы
+            </p>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between">
+                <span class="text-text-muted">Пн — Вс</span>
+                <span class="font-semibold">08:00 – 19:00</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:+79289999309" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary transition-colors mb-4">
+            <span class="material-symbols-outlined text-sm">call</span> +7 (928) 999-93-09
+          </a>
+
+          <div class="mb-5">
+            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span> Отзывы
+            </p>
+            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
+              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+              </div>
+              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r4-1">Нравится подход и подача материала — всё в лёгкой, но при этом доступной форме. Созданы условия для получения знаний. Пусть Всевышний воздаст Благом в обоих Мирах за это дело!</p>
+              <button onclick="toggleReview('r4-1',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
+              <p class="text-xs font-semibold mt-1.5">Зухра Р.</p>
+            </div>
+          </div>
+
+          <div class="mt-auto flex gap-3">
+            <a href="https://maps.google.com/?q=ул.+5-я+Линия+Акушинского+25+Махачкала" target="_blank"
+               class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">directions</span> Маршрут
+            </a>
+            <a href="#apply" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity text-center text-sm">Записаться</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Филиал 5: Каспийск ─── -->
+      <div class="branch-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+           data-name="Каспийск" data-city="каспийск" data-address="Махачкалинская ул., 106">
+
+        <div class="h-52 bg-cover bg-center relative"
+             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBerkm5CfjIsVAapUbb3z31dTkF1ECqIU3ljsvyqNM35P1iOnF_1ZqGAGrFiLBVqBUmzP4BKd4Ern04mDfJSHzqXxHIWxrqdYvOI6i-JmSCh_7W5LoZ1RRIBYzMXrwxENnKpDoDBIiNKzNg4fgz1S5PJIa5YpxH1Tt0oJArvi4c9x2O_h1bt-zVk2VkHKmvXgP4_QonAkcJx9lqCn6SRSROyLx-yE6WMvDt7FMpAvvrxLBH0O67ZSBD-uD0Z31H74TcEozIQMNEqWA8");'>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+          <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Открыт</span>
+          <span class="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg">Каспийск</span>
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-xl font-bold mb-1">Sharifa — Каспийск</h3>
+          <a href="https://maps.google.com/?q=Махачкалинская+106+Каспийск" target="_blank"
+             class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-4 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-sm mt-0.5 flex-shrink-0">location_on</span>
+            <span class="text-sm">Махачкалинская ул., 106, Каспийск</span>
+          </a>
+
+          <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4 mb-4">
+            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">schedule</span> Режим работы
+            </p>
+            <div class="space-y-1.5 text-sm">
+              <div class="flex justify-between">
+                <span class="text-text-muted">Пн — Сб</span>
+                <span class="font-semibold">08:00 – 18:00</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-text-muted">Воскресенье</span>
+                <span class="font-semibold text-red-500">Выходной</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:+79882105105" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary transition-colors mb-4">
+            <span class="material-symbols-outlined text-sm">call</span> +7 (988) 210-51-05
+          </a>
+
+          <div class="mb-5">
+            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span> Отзывы
+            </p>
+            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
+              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+              </div>
+              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r5-1">Преподаватели здесь настоящие профессионалы, которые с искренним теплом и вниманием подходят к каждому ребенку. Занятия проходят интересно и разнообразно, что позволяет детям с радостью приходить на уроки.</p>
+              <button onclick="toggleReview('r5-1',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
+              <p class="text-xs font-semibold mt-1.5">Асия Алиева</p>
+            </div>
+          </div>
+
+          <div class="mt-auto flex gap-3">
+            <a href="https://maps.google.com/?q=Махачкалинская+106+Каспийск" target="_blank"
+               class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">directions</span> Маршрут
+            </a>
+            <a href="#apply" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity text-center text-sm">Записаться</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Empty state -->
+    <div id="emptyState" class="hidden text-center py-20">
+      <span class="material-symbols-outlined text-5xl text-text-muted mb-4 block">search_off</span>
+      <h3 class="text-xl font-bold mb-2">Ничего не найдено</h3>
+      <p class="text-text-muted">Попробуйте изменить запрос или фильтр города</p>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section class="px-6 py-16 bg-accent-blue/20 dark:bg-slate-800/20" id="apply">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-extrabold tracking-tight mb-3">Записаться на обучение</h2>
+        <p class="text-text-muted dark:text-slate-400">Укажите удобный филиал — мы свяжемся с вами в ближайшее время</p>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-8">
+        <form id="applyForm" onsubmit="submitForm(event)" class="space-y-5">
+          <div>
+            <label class="block text-sm font-semibold mb-2">Имя *</label>
+            <input type="text" name="name" required placeholder="Ваше имя"
+              class="w-full bg-background-light dark:bg-slate-900 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all"/>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Номер телефона *</label>
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__"
+              class="w-full bg-background-light dark:bg-slate-900 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all"/>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Предпочтительный филиал</label>
+            <select name="branch"
+              class="w-full bg-background-light dark:bg-slate-900 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all">
+              <option value="">Выберите филиал</option>
+              <option value="gamidova">просп. Гамидова, 22Б</option>
+              <option value="petra">просп. Петра I, 107</option>
+              <option value="surhaeva">ул. Сурхаева, 12Б</option>
+              <option value="akushinskogo">ул. 5-я Линия Акушинского, 25</option>
+              <option value="kaspiysk">Каспийск, Махачкалинская ул., 106</option>
+              <option value="any">Любой ближайший</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Комментарий</label>
+            <textarea name="comment" rows="4" placeholder="Возраст ребёнка, предпочтительное время, вопросы..."
+              class="w-full bg-background-light dark:bg-slate-900 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:opacity-90 transition-opacity">Отправить заявку</button>
+        </form>
+        <div id="formSuccess" class="hidden text-center py-8">
+          <span class="material-symbols-outlined text-5xl text-green-500 mb-4 block">check_circle</span>
+          <h3 class="text-xl font-bold mb-2">Заявка отправлена!</h3>
+          <p class="text-text-muted dark:text-slate-400">Мы свяжемся с вами в ближайшее время.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-background-dark text-slate-400">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row justify-between gap-8">
+      <div>
+        <img alt="SHARIFA" class="h-10 w-auto mb-4 brightness-0 invert" src="logo.png"/>
+        <p class="text-sm max-w-xs leading-relaxed">Сеть школ по изучению Священного Корана. Традиции и современность.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-8 text-sm">
+        <div>
+          <h4 class="text-white font-bold mb-3">Страницы</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-white transition-colors">Главная</a></li>
+            <li><a href="branches.html" class="hover:text-white transition-colors">Филиалы</a></li>
+            <li><a href="online.html" class="hover:text-white transition-colors">Онлайн</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-3">Контакты</h4>
+          <ul class="space-y-2">
+            <li><a href="tel:+79884241515" class="hover:text-white transition-colors">+7 (988) 424-15-15</a></li>
+            <li><a href="tel:+79289999309" class="hover:text-white transition-colors">+7 (928) 999-93-09</a></li>
+            <li><a href="tel:+79882105105" class="hover:text-white transition-colors">+7 (988) 210-51-05</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 mt-10 pt-6 text-sm text-center">
+      © 2024 SHARIFA. Все права защищены.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('hidden');
+    document.getElementById('mobileMenu').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('hidden');
+    document.getElementById('mobileMenu').classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('applyForm').classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+  }
+  function filterBranches() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const city = document.getElementById('cityFilter').value.toLowerCase();
+    const cards = document.querySelectorAll('.branch-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const name = card.dataset.name.toLowerCase();
+      const cardCity = card.dataset.city.toLowerCase();
+      const address = card.dataset.address.toLowerCase();
+      const matchSearch = !search || name.includes(search) || address.includes(search);
+      const matchCity = !city || cardCity === city;
+      if (matchSearch && matchCity) { card.classList.remove('hidden'); visible++; }
+      else card.classList.add('hidden');
+    });
+    document.getElementById('emptyState').classList.toggle('hidden', visible > 0);
+  }
+  function toggleReview(id, btn) {
+    const el = document.getElementById(id);
+    const expanded = el.classList.toggle('expanded');
+    btn.textContent = expanded ? 'Свернуть ↑' : 'Читать полностью ↓';
+  }
+</script>
+</body>
+</html>

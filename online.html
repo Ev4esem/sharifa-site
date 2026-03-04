@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="light" lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>SHARIFA — Онлайн-обучение</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#324c69",
+            "accent": "#8696ad",
+            "accent-light": "#cedbea",
+            "background-light": "#f5fcfe",
+            "background-dark": "#111821",
+            "text-muted": "#506d95"
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+          borderRadius: { "DEFAULT": "0.75rem", "lg": "0.75rem", "xl": "0.75rem", "full": "9999px" }
+        }
+      }
+    }
+    function showTab(tabId) {
+      ['formats', 'process', 'schedule'].forEach(id => {
+        const content = document.getElementById('content-' + id);
+        const btn = document.getElementById('tab-' + id);
+        if (id === tabId) {
+          content.classList.remove('hidden');
+          btn.classList.add('border-primary', 'text-primary');
+          btn.classList.remove('border-transparent', 'text-slate-500', 'dark:text-slate-400');
+        } else {
+          content.classList.add('hidden');
+          btn.classList.remove('border-primary', 'text-primary');
+          btn.classList.add('border-transparent', 'text-slate-500', 'dark:text-slate-400');
+        }
+      });
+    }
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+
+<!-- Mobile Menu Overlay -->
+<div id="mobileMenu" class="fixed inset-0 z-[100] bg-background-dark/95 hidden flex-col items-center justify-center text-white text-xl font-bold gap-10 text-center">
+  <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-white">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <a href="index.html" class="hover:text-accent-light transition-colors">Главная</a>
+  <a href="branches.html" class="hover:text-accent-light transition-colors">Филиалы</a>
+  <a href="online.html" class="text-accent-light">Онлайн-обучение</a>
+  <a href="index.html#contacts" class="hover:text-accent-light transition-colors">Контакты</a>
+  <a href="#apply" onclick="closeMobileMenu()" class="bg-primary text-white px-8 py-3 rounded-xl mt-4">Записаться</a>
+</div>
+
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 px-6 py-4 bg-white dark:bg-slate-900 sticky top-0 z-50">
+  <a href="index.html" class="flex items-center gap-3">
+    <img alt="SHARIFA" class="h-8 w-auto" src="logo-text.png"/>
+  </a>
+  <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-text-muted dark:text-slate-400">
+    <a href="index.html" class="hover:text-primary transition-colors">Главная</a>
+    <a href="branches.html" class="hover:text-primary transition-colors">Филиалы</a>
+    <a href="online.html" class="text-primary">Онлайн</a>
+    <a href="index.html#contacts" class="hover:text-primary transition-colors">Контакты</a>
+  </nav>
+  <div class="flex items-center gap-3">
+    <a href="#apply" class="bg-primary text-white px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity">Записаться</a>
+    <button onclick="openMobileMenu()" class="md:hidden flex items-center justify-center p-2 text-primary">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto w-full px-4 py-6">
+  <!-- Hero Section -->
+  <div class="relative rounded-xl overflow-hidden min-h-[400px] flex items-center bg-slate-900 mb-6">
+    <div class="absolute inset-0 opacity-50 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCc5RHNErf6K3djkHyaLpKmtlOL6oYnlU3mX_UrHnFtlKJqanQRTqZkBIy_dgoh8AKU-wAB8OikE3gqnh3YaWrbFbPpwasHOEU94WedIGJo5QpClo-nW1p5jlQo3wLEUxIvt-aVa8BsmZnAjDIL6tOcv--tiM3_VzugbJ45euL5x53P9thGtQhE2ZHa0wsB5j2a-UwVrtxxqkQGP832RvL6KrbA58671_qFF838YV6DWrOrUTbqiTbw0pqepQ6nLG1z_c8iUwU27O-P");'></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900"></div>
+    <div class="relative z-10 p-6 md:p-12 flex flex-col items-center text-center w-full">
+      <span class="inline-block px-3 py-1 bg-primary/20 text-accent-light text-xs font-bold rounded-full mb-4 uppercase tracking-widest">Премиальное онлайн-обучение</span>
+      <h1 class="text-white text-3xl md:text-5xl font-black leading-tight mb-4">Изучайте Коран из любой точки мира</h1>
+      <p class="text-slate-300 text-base md:text-lg mb-8 leading-relaxed max-w-2xl">Испытайте современное и духовное путешествие в обучении с нашими экспертными наставниками мирового уровня.</p>
+      <div class="flex flex-col sm:flex-row w-full sm:w-auto gap-3 justify-center">
+        <a href="#apply" class="bg-primary text-white py-4 px-8 rounded-xl font-bold hover:opacity-90 transition-opacity">Начать путь</a>
+        <button onclick="showTab('formats'); document.getElementById('tabs').scrollIntoView({behavior:'smooth'})" class="bg-white/10 text-white backdrop-blur-md py-4 px-8 rounded-xl font-bold border border-white/20 hover:bg-white/20 transition-colors">Программы обучения</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab Navigation -->
+  <div id="tabs" class="flex border-b border-slate-200 dark:border-slate-800 mb-6 sticky top-[73px] bg-background-light dark:bg-background-dark z-40">
+    <button class="flex-1 px-4 py-3 border-b-2 border-primary text-primary font-bold text-sm transition-all" id="tab-formats" onclick="showTab('formats')">Форматы</button>
+    <button class="flex-1 px-4 py-3 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm transition-all" id="tab-process" onclick="showTab('process')">Процесс</button>
+    <button class="flex-1 px-4 py-3 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-primary font-bold text-sm transition-all" id="tab-schedule" onclick="showTab('schedule')">Расписание</button>
+  </div>
+
+  <!-- Class Formats -->
+  <div id="content-formats" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+    <div class="group bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:shadow-primary/5 transition-all">
+      <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-3xl">person</span>
+      </div>
+      <h3 class="text-lg font-bold mb-2">Индивидуальные занятия</h3>
+      <p class="text-slate-500 dark:text-slate-400 leading-relaxed mb-4 text-sm">Полностью персонализированное внимание. Идеально для освоения Хифза и Таджвида в своём темпе.</p>
+      <ul class="space-y-2 mb-6">
+        <li class="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span> Гибкий график
+        </li>
+        <li class="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span> Личный кабинет
+        </li>
+        <li class="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span> 1 на 1 с учителем
+        </li>
+      </ul>
+      <a href="#apply" class="block w-full text-center bg-primary/10 text-primary font-bold py-2.5 rounded-xl text-sm hover:bg-primary hover:text-white transition-colors">Записаться</a>
+    </div>
+
+    <div class="group bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:shadow-primary/5 transition-all">
+      <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-3xl">groups</span>
+      </div>
+      <h3 class="text-lg font-bold mb-2">Групповые занятия</h3>
+      <p class="text-slate-500 dark:text-slate-400 leading-relaxed mb-4 text-sm">Интерактивное обучение в малых группах (макс. 5 студентов) для поддержания концентрации.</p>
+      <ul class="space-y-2 mb-6">
+        <li class="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span> Совместное обучение
+        </li>
+        <li class="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span> Доступная цена
+        </li>
+        <li class="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span> До 5 студентов
+        </li>
+      </ul>
+      <a href="#apply" class="block w-full text-center bg-primary/10 text-primary font-bold py-2.5 rounded-xl text-sm hover:bg-primary hover:text-white transition-colors">Записаться</a>
+    </div>
+
+    <div class="group bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:shadow-primary/5 transition-all">
+      <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-3xl">verified</span>
+      </div>
+      <h3 class="text-lg font-bold mb-2">Программа Хифз</h3>
+      <p class="text-slate-500 dark:text-slate-400 leading-relaxed mb-4 text-sm">Специальный трек для заучивания с сертифицированными учителями и отслеживанием прогресса.</p>
+      <ul class="space-y-2 mb-6">
+        <li class="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span> Дипломированные инструкторы
+        </li>
+        <li class="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span> Отслеживание прогресса
+        </li>
+        <li class="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span> Сертификация
+        </li>
+      </ul>
+      <a href="#apply" class="block w-full text-center bg-primary/10 text-primary font-bold py-2.5 rounded-xl text-sm hover:bg-primary hover:text-white transition-colors">Записаться</a>
+    </div>
+  </div>
+
+  <!-- Learning Process -->
+  <div id="content-process" class="bg-primary/5 dark:bg-primary/10 rounded-xl p-6 md:p-12 hidden mb-10">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-3xl font-bold mb-4">Как это работает</h2>
+      <p class="text-slate-500 dark:text-slate-400">Наш отлаженный процесс позволяет вам сосредоточиться только на своём духовном и образовательном росте.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg mb-4">1</div>
+        <h4 class="font-bold mb-2">Регистрация</h4>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Зарегистрируйтесь и выберите предпочтительную программу обучения.</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg mb-4">2</div>
+        <h4 class="font-bold mb-2">Тестирование</h4>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Быстрая оценка для определения подходящего вам уровня знаний.</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg mb-4">3</div>
+        <h4 class="font-bold mb-2">Живые уроки</h4>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Участвуйте в интерактивных онлайн-сессиях через HD-видеосвязь.</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg mb-4">4</div>
+        <h4 class="font-bold mb-2">Сертификация</h4>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Сдайте экзамены и получите официальный сертификат.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule -->
+  <div id="content-schedule" class="hidden mb-10">
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-3xl font-bold mb-6">Программы для всех возрастов</h2>
+        <div class="space-y-4">
+          <div class="flex gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+            <div class="text-primary flex-shrink-0 mt-1"><span class="material-symbols-outlined">child_care</span></div>
+            <div>
+              <h4 class="font-bold mb-1">Дети (5–12 лет)</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Основы чтения, заучивание коротких сур, правильное произношение.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+            <div class="text-primary flex-shrink-0 mt-1"><span class="material-symbols-outlined">school</span></div>
+            <div>
+              <h4 class="font-bold mb-1">Подростки (13–18 лет)</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Продвинутый Таджвид, Тафсир и программы заучивания.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+            <div class="text-primary flex-shrink-0 mt-1"><span class="material-symbols-outlined">elderly_woman</span></div>
+            <div>
+              <h4 class="font-bold mb-1">Взрослые (18+)</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Гибкое расписание для работающих специалистов и родителей.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm h-fit">
+        <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">calendar_month</span> График работы
+        </h3>
+        <div class="space-y-3">
+          <div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
+            <span class="font-medium">Понедельник–Пятница</span>
+            <span class="text-sm px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full font-bold">7:00 – 22:00</span>
+          </div>
+          <div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
+            <span class="font-medium">Суббота–Воскресенье</span>
+            <span class="text-sm px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full font-bold">9:00 – 18:00</span>
+          </div>
+          <div class="flex justify-between items-center py-2">
+            <span class="font-medium">Индивидуально</span>
+            <span class="text-sm px-3 py-1 bg-primary/10 text-primary rounded-full font-bold">По договоренности</span>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400 dark:text-slate-500 mt-4">* Расписание указано по московскому времени (МСК)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Form -->
+  <section class="py-12" id="apply">
+    <div class="bg-primary rounded-3xl p-8 md:p-12 mb-10 text-center">
+      <h2 class="text-white text-3xl md:text-4xl font-black mb-4">Готовы начать обучение?</h2>
+      <p class="text-white/80 text-lg mb-2">Оставьте заявку прямо сейчас и получите бесплатный пробный урок</p>
+    </div>
+
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-8">
+        <h3 class="text-xl font-bold mb-6 text-center">Записаться на онлайн-обучение</h3>
+        <form id="applyForm" onsubmit="submitForm(event)" class="space-y-5">
+          <div>
+            <label class="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Имя *</label>
+            <input type="text" name="name" required placeholder="Ваше имя" class="w-full bg-background-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-slate-900 dark:text-slate-100"/>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Номер телефона *</label>
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" class="w-full bg-background-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-slate-900 dark:text-slate-100"/>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Формат обучения</label>
+            <select name="format" class="w-full bg-background-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-slate-900 dark:text-slate-100">
+              <option value="">Выберите формат</option>
+              <option value="individual">Индивидуальные занятия</option>
+              <option value="group">Групповые занятия</option>
+              <option value="hifz">Программа Хифз</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Комментарий</label>
+            <textarea name="comment" rows="4" placeholder="Ваш уровень, предпочтения, вопросы..." class="w-full bg-background-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-slate-900 dark:text-slate-100 resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-base hover:opacity-90 transition-opacity">Отправить заявку</button>
+        </form>
+        <div id="formSuccess" class="hidden text-center py-8">
+          <span class="material-symbols-outlined text-5xl text-green-500 mb-4 block">check_circle</span>
+          <h3 class="text-xl font-bold mb-2">Заявка отправлена!</h3>
+          <p class="text-text-muted dark:text-slate-400">Мы свяжемся с вами в ближайшее время для записи на пробный урок.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust indicators -->
+  <section class="py-12 border-t border-slate-200 dark:border-slate-800">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <p class="text-3xl font-black text-primary mb-1">500+</p>
+        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Онлайн студентов</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-primary mb-1">30+</p>
+        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Стран мира</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-primary mb-1">4.9★</p>
+        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Средний рейтинг</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-primary mb-1">24/7</p>
+        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Поддержка</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-background-dark text-slate-400">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row justify-between gap-8">
+      <div>
+        <img alt="SHARIFA" class="h-8 w-auto mb-4 brightness-0 invert" src="logo.png"/>
+        <p class="text-sm max-w-xs leading-relaxed">Сеть школ по изучению Священного Корана.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-8 text-sm">
+        <div>
+          <h4 class="text-white font-bold mb-3">Страницы</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-white transition-colors">Главная</a></li>
+            <li><a href="branches.html" class="hover:text-white transition-colors">Филиалы</a></li>
+            <li><a href="online.html" class="hover:text-white transition-colors">Онлайн</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-3">Контакты</h4>
+          <ul class="space-y-2">
+            <li><a href="tel:+15551234567" class="hover:text-white transition-colors">+1 (555) 123-4567</a></li>
+            <li><a href="mailto:info@sharifa.edu" class="hover:text-white transition-colors">info@sharifa.edu</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 mt-10 pt-6 text-sm text-center">
+      © 2024 SHARIFA. Все права защищены.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('hidden');
+    document.getElementById('mobileMenu').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('hidden');
+    document.getElementById('mobileMenu').classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('applyForm').classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+  }
+</script>
+</body>
+</html>

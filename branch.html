@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="light" lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>SHARIFA — Центральный филиал</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#324c69",
+            "background-light": "#f5fcfe",
+            "background-dark": "#111821",
+            "accent-soft": "#8696ad",
+            "accent-light": "#cedbea",
+            "text-muted": "#506d95"
+          },
+          fontFamily: { "display": ["Manrope", "sans-serif"] },
+          borderRadius: { "DEFAULT": "0.75rem", "lg": "0.75rem", "xl": "0.75rem", "full": "9999px" }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+
+<!-- Mobile Menu Overlay -->
+<div id="mobileMenu" class="fixed inset-0 z-[100] bg-background-dark/95 hidden flex-col items-center justify-center text-white text-xl font-bold gap-10 text-center">
+  <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-white">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <a href="index.html" class="hover:text-accent-light transition-colors">Главная</a>
+  <a href="branch.html" class="text-accent-light">Филиалы</a>
+  <a href="online.html" class="hover:text-accent-light transition-colors">Онлайн-обучение</a>
+  <a href="index.html#contacts" class="hover:text-accent-light transition-colors">Контакты</a>
+  <a href="#apply" onclick="closeMobileMenu()" class="bg-primary text-white px-8 py-3 rounded-xl mt-4">Записаться</a>
+</div>
+
+<!-- Header -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-3 sticky top-0 z-50">
+  <div class="flex items-center gap-3">
+    <a href="index.html">
+      <img alt="SHARIFA" class="h-8 w-auto" src="logo-text.png"/>
+    </a>
+    <span class="text-slate-400 dark:text-slate-600 hidden sm:block">|</span>
+    <span class="text-sm font-semibold text-slate-600 dark:text-slate-400 hidden sm:block">Школа Корана</span>
+  </div>
+  <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-text-muted dark:text-slate-400">
+    <a href="index.html" class="hover:text-primary transition-colors">Главная</a>
+    <a href="branches.html" class="text-primary">Филиалы</a>
+    <a href="online.html" class="hover:text-primary transition-colors">Онлайн</a>
+    <a href="index.html#contacts" class="hover:text-primary transition-colors">Контакты</a>
+  </nav>
+  <div class="flex items-center gap-3">
+    <a href="#apply" class="bg-primary text-white px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity">Записаться</a>
+    <button onclick="openMobileMenu()" class="md:hidden text-slate-600 dark:text-slate-400 p-1">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto w-full px-4 md:px-10 py-8">
+  <!-- Hero Section -->
+  <div class="relative w-full rounded-xl overflow-hidden mb-8 h-80 md:h-[450px]">
+    <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAERigB97mD_RcaVj1wCSYXMfqwEdpRB51KaNGyOIqljHW91FRONnimuRpiR2gy7emkcAcyefoqOCkv1eAJKSIb28RnKh0veFkq3Axz37IXRsdlfEJwmpD4GjxOFCO34UrsVIBlFGUvUPhg5RSYjAkpEJ8fw7lkI8HzUSR7w_HofHLYEigqLEgmtTMYo3hZ9lBKqjIQ2KLBVVUnXgfREsSxEz0RIZ-Qo6zYiXwUczGwUeGR0S1RS4DQB8zNRgYzBMQbGSEtablEJDNR");'></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+    <a href="index.html" class="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-white/30 transition-colors">
+      <span class="material-symbols-outlined text-base">arrow_back</span> Назад
+    </a>
+    <div class="absolute bottom-0 left-0 p-8">
+      <h1 class="text-white text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Центральный филиал</h1>
+      <p class="text-white/90 text-base md:text-lg max-w-xl">Спокойная обстановка, посвящённая изучению и сохранению Священного Корана для всех возрастов.</p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+    <!-- Left Column: Gallery + Schedule -->
+    <div class="lg:col-span-2 space-y-10">
+
+      <!-- Gallery -->
+      <section>
+        <h2 class="text-xl font-bold mb-4 text-slate-800 dark:text-slate-200">Фотогалерея</h2>
+        <div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-4 pb-4">
+          <div class="flex-shrink-0 w-[80%] md:w-[45%] aspect-[4/3] rounded-xl bg-cover bg-center snap-center shadow-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBerkm5CfjIsVAapUbb3z31dTkF1ECqIU3ljsvyqNM35P1iOnF_1ZqGAGrFiLBVqBUmzP4BKd4Ern04mDfJSHzqXxHIWxrqdYvOI6i-JmSCh_7W5LoZ1RRIBYzMXrwxENnKpDoDBIiNKzNg4fgz1S5PJIa5YpxH1Tt0oJArvi4c9x2O_h1bt-zVk2VkHKmvXgP4_QonAkcJx9lqCn6SRSROyLx-yE6WMvDt7FMpAvvrxLBH0O67ZSBD-uD0Z31H74TcEozIQMNEqWA8");'></div>
+          <div class="flex-shrink-0 w-[80%] md:w-[45%] aspect-[4/3] rounded-xl bg-cover bg-center snap-center shadow-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATwz2UA0yfmjiHC3SUxhiYcoFZWZbvipAoT1aQeJBoekQJlK_VA6fuFbTrWb_FhnN1uOO41h7MerfVKk4hVj_bt6kSUV6tToB3MY1Wbst3N_5S9bUEMCZM-lXxzBHBahOB8cZ2wl1xDxttse2JtIqvmN1BwoPcJOQT6d0DrWj00iFcxvASL6NO7L2s9T39GLa0mwVmTzHL2i4GXjuqhL8vQ1TT7-qhqS2_w9Ga9AikVqAFkgLfS8ZPhWcl2bLjbkewlomEvqYzJJHB");'></div>
+          <div class="flex-shrink-0 w-[80%] md:w-[45%] aspect-[4/3] rounded-xl bg-cover bg-center snap-center shadow-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAupl5OoSMB-a_7FHcpNN_UVtxgOiAT_FjxryCxnLx7Wey4igvhZn21QiVu-FC09cyZDA78uoiPIFlYPjVHKgop6rDMrnpb_cJqUOtaQDY4JN7Dgti2JjpqlRaEexRWc_nsBLQUR0HziISkStoJ3HTH49933cKKpX5NRC8IJfEsQkIJKUos7K__47VitqkAv0obISWyx_gCFxkAJVuDo6Ic1k1D1yol1dCQZ6NLrCkeVGu-G0pjnlwGuHJiKMV98DXMVwdnFT4PqWDo");'></div>
+          <div class="flex-shrink-0 w-[80%] md:w-[45%] aspect-[4/3] rounded-xl bg-cover bg-center snap-center shadow-md" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAvrBJWiLXddmcL_cJrsSDVgxM9w-HYg-sWNLD-zMqMaXXb_ls89gXnKph8aiApWx0loHR6HQnkaWAokJzZM84s8elGndK9taflc6CycKJs1HJgM32cvBofeSYCwJTbGGdAq0nf-zHDVJczwWYWnuVYUOV1q_kOdQOTAfjMpA8XmpEih-hq7_oXgxjXdVw6eOm0BJo6PtBIbbHio1G6Pp_RZ_EcIsaLf39cbwv2Ng09WYgoap_mf9ChtYJ9NpgI2e0Bu0pHkmKGLHup");'></div>
+        </div>
+      </section>
+
+      <!-- Schedule -->
+      <section>
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-200">Расписание занятий</h2>
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Осень 2024</span>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Boys -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center gap-2 mb-4 text-primary">
+              <span class="material-symbols-outlined">boy</span>
+              <h3 class="font-bold text-lg">Мальчики</h3>
+            </div>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
+                <span class="text-slate-600 dark:text-slate-400 text-sm">Возраст 5–10</span>
+                <span class="font-medium text-sm">Пн и Ср, 16:00</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
+                <span class="text-slate-600 dark:text-slate-400 text-sm">Возраст 11–15</span>
+                <span class="font-medium text-sm">Вт и Чт, 17:00</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-slate-600 dark:text-slate-400 text-sm">Взрослые (16+)</span>
+                <span class="font-medium text-sm">Сб и Вс, 10:00</span>
+              </div>
+            </div>
+          </div>
+          <!-- Girls -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center gap-2 mb-4 text-pink-500">
+              <span class="material-symbols-outlined">girl</span>
+              <h3 class="font-bold text-lg">Девочки</h3>
+            </div>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
+                <span class="text-slate-600 dark:text-slate-400 text-sm">Возраст 5–10</span>
+                <span class="font-medium text-sm">Пн и Ср, 17:00</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
+                <span class="text-slate-600 dark:text-slate-400 text-sm">Возраст 11–15</span>
+                <span class="font-medium text-sm">Вт и Чт, 16:00</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-slate-600 dark:text-slate-400 text-sm">Взрослые (16+)</span>
+                <span class="font-medium text-sm">Сб и Вс, 12:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section>
+        <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6">Отзывы студентов</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-1 mb-3 text-yellow-400">
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Замечательные учителя и уютная атмосфера. Мой сын с удовольствием ходит на занятия каждую неделю.»</p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">А</div>
+              <div>
+                <p class="font-semibold text-sm">Айгуль М.</p>
+                <p class="text-xs text-slate-400">Родитель студента</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-1 mb-3 text-yellow-400">
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Профессиональные преподаватели с огромным терпением. За полгода моя дочь уже выучила несколько сур.»</p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-500 font-bold text-sm">З</div>
+              <div>
+                <p class="font-semibold text-sm">Зарина К.</p>
+                <p class="text-xs text-slate-400">Родитель студентки</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-1 mb-3 text-yellow-400">
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Очень доволен обучением. Хороший подход к каждому студенту. Рекомендую всем желающим изучить Коран.»</p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">Р</div>
+              <div>
+                <p class="font-semibold text-sm">Руслан И.</p>
+                <p class="text-xs text-slate-400">Студент (взрослые)</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-1 mb-3 text-yellow-400">
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Отличный филиал. Удобное расположение, приятная атмосфера и квалифицированные преподаватели.»</p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">Ф</div>
+              <div>
+                <p class="font-semibold text-sm">Фатима Д.</p>
+                <p class="text-xs text-slate-400">Студентка</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section>
+        <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6">Почему мы</h2>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
+            <span class="material-symbols-outlined text-primary text-3xl mb-3 block">workspace_premium</span>
+            <h4 class="font-bold mb-1 text-sm">Сертифицированные учителя</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Международные сертификаты по Таджвиду</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
+            <span class="material-symbols-outlined text-primary text-3xl mb-3 block">auto_stories</span>
+            <h4 class="font-bold mb-1 text-sm">Современная программа</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Традиции и современные методики</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
+            <span class="material-symbols-outlined text-primary text-3xl mb-3 block">diversity_3</span>
+            <h4 class="font-bold mb-1 text-sm">Тёплое сообщество</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Поддержка студентов и их семей</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right Column: Contact Info + Apply -->
+    <div class="space-y-6">
+      <!-- Address & Contacts -->
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <h3 class="font-bold text-lg mb-4">Адрес и контакты</h3>
+        <div class="space-y-4 mb-6">
+          <div class="flex gap-3">
+            <span class="material-symbols-outlined text-primary mt-0.5">location_on</span>
+            <div>
+              <p class="text-sm font-semibold">Адрес</p>
+              <p class="text-sm text-slate-600 dark:text-slate-400">ул. Исламского центра 123, Центральный район, оф. 400</p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <span class="material-symbols-outlined text-primary">call</span>
+            <div>
+              <p class="text-sm font-semibold">Телефон</p>
+              <a href="tel:+15552345678" class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">+1 (555) 234-5678</a>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <span class="material-symbols-outlined text-primary">mail</span>
+            <div>
+              <p class="text-sm font-semibold">Эл. почта</p>
+              <a href="mailto:central@sharifa.edu" class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">central@sharifa.edu</a>
+            </div>
+          </div>
+        </div>
+        <!-- Map placeholder -->
+        <div class="w-full aspect-video rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-800 mb-4 relative">
+          <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBywEd0s3G9eLlLOSFTD11zovAukBjyF-qegvbQLWnbIppZ_OxFXri9hwk4Uy6rHSYQ59q7c0GWQ3VPseeMmUxyTYekxWmVOCv1z5ED4HkJgxfoWQXItNPpBJHOzGzeTU1S2AVpYG6ZKaZR9XNPi4C_Ag3vpqdmBSgtmDIhSbXyjEToetW9uPAIS1PJqIVJogz95sJbYHIuegMHmFwwgkC4BnHPiPedYgALpM37AUhLKjw6VbtJdf1kGxPL_beAFiEdrQKLNh2sZKXd" alt="Карта"/>
+        </div>
+        <a href="https://maps.google.com" target="_blank" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors text-sm">
+          <span class="material-symbols-outlined text-sm">directions</span> Проложить маршрут
+        </a>
+      </div>
+
+      <!-- Donation -->
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined">volunteer_activism</span>
+          </div>
+          <h3 class="font-bold text-lg">Поддержите нас</h3>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Ваше пожертвование (Садака) поможет развитию нашего филиала и улучшению условий обучения.</p>
+        <button class="w-full bg-primary text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity text-sm">
+          <span class="material-symbols-outlined">favorite</span> Сделать пожертвование
+        </button>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-primary p-6 rounded-xl text-white">
+        <h3 class="font-bold text-xl mb-2">Готовы начать?</h3>
+        <p class="text-white/80 text-sm mb-6">Присоединяйтесь к нашему сообществу и начните путь духовного развития уже сегодня.</p>
+        <a href="#apply" class="block w-full bg-white text-primary text-center font-bold py-3 rounded-xl hover:opacity-90 transition-opacity text-sm">Записаться сейчас</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Form -->
+  <section class="mb-12" id="apply">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-extrabold tracking-tight mb-3">Записаться на обучение</h2>
+        <p class="text-text-muted dark:text-slate-400">Оставьте заявку в этот филиал и мы свяжемся с вами в ближайшее время</p>
+      </div>
+      <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8">
+        <form id="applyForm" onsubmit="submitForm(event)" class="space-y-5">
+          <div>
+            <label class="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Имя *</label>
+            <input type="text" name="name" required placeholder="Ваше имя" class="w-full bg-background-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-slate-900 dark:text-slate-100"/>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Номер телефона *</label>
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" class="w-full bg-background-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-slate-900 dark:text-slate-100"/>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Комментарий</label>
+            <textarea name="comment" rows="4" placeholder="Возраст ребёнка, предпочтительное время занятий, вопросы..." class="w-full bg-background-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-slate-900 dark:text-slate-100 resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-base hover:opacity-90 transition-opacity">Отправить заявку</button>
+        </form>
+        <div id="formSuccess" class="hidden text-center py-8">
+          <span class="material-symbols-outlined text-5xl text-green-500 mb-4 block">check_circle</span>
+          <h3 class="text-xl font-bold mb-2">Заявка отправлена!</h3>
+          <p class="text-text-muted dark:text-slate-400">Мы свяжемся с вами в ближайшее время.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-background-dark text-slate-400">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row justify-between gap-8">
+      <div>
+        <img alt="SHARIFA" class="h-8 w-auto mb-4 brightness-0 invert" src="logo.png"/>
+        <p class="text-sm max-w-xs leading-relaxed">Сеть школ по изучению Священного Корана.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-8 text-sm">
+        <div>
+          <h4 class="text-white font-bold mb-3">Страницы</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-white transition-colors">Главная</a></li>
+            <li><a href="branches.html" class="hover:text-white transition-colors">Филиалы</a></li>
+            <li><a href="online.html" class="hover:text-white transition-colors">Онлайн</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-3">Контакты</h4>
+          <ul class="space-y-2">
+            <li><a href="tel:+15552345678" class="hover:text-white transition-colors">+1 (555) 234-5678</a></li>
+            <li><a href="mailto:central@sharifa.edu" class="hover:text-white transition-colors">central@sharifa.edu</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 mt-10 pt-6 text-sm text-center">
+      © 2024 SHARIFA. Все права защищены.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('hidden');
+    document.getElementById('mobileMenu').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('hidden');
+    document.getElementById('mobileMenu').classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('applyForm').classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+  }
+</script>
+</body>
+</html>
