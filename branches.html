@@ -40,29 +40,29 @@
   <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-white">
     <span class="material-symbols-outlined text-3xl">close</span>
   </button>
-  <a href="index.html" class="hover:text-accent-blue transition-colors">Главная</a>
-  <a href="branches.html" class="text-accent-blue">Филиалы</a>
-  <a href="online.html" class="hover:text-accent-blue transition-colors">Онлайн-обучение</a>
+  <a href="index.html" class="hover:text-accent-light transition-colors">Главная</a>
+  <a href="branches.html" class="text-accent-light">Филиалы</a>
+  <a href="online.html" class="hover:text-accent-light transition-colors">Онлайн-обучение</a>
+  <a href="index.html#contacts" class="hover:text-accent-light transition-colors">Контакты</a>
   <a href="#apply" onclick="closeMobileMenu()" class="bg-primary text-white px-8 py-3 rounded-xl mt-4">Записаться</a>
 </div>
 
 <!-- Header -->
-<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-accent-blue dark:border-slate-800">
-  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-    <a href="index.html">
-      <img alt="SHARIFA" class="h-12 w-auto" src="logo-text.png"/>
-    </a>
-    <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-text-muted">
-      <a href="index.html" class="hover:text-primary transition-colors">Главная</a>
-      <a href="branches.html" class="text-primary">Филиалы</a>
-      <a href="online.html" class="hover:text-primary transition-colors">Онлайн</a>
-    </nav>
-    <div class="flex items-center gap-3">
-      <a href="#apply" class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">Записаться</a>
-      <button onclick="openMobileMenu()" class="md:hidden p-2">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
-    </div>
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 px-6 py-4 bg-white dark:bg-slate-900 sticky top-0 z-50">
+  <a href="index.html" class="flex items-center gap-3">
+    <img alt="SHARIFA" class="h-8 w-auto" src="logo-text.png"/>
+  </a>
+  <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-text-muted dark:text-slate-400">
+    <a href="index.html" class="hover:text-primary transition-colors">Главная</a>
+    <a href="branches.html" class="text-primary">Филиалы</a>
+    <a href="online.html" class="hover:text-primary transition-colors">Онлайн</a>
+    <a href="index.html#contacts" class="hover:text-primary transition-colors">Контакты</a>
+  </nav>
+  <div class="flex items-center gap-3">
+    <a href="#apply" class="bg-primary text-white px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity">Записаться</a>
+    <button onclick="openMobileMenu()" class="md:hidden flex items-center justify-center p-2 text-primary">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
   </div>
 </header>
 
@@ -140,69 +140,12 @@
             <span class="material-symbols-outlined text-sm">call</span> +7 (988) 424-15-15
           </a>
 
-          <!-- Отзывы -->
-          <div class="mb-5 space-y-3">
-            <p class="text-xs font-bold text-text-muted uppercase tracking-wider flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span> Отзывы
-            </p>
-
-            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
-              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-              </div>
-              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r1-1">Шикарное место для деток и не только. Тут человек получает духовное облегчение, улучшает связь со Всевышним. А самое главное, учится читать самую прекрасную речь — Коран. Пусть Всевышний облегчит и укрепит знания на пути, примет все старания и приумножит многократно.</p>
-              <button onclick="toggleReview('r1-1',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
-              <p class="text-xs font-semibold mt-1.5">Индира Муслимова</p>
-            </div>
-
-            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
-              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-              </div>
-              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r1-2">Преподаватели здесь настоящие профессионалы, которые с искренним теплом и вниманием подходят к каждому ребенку, создавая комфортную и поддерживающую атмосферу. Занятия проходят интересно и разнообразно, что позволяет детям с радостью приходить на уроки. Очень благодарна школе «Шарифа» за вклад в духовное развитие!</p>
-              <button onclick="toggleReview('r1-2',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
-              <p class="text-xs font-semibold mt-1.5">Асия Алиева</p>
-            </div>
-
-            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
-              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-              </div>
-              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r1-3">Дети ходят с удовольствием. Нравится подход и подача материала — всё в лёгкой, но при этом доступной форме. Созданы условия для получения знаний, угощения — приятный бонус, которыми радуют деток. Пусть Всевышний воздаст Благом в обоих Мирах!</p>
-              <button onclick="toggleReview('r1-3',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
-              <p class="text-xs font-semibold mt-1.5">Зухра Р.</p>
-            </div>
-
-            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
-              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-              </div>
-              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r1-4">Очень нравится ваша школа! Двое моих детей ходили. За пару месяцев научились читать Коран. Дочка и дальше продолжает обучение, ни за что не хочет уходить. Прекрасные преподаватели, отличный руководитель!</p>
-              <button onclick="toggleReview('r1-4',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
-              <p class="text-xs font-semibold mt-1.5">Залина И.</p>
-            </div>
-          </div>
-
-          <div class="mt-auto flex gap-3">
+          <div class="mt-auto flex gap-2">
+            <a href="branch.html"
+               class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm">Подробнее</a>
             <a href="https://maps.google.com/?q=просп.+Гамидова+22Б+Махачкала" target="_blank"
                class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm flex items-center justify-center gap-1">
-              <span class="material-symbols-outlined text-sm">directions</span> Маршрут
+              <span class="material-symbols-outlined text-sm">directions</span>
             </a>
             <a href="#apply" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity text-center text-sm">Записаться</a>
           </div>
@@ -248,28 +191,12 @@
             <span class="material-symbols-outlined text-sm">call</span> +7 (988) 424-15-15
           </a>
 
-          <!-- Отзыв -->
-          <div class="mb-5">
-            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span> Отзывы
-            </p>
-            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
-              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-              </div>
-              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1">Школа очень приятная. Учат Корану, много кто научился, я сейчас там учусь. Учителя очень доброжелательные.</p>
-              <p class="text-xs font-semibold mt-1.5">Зейд Джангишиев</p>
-            </div>
-          </div>
-
-          <div class="mt-auto flex gap-3">
+          <div class="mt-auto flex gap-2">
+            <a href="branch.html"
+               class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm">Подробнее</a>
             <a href="https://maps.google.com/?q=просп.+Петра+I+107+Махачкала" target="_blank"
                class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm flex items-center justify-center gap-1">
-              <span class="material-symbols-outlined text-sm">directions</span> Маршрут
+              <span class="material-symbols-outlined text-sm">directions</span>
             </a>
             <a href="#apply" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity text-center text-sm">Записаться</a>
           </div>
@@ -301,11 +228,7 @@
             </p>
             <div class="space-y-1.5 text-sm">
               <div class="flex justify-between">
-                <span class="text-text-muted">Пн — Вс</span>
-                <span class="font-semibold">09:00 – 19:00</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-text-muted">Воскресенье</span>
+                <span class="text-text-muted">Ежедневно</span>
                 <span class="font-semibold">09:00 – 19:00</span>
               </div>
             </div>
@@ -315,28 +238,12 @@
             <span class="material-symbols-outlined text-sm">call</span> +7 (988) 424-15-15
           </a>
 
-          <div class="mb-5">
-            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span> Отзывы
-            </p>
-            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
-              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-              </div>
-              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r3-1">Прекрасные преподаватели, отличный руководитель. Двое моих детей за пару месяцев научились читать Коран. Дочка и дальше продолжает обучение, ни за что не хочет уходить!</p>
-              <button onclick="toggleReview('r3-1',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
-              <p class="text-xs font-semibold mt-1.5">Залина И.</p>
-            </div>
-          </div>
-
-          <div class="mt-auto flex gap-3">
+          <div class="mt-auto flex gap-2">
+            <a href="branch.html"
+               class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm">Подробнее</a>
             <a href="https://maps.google.com/?q=ул.+Сурхаева+12Б+Махачкала" target="_blank"
                class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm flex items-center justify-center gap-1">
-              <span class="material-symbols-outlined text-sm">directions</span> Маршрут
+              <span class="material-symbols-outlined text-sm">directions</span>
             </a>
             <a href="#apply" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity text-center text-sm">Записаться</a>
           </div>
@@ -368,7 +275,7 @@
             </p>
             <div class="space-y-1.5 text-sm">
               <div class="flex justify-between">
-                <span class="text-text-muted">Пн — Вс</span>
+                <span class="text-text-muted">Ежедневно</span>
                 <span class="font-semibold">08:00 – 19:00</span>
               </div>
             </div>
@@ -378,28 +285,12 @@
             <span class="material-symbols-outlined text-sm">call</span> +7 (928) 999-93-09
           </a>
 
-          <div class="mb-5">
-            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span> Отзывы
-            </p>
-            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
-              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-              </div>
-              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r4-1">Нравится подход и подача материала — всё в лёгкой, но при этом доступной форме. Созданы условия для получения знаний. Пусть Всевышний воздаст Благом в обоих Мирах за это дело!</p>
-              <button onclick="toggleReview('r4-1',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
-              <p class="text-xs font-semibold mt-1.5">Зухра Р.</p>
-            </div>
-          </div>
-
-          <div class="mt-auto flex gap-3">
+          <div class="mt-auto flex gap-2">
+            <a href="branch.html"
+               class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm">Подробнее</a>
             <a href="https://maps.google.com/?q=ул.+5-я+Линия+Акушинского+25+Махачкала" target="_blank"
                class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm flex items-center justify-center gap-1">
-              <span class="material-symbols-outlined text-sm">directions</span> Маршрут
+              <span class="material-symbols-outlined text-sm">directions</span>
             </a>
             <a href="#apply" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity text-center text-sm">Записаться</a>
           </div>
@@ -445,28 +336,12 @@
             <span class="material-symbols-outlined text-sm">call</span> +7 (988) 210-51-05
           </a>
 
-          <div class="mb-5">
-            <p class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span> Отзывы
-            </p>
-            <div class="bg-background-light dark:bg-slate-900 rounded-xl p-4">
-              <div class="flex items-center gap-1 mb-1.5 text-yellow-400">
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-                <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
-              </div>
-              <p class="review-text text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-1" id="r5-1">Преподаватели здесь настоящие профессионалы, которые с искренним теплом и вниманием подходят к каждому ребенку. Занятия проходят интересно и разнообразно, что позволяет детям с радостью приходить на уроки.</p>
-              <button onclick="toggleReview('r5-1',this)" class="text-primary text-xs font-semibold">Читать полностью ↓</button>
-              <p class="text-xs font-semibold mt-1.5">Асия Алиева</p>
-            </div>
-          </div>
-
-          <div class="mt-auto flex gap-3">
+          <div class="mt-auto flex gap-2">
+            <a href="branch.html"
+               class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm">Подробнее</a>
             <a href="https://maps.google.com/?q=Махачкалинская+106+Каспийск" target="_blank"
                class="flex-1 bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center text-sm flex items-center justify-center gap-1">
-              <span class="material-symbols-outlined text-sm">directions</span> Маршрут
+              <span class="material-symbols-outlined text-sm">directions</span>
             </a>
             <a href="#apply" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity text-center text-sm">Записаться</a>
           </div>

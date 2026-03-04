@@ -40,21 +40,17 @@
     <span class="material-symbols-outlined text-3xl">close</span>
   </button>
   <a href="index.html" class="hover:text-accent-light transition-colors">Главная</a>
-  <a href="branch.html" class="text-accent-light">Филиалы</a>
+  <a href="branches.html" class="text-accent-light">Филиалы</a>
   <a href="online.html" class="hover:text-accent-light transition-colors">Онлайн-обучение</a>
   <a href="index.html#contacts" class="hover:text-accent-light transition-colors">Контакты</a>
   <a href="#apply" onclick="closeMobileMenu()" class="bg-primary text-white px-8 py-3 rounded-xl mt-4">Записаться</a>
 </div>
 
 <!-- Header -->
-<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-3 sticky top-0 z-50">
-  <div class="flex items-center gap-3">
-    <a href="index.html">
-      <img alt="SHARIFA" class="h-8 w-auto" src="logo-text.png"/>
-    </a>
-    <span class="text-slate-400 dark:text-slate-600 hidden sm:block">|</span>
-    <span class="text-sm font-semibold text-slate-600 dark:text-slate-400 hidden sm:block">Школа Корана</span>
-  </div>
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 px-6 py-4 bg-white dark:bg-slate-900 sticky top-0 z-50">
+  <a href="index.html" class="flex items-center gap-3">
+    <img alt="SHARIFA" class="h-8 w-auto" src="logo-text.png"/>
+  </a>
   <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-text-muted dark:text-slate-400">
     <a href="index.html" class="hover:text-primary transition-colors">Главная</a>
     <a href="branches.html" class="text-primary">Филиалы</a>
@@ -63,8 +59,8 @@
   </nav>
   <div class="flex items-center gap-3">
     <a href="#apply" class="bg-primary text-white px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity">Записаться</a>
-    <button onclick="openMobileMenu()" class="md:hidden text-slate-600 dark:text-slate-400 p-1">
-      <span class="material-symbols-outlined">menu</span>
+    <button onclick="openMobileMenu()" class="md:hidden flex items-center justify-center p-2 text-primary">
+      <span class="material-symbols-outlined text-3xl">menu</span>
     </button>
   </div>
 </header>
