@@ -31,6 +31,64 @@
     body { font-family: 'Manrope', sans-serif; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* ── Scroll Animation Base ── */
+    [data-animate] {
+      opacity: 0;
+      transition-property: opacity, transform;
+      transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+      transition-duration: 0.7s;
+    }
+    [data-animate="fade-up"]    { transform: translateY(36px); }
+    [data-animate="fade-down"]  { transform: translateY(-28px); }
+    [data-animate="fade-left"]  { transform: translateX(-40px); }
+    [data-animate="fade-right"] { transform: translateX(40px); }
+    [data-animate="scale-up"]   { transform: scale(0.92); }
+    [data-animate="fade-in"]    { transform: none; }
+
+    [data-animate].is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* stagger delays */
+    [data-delay="100"] { transition-delay: 0.1s; }
+    [data-delay="150"] { transition-delay: 0.15s; }
+    [data-delay="200"] { transition-delay: 0.2s; }
+    [data-delay="300"] { transition-delay: 0.3s; }
+    [data-delay="400"] { transition-delay: 0.4s; }
+    [data-delay="500"] { transition-delay: 0.5s; }
+    [data-delay="600"] { transition-delay: 0.6s; }
+
+    /* ── Enhanced hover effects ── */
+    .branch-card {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.3s ease;
+    }
+    .branch-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(50, 76, 105, 0.15);
+    }
+    .branch-card .card-img {
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      overflow: hidden;
+    }
+    .branch-card:hover .card-img-inner {
+      transform: scale(1.05);
+    }
+    .card-img-inner {
+      width: 100%; height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Smooth scroll ── */
+    html { scroll-behavior: smooth; }
+
+    /* ── Header scroll shadow ── */
+    header { transition: box-shadow 0.3s ease; }
+    header.scrolled { box-shadow: 0 4px 24px rgba(50,76,105,0.10); }
   </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 font-display">
@@ -72,10 +130,10 @@
       <div class="absolute inset-0 opacity-50 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCgoCDsDIXq4eJRS4uUhoDlB4a6NvmWHSbJs5_5Xmt8bdDxkBg67G50bbl4pAxDRVUeepySySjrKKiKCW97b5Iin-KLJkRQhuqMaoSEU-0Dbx52boV3_I2PniLsxmU8Rfjn255jAebrsUcqLjdBhq6Bt5wWrvEc7z1jC281x8kT_ZgyLlbO50rWrJAj-NVXPe3AmjqXxPXjFoDvFRm7-mvZ49Lc7VE4ORbN-lhTRANajeFFVdEBo6YpdkXJ_cugREZuaBbEC4l2HVVJ");'></div>
       <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
       <div class="relative z-10 max-w-2xl">
-        <div class="flex justify-center mb-12">
+        <div class="flex justify-center mb-12" data-animate="scale-up">
           <img src="logo-full.png" alt="SHARIFA" class="w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-2xl"/>
         </div>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center" data-animate="fade-up" data-delay="200">
           <a href="branches.html" class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform">Выбрать филиал</a>
           <a href="online.html" class="bg-white text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all">Онлайн-обучение</a>
         </div>
@@ -86,7 +144,7 @@
   <!-- Branches Section -->
   <section class="px-6 py-20 bg-accent-blue/30 dark:bg-slate-800/30" id="branches">
     <div class="max-w-7xl mx-auto">
-      <div class="mb-12">
+      <div class="mb-12" data-animate="fade-up">
         <h2 class="text-3xl font-extrabold tracking-tight mb-2">Наши филиалы</h2>
         <div class="flex items-center justify-between">
           <p class="text-text-muted dark:text-slate-400">Найдите учебный центр рядом с вами</p>
@@ -96,40 +154,60 @@
         </div>
       </div>
       <div class="flex overflow-x-auto gap-8 pb-6 snap-x snap-mandatory no-scrollbar scroll-smooth">
-        <!-- Branch Card 1 -->
-        <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-72 md:w-80 snap-center">
-          <div class="h-56 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBX1VEAFZGdojdXCWT7vhxv9W6yRK5kf-qXLSuRmDAvxLufAfkIoia6kUle807mI3YUFy_oyMEcsjNUmyBRVAw2HFmtkfx7gcHPJjEIk6ZhLevjE21SRcqgQFZ9RKA3Bsaj_w57W9bYNB1NZtNWAt0abu_f-jgXGSrqrHb9D8CR7A3i181RnWz9fFLGjZwsYcidwBoIjnOl4S0JpYItkK9RDOkZ5cvf_pJlf7ditGywDH667YlHmMAU5BIjpzCdCVLiD6aK8UPbemBR");'></div>
+        <!-- Branch Card: Гамидова -->
+        <div class="branch-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm flex-shrink-0 w-72 md:w-80 snap-center" data-animate="fade-up" data-delay="100">
+          <div class="h-56 card-img overflow-hidden">
+            <div class="card-img-inner" style='background-image: url("photos/gamidova/photo_01.jpg");'></div>
+          </div>
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2">Гамидова, 22Б</h3>
             <div class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-6">
               <span class="material-symbols-outlined text-sm mt-1">location_on</span>
               <p class="text-sm">просп. Гамидова, 22Б, Махачкала</p>
             </div>
-            <a href="branch.html" class="block w-full bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center">Подробнее</a>
+            <a href="branch.html?branch=gamidova" class="block w-full bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center">Подробнее</a>
           </div>
         </div>
-        <!-- Branch Card 2 -->
-        <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-72 md:w-80 snap-center">
-          <div class="h-56 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdRHKSHLqiXaSeeRe-S9A-C7tkg-4m96q4MXgxNLpM4ZAk7Bi_1Nor_MSZHAEY2a1vymtWcot10ksbjIZDGc2wiZROU29jM25kFtmfy1usR6K0tk87u_dDZwK0Bf_uARYrDp_UKA2Hjlf2Wa3f5UMs4R6o-epihot5uaSw1nfrO9DrhBcurSJN5YHfKZrlfdO9-4xFN2y0tI7uOmjhY5BFWy1_IgQrFRwOEJC_wz1T9tTrGBP38iBnrwd8_D9FWYHBY8TnNOurAtHw");'></div>
+        <!-- Branch Card: Петра I -->
+        <div class="branch-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm flex-shrink-0 w-72 md:w-80 snap-center" data-animate="fade-up" data-delay="200">
+          <div class="h-56 card-img overflow-hidden">
+            <div class="card-img-inner" style='background-image: url("photos/reduktorny/photo_01.jpg");'></div>
+          </div>
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2">Петра I, 107</h3>
             <div class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-6">
               <span class="material-symbols-outlined text-sm mt-1">location_on</span>
               <p class="text-sm">просп. Петра I, 107, Махачкала</p>
             </div>
-            <a href="branch.html" class="block w-full bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center">Подробнее</a>
+            <a href="branch.html?branch=petra" class="block w-full bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center">Подробнее</a>
           </div>
         </div>
-        <!-- Branch Card 3 -->
-        <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-72 md:w-80 snap-center">
-          <div class="h-56 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9QOCu8abj48O6pckRE7e0bRA-tg956zL3qisa7MrF7dz1obDVtEwoyZBG40pb6pinolbUN--EvamcB2AkJxKRVHOQ42C8kuwh360fZsZogZdi1M_fU_aemn6Pt1NeKddb7G6ARP54UkQH3JI5RwAEIg20hTT5a_DRxJix4fFa_xKSJlA-fyy2rtrjIiKqab_JAgF7LaOw9tQJImqjLJxCfTtTF8jJwL2JvRR1FGshyt0ZOIlSvr4uFwhfkt7jzjCC2fOYG2X4xmaz");'></div>
+        <!-- Branch Card: Акушинского -->
+        <div class="branch-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm flex-shrink-0 w-72 md:w-80 snap-center" data-animate="fade-up" data-delay="300">
+          <div class="h-56 card-img overflow-hidden">
+            <div class="card-img-inner" style='background-image: url("photos/akushinskogo/photo_01.jpeg");'></div>
+          </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Сурхаева, 12Б</h3>
+            <h3 class="text-xl font-bold mb-2">Акушинского, 25</h3>
             <div class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-6">
               <span class="material-symbols-outlined text-sm mt-1">location_on</span>
-              <p class="text-sm">ул. Сурхаева, 12Б, Махачкала</p>
+              <p class="text-sm">ул. 5-я Линия Акушинского, 25, Махачкала</p>
             </div>
-            <a href="branch.html" class="block w-full bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center">Подробнее</a>
+            <a href="branch.html?branch=akushinskogo" class="block w-full bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center">Подробнее</a>
+          </div>
+        </div>
+        <!-- Branch Card: Каспийск -->
+        <div class="branch-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm flex-shrink-0 w-72 md:w-80 snap-center" data-animate="fade-up" data-delay="400">
+          <div class="h-56 card-img overflow-hidden bg-gradient-to-br from-primary/20 to-accent-blue/40 flex items-center justify-center">
+            <span class="material-symbols-outlined text-6xl text-primary/40">school</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Каспийск</h3>
+            <div class="flex items-start gap-2 text-text-muted dark:text-slate-400 mb-6">
+              <span class="material-symbols-outlined text-sm mt-1">location_on</span>
+              <p class="text-sm">Махачкалинская ул., 106, Каспийск</p>
+            </div>
+            <a href="branch.html?branch=kaspiysk" class="block w-full bg-background-light dark:bg-slate-700 text-text-main dark:text-white py-3 rounded-xl font-bold hover:bg-accent-blue dark:hover:bg-slate-600 transition-colors text-center">Подробнее</a>
           </div>
         </div>
       </div>
@@ -140,7 +218,7 @@
   <section class="px-6 py-20 max-w-7xl mx-auto" id="online">
     <div class="bg-primary rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
       <div class="absolute right-0 top-0 w-1/3 h-full bg-white/5 skew-x-12 -mr-20 hidden md:block"></div>
-      <div class="relative z-10 flex-1">
+      <div class="relative z-10 flex-1" data-animate="fade-left">
         <span class="inline-block bg-white/20 text-white px-4 py-1 rounded-full text-sm font-bold mb-6">Новый формат</span>
         <h2 class="text-white text-4xl font-black mb-6 tracking-tight">Учитесь из любой точки мира</h2>
         <p class="text-white/80 text-lg mb-10 max-w-lg leading-relaxed">Получите доступ к нашей полной учебной программе, не выходя из дома. Интерактивные живые занятия, личные наставники и сообщество учащихся со всего мира.</p>
@@ -148,7 +226,7 @@
           Обзор онлайн-курсов <span class="material-symbols-outlined">rocket_launch</span>
         </a>
       </div>
-      <div class="relative z-10 w-full md:w-1/3 aspect-video bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+      <div class="relative z-10 w-full md:w-1/3 aspect-video bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10" data-animate="fade-right" data-delay="150">
         <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk_pVXsce7QTU9gFRV05Bl2P86KVkQklquG77emp0PC2aVq-63ZjDwG7v1wiqcN_0Gs_N_5t1lzP_knIyf3kqwiMzBszJzXCYcMJhD3xdCVgkfXlnvX3PU3lbgelTjxlX6xGXAaKBjZzm6HApTzdPIpiSZ5BkhsJodeDXLYoddoNiZYlecAWcOgXihWgoCAmhCR1_0CwKKP8V2JX3gKUcDVuyUNwfIDynJPAfNFhVpg-8lMPe2NpCRJrNUgKEYrOLRHqxfk4YeFrM_" alt="Онлайн обучение"/>
       </div>
     </div>
@@ -157,11 +235,11 @@
   <!-- Application Form Section -->
   <section class="px-6 py-20 bg-accent-blue/20 dark:bg-slate-800/20" id="apply">
     <div class="max-w-2xl mx-auto">
-      <div class="text-center mb-10">
+      <div class="text-center mb-10" data-animate="fade-up">
         <h2 class="text-3xl font-extrabold tracking-tight mb-3">Записаться на обучение</h2>
         <p class="text-text-muted dark:text-slate-400">Оставьте заявку и мы свяжемся с вами в ближайшее время</p>
       </div>
-      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-accent-blue dark:border-slate-700 p-8">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-accent-blue dark:border-slate-700 p-8" data-animate="fade-up" data-delay="150">
         <form id="applyForm" onsubmit="submitForm(event)" class="space-y-5">
           <div>
             <label class="block text-sm font-semibold text-text-main dark:text-slate-200 mb-2">Имя *</label>
@@ -237,6 +315,24 @@
     document.getElementById('applyForm').classList.add('hidden');
     document.getElementById('formSuccess').classList.remove('hidden');
   }
+
+  // ── Scroll Animations ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+  // ── Header shadow on scroll ──
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
 </script>
 </body>
 </html>
