@@ -356,26 +356,36 @@
   async function submitForm(e) {
     e.preventDefault();
     const form = e.target;
+    const btn  = form.querySelector('button[type=submit]');
     const data = Object.fromEntries(new FormData(form));
 
-    const BASE = 'https://sharifaskc.bitrix24.ru/rest/1/ogdropg76gtlwk57/crm.lead.add';
-    const comment = [data.format ? 'Формат: ' + data.format : '', data.comment || ''].filter(Boolean).join('\n');
-    const enc = encodeURIComponent;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="inline-block animate-spin mr-2">⏳</span>Отправляем...';
 
-    const qs = [
-      'fields[TITLE]=' + enc('Заявка с сайта — Онлайн-обучение'),
-      'fields[NAME]=' + enc(data.name || ''),
-      'fields[PHONE][0][VALUE]=' + enc(data.phone || ''),
-      'fields[PHONE][0][VALUE_TYPE]=WORK',
-      'fields[COMMENTS]=' + enc(comment),
-      'fields[SOURCE_ID]=WEB',
-      'fields[SOURCE_DESCRIPTION]=' + enc('Форма на странице Онлайн-обучение'),
-    ].join('&');
+    const comment = [data.format ? 'Формат: ' + data.format : '', data.comment || ''].filter(Boolean).join('\n');
+
+    const BASE = 'https://sharifaskc.bitrix24.ru/rest/1/ogdropg76gtlwk57/';
 
     try {
-      await fetch(BASE + '?' + qs, { mode: 'no-cors' });
+      const cBody = new URLSearchParams();
+      cBody.append('fields[NAME]',                data.name || '');
+      cBody.append('fields[PHONE][0][VALUE]',     data.phone || '');
+      cBody.append('fields[PHONE][0][VALUE_TYPE]','WORK');
+      cBody.append('fields[SOURCE_ID]',           'WEB');
+      const cJson = await (await fetch(BASE + 'crm.contact.add', { method: 'POST', body: cBody })).json();
+      if (cJson.error) console.error('Contact error:', cJson.error);
+
+      const dBody = new URLSearchParams();
+      dBody.append('fields[TITLE]',              'Заявка с сайта — Онлайн-обучение');
+      dBody.append('fields[COMMENTS]',           comment);
+      dBody.append('fields[SOURCE_ID]',          'WEB');
+      dBody.append('fields[SOURCE_DESCRIPTION]', 'Форма на странице Онлайн-обучение');
+      if (cJson.result) dBody.append('fields[CONTACT_IDS][0]', cJson.result);
+      const dJson = await (await fetch(BASE + 'crm.deal.add', { method: 'POST', body: dBody })).json();
+      if (dJson.error) console.error('Deal error:', dJson.error);
+      else console.log('Bitrix24 deal ID:', dJson.result);
     } catch (err) {
-      console.error('Bitrix24 error:', err);
+      console.error('Bitrix24 fetch error:', err);
     }
 
     document.getElementById('applyForm').classList.add('hidden');
