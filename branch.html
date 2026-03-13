@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>SHARIFA — Филиал на Акушинского</title>
+  <title>SHARIFA — Филиал</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -67,110 +67,31 @@
 <main class="max-w-6xl mx-auto w-full px-4 md:px-10 py-8">
   <!-- Hero Slider -->
   <div class="relative w-full rounded-xl overflow-hidden mb-8 h-80 md:h-[450px] group" id="heroSlider">
+    <div id="slidesContainer"></div>
 
-    <!-- Slides -->
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-100 cursor-pointer" data-slide="0" onclick="openLightbox(0)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_01.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="1" onclick="openLightbox(1)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_02.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="2" onclick="openLightbox(2)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_03.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="3" onclick="openLightbox(3)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_04.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="4" onclick="openLightbox(4)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_05.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="5" onclick="openLightbox(5)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_06.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="6" onclick="openLightbox(6)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_07.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="7" onclick="openLightbox(7)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_08.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="8" onclick="openLightbox(8)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_09.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="9" onclick="openLightbox(9)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_10.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="10" onclick="openLightbox(10)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_11.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="11" onclick="openLightbox(11)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_12.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="12" onclick="openLightbox(12)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_13.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="13" onclick="openLightbox(13)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_14.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="14" onclick="openLightbox(14)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_15.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="15" onclick="openLightbox(15)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_16.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="16" onclick="openLightbox(16)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_17.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="17" onclick="openLightbox(17)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_18.jpeg");'></div>
-    </div>
-    <div class="absolute inset-0 transition-opacity duration-700 opacity-0 cursor-pointer" data-slide="18" onclick="openLightbox(18)">
-      <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("photos/akushinskogo/photo_19.jpeg");'></div>
-    </div>
-
-    <!-- Gradient + Text -->
+    <!-- Gradient + Back -->
     <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent pointer-events-none"></div>
     <a href="branches.html" class="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-white/30 transition-colors z-10">
       <span class="material-symbols-outlined text-base">arrow_back</span> Назад
     </a>
 
-    <!-- Arrow Left -->
+    <!-- Arrows -->
     <button onclick="slideChange(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 backdrop-blur-sm">
       <span class="material-symbols-outlined">chevron_left</span>
     </button>
-    <!-- Arrow Right -->
     <button onclick="slideChange(1)" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 backdrop-blur-sm">
       <span class="material-symbols-outlined">chevron_right</span>
     </button>
 
-    <!-- Bottom: title only -->
+    <!-- Title -->
     <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 pointer-events-none z-10">
-      <h1 class="text-white text-3xl md:text-5xl font-extrabold tracking-tight mb-1">Филиал Акушинского</h1>
-      <p class="text-white/80 text-sm md:text-base max-w-xl">ул. 5-я Линия Акушинского, 25</p>
+      <h1 id="branchTitle" class="text-white text-3xl md:text-5xl font-extrabold tracking-tight mb-1"></h1>
+      <p id="branchSubtitle" class="text-white/80 text-sm md:text-base max-w-xl"></p>
     </div>
   </div>
 
-  <!-- Slider Dots (below slider) -->
-  <div class="flex gap-1.5 justify-center py-3 flex-wrap" id="sliderDots">
-    <button onclick="goToSlide(0)" class="w-2 h-2 rounded-full bg-primary transition-all" data-dot="0"></button>
-    <button onclick="goToSlide(1)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="1"></button>
-    <button onclick="goToSlide(2)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="2"></button>
-    <button onclick="goToSlide(3)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="3"></button>
-    <button onclick="goToSlide(4)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="4"></button>
-    <button onclick="goToSlide(5)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="5"></button>
-    <button onclick="goToSlide(6)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="6"></button>
-    <button onclick="goToSlide(7)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="7"></button>
-    <button onclick="goToSlide(8)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="8"></button>
-    <button onclick="goToSlide(9)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="9"></button>
-    <button onclick="goToSlide(10)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="10"></button>
-    <button onclick="goToSlide(11)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="11"></button>
-    <button onclick="goToSlide(12)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="12"></button>
-    <button onclick="goToSlide(13)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="13"></button>
-    <button onclick="goToSlide(14)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="14"></button>
-    <button onclick="goToSlide(15)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="15"></button>
-    <button onclick="goToSlide(16)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="16"></button>
-    <button onclick="goToSlide(17)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="17"></button>
-    <button onclick="goToSlide(18)" class="w-2 h-2 rounded-full bg-slate-300 transition-all" data-dot="18"></button>
-  </div>
+  <!-- Dots -->
+  <div class="flex gap-1.5 justify-center py-3 flex-wrap" id="sliderDots"></div>
 
   <!-- Lightbox -->
   <div id="lightbox" class="fixed inset-0 z-[200] bg-black/95 hidden items-center justify-center" onclick="closeLightbox()">
@@ -188,7 +109,7 @@
   </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-    <!-- Left Column: Gallery + Schedule -->
+    <!-- Left: Schedule + Reviews + Features -->
     <div class="lg:col-span-2 space-y-10">
 
       <!-- Schedule -->
@@ -197,7 +118,6 @@
           <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-200">Расписание занятий</h2>
         </div>
         <div class="grid md:grid-cols-2 gap-6">
-          <!-- Boys -->
           <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
             <div class="flex items-center gap-2 mb-4 text-primary">
               <span class="material-symbols-outlined">boy</span>
@@ -218,7 +138,6 @@
               </div>
             </div>
           </div>
-          <!-- Girls -->
           <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
             <div class="flex items-center gap-2 mb-4 text-pink-500">
               <span class="material-symbols-outlined">girl</span>
@@ -257,10 +176,7 @@
             <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Замечательные учителя и уютная атмосфера. Мой сын с удовольствием ходит на занятия каждую неделю.»</p>
             <div class="flex items-center gap-3">
               <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">А</div>
-              <div>
-                <p class="font-semibold text-sm">Айгуль М.</p>
-                <p class="text-xs text-slate-400">Родитель студента</p>
-              </div>
+              <div><p class="font-semibold text-sm">Айгуль М.</p><p class="text-xs text-slate-400">Родитель студента</p></div>
             </div>
           </div>
           <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
@@ -274,10 +190,7 @@
             <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Профессиональные преподаватели с огромным терпением. За полгода моя дочь уже выучила несколько сур.»</p>
             <div class="flex items-center gap-3">
               <div class="w-9 h-9 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-500 font-bold text-sm">З</div>
-              <div>
-                <p class="font-semibold text-sm">Зарина К.</p>
-                <p class="text-xs text-slate-400">Родитель студентки</p>
-              </div>
+              <div><p class="font-semibold text-sm">Зарина К.</p><p class="text-xs text-slate-400">Родитель студентки</p></div>
             </div>
           </div>
           <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
@@ -291,10 +204,7 @@
             <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Очень доволен обучением. Хороший подход к каждому студенту. Рекомендую всем желающим изучить Коран.»</p>
             <div class="flex items-center gap-3">
               <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">Р</div>
-              <div>
-                <p class="font-semibold text-sm">Руслан И.</p>
-                <p class="text-xs text-slate-400">Студент (взрослые)</p>
-              </div>
+              <div><p class="font-semibold text-sm">Руслан И.</p><p class="text-xs text-slate-400">Студент (взрослые)</p></div>
             </div>
           </div>
           <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
@@ -308,10 +218,7 @@
             <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Отличный филиал. Удобное расположение, приятная атмосфера и квалифицированные преподаватели.»</p>
             <div class="flex items-center gap-3">
               <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">Ф</div>
-              <div>
-                <p class="font-semibold text-sm">Фатима Д.</p>
-                <p class="text-xs text-slate-400">Студентка</p>
-              </div>
+              <div><p class="font-semibold text-sm">Фатима Д.</p><p class="text-xs text-slate-400">Студентка</p></div>
             </div>
           </div>
         </div>
@@ -340,9 +247,8 @@
       </section>
     </div>
 
-    <!-- Right Column: Contact Info + Apply -->
+    <!-- Right: Contact + CTA -->
     <div class="space-y-6">
-      <!-- Address & Contacts -->
       <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
         <h3 class="font-bold text-lg mb-4">Адрес и контакты</h3>
         <div class="space-y-4 mb-6">
@@ -350,34 +256,22 @@
             <span class="material-symbols-outlined text-primary mt-0.5">location_on</span>
             <div>
               <p class="text-sm font-semibold">Адрес</p>
-              <p class="text-sm text-slate-600 dark:text-slate-400">ул. Исламского центра 123, Центральный район, оф. 400</p>
+              <p id="contactAddress" class="text-sm text-slate-600 dark:text-slate-400"></p>
             </div>
           </div>
           <div class="flex gap-3">
             <span class="material-symbols-outlined text-primary">call</span>
             <div>
               <p class="text-sm font-semibold">Телефон</p>
-              <a href="tel:+15552345678" class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">+1 (555) 234-5678</a>
-            </div>
-          </div>
-          <div class="flex gap-3">
-            <span class="material-symbols-outlined text-primary">mail</span>
-            <div>
-              <p class="text-sm font-semibold">Эл. почта</p>
-              <a href="mailto:central@sharifa.edu" class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">central@sharifa.edu</a>
+              <a id="contactPhone" href="#" class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"></a>
             </div>
           </div>
         </div>
-        <!-- Map placeholder -->
-        <div class="w-full aspect-video rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-800 mb-4 relative">
-          <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBywEd0s3G9eLlLOSFTD11zovAukBjyF-qegvbQLWnbIppZ_OxFXri9hwk4Uy6rHSYQ59q7c0GWQ3VPseeMmUxyTYekxWmVOCv1z5ED4HkJgxfoWQXItNPpBJHOzGzeTU1S2AVpYG6ZKaZR9XNPi4C_Ag3vpqdmBSgtmDIhSbXyjEToetW9uPAIS1PJqIVJogz95sJbYHIuegMHmFwwgkC4BnHPiPedYgALpM37AUhLKjw6VbtJdf1kGxPL_beAFiEdrQKLNh2sZKXd" alt="Карта"/>
-        </div>
-        <a href="https://yandex.ru/maps/?text=ул.+5-я+Линия+Акушинского,+25,+Махачкала&mode=routes" target="_blank" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors text-sm">
+        <a id="mapsLink" href="#" target="_blank" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors text-sm">
           <span class="material-symbols-outlined text-sm">directions</span> Проложить маршрут
         </a>
       </div>
 
-      <!-- Donation -->
       <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -391,7 +285,6 @@
         </button>
       </div>
 
-      <!-- CTA -->
       <div class="bg-primary p-6 rounded-xl text-white">
         <h3 class="font-bold text-xl mb-2">Готовы начать?</h3>
         <p class="text-white/80 text-sm mb-6">Присоединяйтесь к нашему сообществу и начните путь духовного развития уже сегодня.</p>
@@ -405,7 +298,7 @@
     <div class="max-w-2xl mx-auto">
       <div class="text-center mb-8">
         <h2 class="text-3xl font-extrabold tracking-tight mb-3">Записаться на обучение</h2>
-        <p class="text-text-muted dark:text-slate-400">Оставьте заявку в этот филиал и мы свяжемся с вами в ближайшее время</p>
+        <p class="text-text-muted dark:text-slate-400">Оставьте заявку — мы свяжемся с вами в ближайшее время</p>
       </div>
       <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8">
         <form id="applyForm" onsubmit="submitForm(event)" class="space-y-5">
@@ -453,8 +346,9 @@
         <div>
           <h4 class="text-white font-bold mb-3">Контакты</h4>
           <ul class="space-y-2">
-            <li><a href="tel:+15552345678" class="hover:text-white transition-colors">+1 (555) 234-5678</a></li>
-            <li><a href="mailto:central@sharifa.edu" class="hover:text-white transition-colors">central@sharifa.edu</a></li>
+            <li><a href="tel:+79884241515" class="hover:text-white transition-colors">+7 (988) 424-15-15</a></li>
+            <li><a href="tel:+79289999309" class="hover:text-white transition-colors">+7 (928) 999-93-09</a></li>
+            <li><a href="tel:+79882105105" class="hover:text-white transition-colors">+7 (988) 210-51-05</a></li>
           </ul>
         </div>
       </div>
@@ -466,70 +360,107 @@
 </footer>
 
 <script>
-  /* ── Mobile menu ── */
-  function openMobileMenu() {
-    document.getElementById('mobileMenu').classList.remove('hidden');
-    document.getElementById('mobileMenu').classList.add('flex');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMobileMenu() {
-    document.getElementById('mobileMenu').classList.add('hidden');
-    document.getElementById('mobileMenu').classList.remove('flex');
-    document.body.style.overflow = '';
-  }
-
-  /* ── Form ── */
-  async function submitForm(e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = Object.fromEntries(new FormData(form));
-
-    const BASE = 'https://sharifaskc.bitrix24.ru/rest/1/ogdropg76gtlwk57/crm.lead.add';
-    const comment = [data.program ? 'Программа: ' + data.program : '', data.comment || ''].filter(Boolean).join('\n');
-
-    const enc = encodeURIComponent;
-    const qs = [
-      'fields[TITLE]=' + enc('Заявка с сайта — Страница филиала'),
-      'fields[NAME]=' + enc(data.name || ''),
-      'fields[PHONE][0][VALUE]=' + enc(data.phone || ''),
-      'fields[PHONE][0][VALUE_TYPE]=WORK',
-      'fields[COMMENTS]=' + enc(comment),
-      'fields[SOURCE_ID]=WEB',
-      'fields[SOURCE_DESCRIPTION]=' + enc('Форма на странице конкретного Филиала'),
-    ].join('&');
-
-    try {
-      await fetch(BASE + '?' + qs, { mode: 'no-cors' });
-    } catch (err) {
-      console.error('Bitrix24 error:', err);
+  /* ── Branch data ── */
+  const BRANCHES = {
+    akushinskogo: {
+      title: 'Филиал Акушинского',
+      address: 'ул. 5-я Линия Акушинского, 25, Махачкала',
+      phone: '+79289999309',
+      phoneDisplay: '+7 (928) 999-93-09',
+      mapsUrl: 'https://yandex.ru/maps/?text=ул.+5-я+Линия+Акушинского,+25,+Махачкала&mode=routes',
+      photosDir: 'photos/akushinskogo/',
+      photoCount: 19,
+      photoExt: 'jpeg'
+    },
+    gamidova: {
+      title: 'Филиал Гамидова',
+      address: 'просп. Гамидова, 22Б, Махачкала',
+      phone: '+79884241515',
+      phoneDisplay: '+7 (988) 424-15-15',
+      mapsUrl: 'https://yandex.ru/maps/?text=просп.+Гамидова,+22Б,+Махачкала&mode=routes',
+      photosDir: 'photos/gamidova/',
+      photoCount: 18,
+      photoExt: 'jpg'
+    },
+    petra: {
+      title: 'Филиал Петра I',
+      address: 'просп. Петра I, 107, Махачкала',
+      phone: '+79884241515',
+      phoneDisplay: '+7 (988) 424-15-15',
+      mapsUrl: 'https://yandex.ru/maps/?text=просп.+Петра+I,+107,+Махачкала&mode=routes',
+      photosDir: 'photos/reduktorny/',
+      photoCount: 35,
+      photoExt: 'jpg'
+    },
+    kaspiysk: {
+      title: 'Филиал Каспийск',
+      address: 'Махачкалинская ул., 106, Каспийск',
+      phone: '+79882105105',
+      phoneDisplay: '+7 (988) 210-51-05',
+      mapsUrl: 'https://yandex.ru/maps/?text=Махачкалинская,+106,+Каспийск&mode=routes',
+      photosDir: null,
+      photoCount: 0,
+      photoExt: 'jpg'
     }
+  };
 
-    document.getElementById('applyForm').classList.add('hidden');
-    document.getElementById('formSuccess').classList.remove('hidden');
+  /* ── Init page from URL param ── */
+  const params = new URLSearchParams(window.location.search);
+  const branchId = params.get('branch') || 'akushinskogo';
+  const branch = BRANCHES[branchId] || BRANCHES['akushinskogo'];
+
+  // Build photo list
+  const slideImages = [];
+  if (branch.photosDir && branch.photoCount > 0) {
+    for (let i = 1; i <= branch.photoCount; i++) {
+      const n = String(i).padStart(2, '0');
+      slideImages.push(branch.photosDir + 'photo_' + n + '.' + branch.photoExt);
+    }
   }
 
-  /* ── Slider ── */
-  const slideImages = [
-    "photos/akushinskogo/photo_01.jpeg",
-    "photos/akushinskogo/photo_02.jpeg",
-    "photos/akushinskogo/photo_03.jpeg",
-    "photos/akushinskogo/photo_04.jpeg",
-    "photos/akushinskogo/photo_05.jpeg",
-    "photos/akushinskogo/photo_06.jpeg",
-    "photos/akushinskogo/photo_07.jpeg",
-    "photos/akushinskogo/photo_08.jpeg",
-    "photos/akushinskogo/photo_09.jpeg",
-    "photos/akushinskogo/photo_10.jpeg",
-    "photos/akushinskogo/photo_11.jpeg",
-    "photos/akushinskogo/photo_12.jpeg",
-    "photos/akushinskogo/photo_13.jpeg",
-    "photos/akushinskogo/photo_14.jpeg",
-    "photos/akushinskogo/photo_15.jpeg",
-    "photos/akushinskogo/photo_16.jpeg",
-    "photos/akushinskogo/photo_17.jpeg",
-    "photos/akushinskogo/photo_18.jpeg",
-    "photos/akushinskogo/photo_19.jpeg"
-  ];
+  // Set title
+  document.title = 'SHARIFA — ' + branch.title;
+  document.getElementById('branchTitle').textContent = branch.title;
+  document.getElementById('branchSubtitle').textContent = branch.address;
+
+  // Set contacts
+  document.getElementById('contactAddress').textContent = branch.address;
+  const phoneEl = document.getElementById('contactPhone');
+  phoneEl.textContent = branch.phoneDisplay;
+  phoneEl.href = 'tel:' + branch.phone;
+  document.getElementById('mapsLink').href = branch.mapsUrl;
+
+  // Build slides
+  const slidesContainer = document.getElementById('slidesContainer');
+  if (slideImages.length > 0) {
+    slideImages.forEach((src, i) => {
+      const div = document.createElement('div');
+      div.className = 'absolute inset-0 transition-opacity duration-700 cursor-pointer';
+      div.style.opacity = i === 0 ? '1' : '0';
+      div.setAttribute('data-slide', i);
+      div.onclick = () => openLightbox(i);
+      div.innerHTML = '<div class="absolute inset-0 bg-cover bg-center" style="background-image: url(\'' + src + '\');"></div>';
+      slidesContainer.appendChild(div);
+    });
+  } else {
+    // Placeholder if no photos
+    const div = document.createElement('div');
+    div.className = 'absolute inset-0 bg-primary/20 flex items-center justify-center';
+    div.innerHTML = '<span class="material-symbols-outlined text-primary/40 text-8xl">photo_library</span>';
+    slidesContainer.appendChild(div);
+  }
+
+  // Build dots
+  const dotsContainer = document.getElementById('sliderDots');
+  slideImages.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = i === 0 ? 'w-5 h-2 rounded-full bg-primary transition-all' : 'w-2 h-2 rounded-full bg-slate-300 transition-all';
+    btn.setAttribute('data-dot', i);
+    btn.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(btn);
+  });
+
+  /* ── Slider logic ── */
   let currentSlide = 0;
 
   function updateSlider() {
@@ -539,12 +470,14 @@
     document.querySelectorAll('[data-dot]').forEach((dot, i) => {
       dot.classList.toggle('bg-primary', i === currentSlide);
       dot.classList.toggle('w-5', i === currentSlide);
+      dot.classList.toggle('h-2', true);
       dot.classList.toggle('bg-slate-300', i !== currentSlide);
       dot.classList.toggle('w-2', i !== currentSlide);
     });
   }
 
   function slideChange(dir) {
+    if (slideImages.length === 0) return;
     currentSlide = (currentSlide + dir + slideImages.length) % slideImages.length;
     updateSlider();
   }
@@ -554,7 +487,12 @@
     updateSlider();
   }
 
-  /* Swipe support */
+  // Auto-play
+  if (slideImages.length > 1) {
+    setInterval(() => slideChange(1), 5000);
+  }
+
+  // Swipe
   (function() {
     const slider = document.getElementById('heroSlider');
     let startX = 0;
@@ -569,6 +507,7 @@
   let lbIndex = 0;
 
   function openLightbox(index) {
+    if (slideImages.length === 0) return;
     lbIndex = index;
     const lb = document.getElementById('lightbox');
     document.getElementById('lightboxImg').src = slideImages[lbIndex];
@@ -591,7 +530,6 @@
     document.getElementById('lightboxCounter').textContent = (lbIndex + 1) + ' / ' + slideImages.length;
   }
 
-  /* Keyboard navigation */
   document.addEventListener('keydown', e => {
     const lb = document.getElementById('lightbox');
     if (!lb.classList.contains('hidden')) {
@@ -600,6 +538,40 @@
       if (e.key === 'Escape') closeLightbox();
     }
   });
+
+  /* ── Mobile menu ── */
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('hidden');
+    document.getElementById('mobileMenu').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('hidden');
+    document.getElementById('mobileMenu').classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  /* ── Form ── */
+  async function submitForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = Object.fromEntries(new FormData(form));
+    const enc = encodeURIComponent;
+    const comment = ['Филиал: ' + branch.title, data.comment || ''].filter(Boolean).join('\n');
+    const BASE = 'https://sharifaskc.bitrix24.ru/rest/1/ogdropg76gtlwk57/crm.lead.add';
+    const qs = [
+      'fields[TITLE]=' + enc('Заявка с сайта — ' + branch.title),
+      'fields[NAME]=' + enc(data.name || ''),
+      'fields[PHONE][0][VALUE]=' + enc(data.phone || ''),
+      'fields[PHONE][0][VALUE_TYPE]=WORK',
+      'fields[COMMENTS]=' + enc(comment),
+      'fields[SOURCE_ID]=WEB',
+      'fields[SOURCE_DESCRIPTION]=' + enc('Форма на странице филиала'),
+    ].join('&');
+    try { await fetch(BASE + '?' + qs, { mode: 'no-cors' }); } catch (err) { console.error(err); }
+    document.getElementById('applyForm').classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+  }
 </script>
 </body>
 </html>
