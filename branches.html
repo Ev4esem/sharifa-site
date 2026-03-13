@@ -83,9 +83,8 @@
       <div class="branch-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
            data-name="Гамидова" data-city="махачкала" data-address="просп. Гамидова, 22Б">
 
-        <!-- Фото-заглушка (замените src на реальное фото) -->
-        <div class="h-52 bg-cover bg-center relative bg-primary/20 flex items-center justify-center"
-             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBX1VEAFZGdojdXCWT7vhxv9W6yRK5kf-qXLSuRmDAvxLufAfkIoia6kUle807mI3YUFy_oyMEcsjNUmyBRVAw2HFmtkfx7gcHPJjEIk6ZhLevjE21SRcqgQFZ9RKA3Bsaj_w57W9bYNB1NZtNWAt0abu_f-jgXGSrqrHb9D8CR7A3i181RnWz9fFLGjZwsYcidwBoIjnOl4S0JpYItkK9RDOkZ5cvf_pJlf7ditGywDH667YlHmMAU5BIjpzCdCVLiD6aK8UPbemBR");'>
+        <div class="h-52 bg-cover bg-center relative"
+             style='background-image: url("photos/gamidova/photo_01.jpg");'>
           <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
           <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Открыт</span>
           <span class="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg">Махачкала</span>
@@ -134,7 +133,7 @@
            data-name="Петра" data-city="махачкала" data-address="просп. Петра I, 107">
 
         <div class="h-52 bg-cover bg-center relative"
-             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdRHKSHLqiXaSeeRe-S9A-C7tkg-4m96q4MXgxNLpM4ZAk7Bi_1Nor_MSZHAEY2a1vymtWcot10ksbjIZDGc2wiZROU29jM25kFtmfy1usR6K0tk87u_dDZwK0Bf_uARYrDp_UKA2Hjlf2Wa3f5UMs4R6o-epihot5uaSw1nfrO9DrhBcurSJN5YHfKZrlfdO9-4xFN2y0tI7uOmjhY5BFWy1_IgQrFRwOEJC_wz1T9tTrGBP38iBnrwd8_D9FWYHBY8TnNOurAtHw");'>
+             style='background-image: url("photos/reduktorny/photo_01.jpg");'>
           <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
           <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Открыт</span>
           <span class="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg">Махачкала</span>
@@ -412,8 +411,31 @@
     document.getElementById('mobileMenu').classList.remove('flex');
     document.body.style.overflow = '';
   }
-  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
+    const form = e.target;
+    const data = Object.fromEntries(new FormData(form));
+
+    const BASE = 'https://sharifaskc.bitrix24.ru/rest/1/ogdropg76gtlwk57/crm.lead.add';
+    const comment = [data.branch ? 'Филиал: ' + data.branch : '', data.comment || ''].filter(Boolean).join('\n');
+    const enc = encodeURIComponent;
+
+    const qs = [
+      'fields[TITLE]=' + enc('Заявка с сайта — Филиалы'),
+      'fields[NAME]=' + enc(data.name || ''),
+      'fields[PHONE][0][VALUE]=' + enc(data.phone || ''),
+      'fields[PHONE][0][VALUE_TYPE]=WORK',
+      'fields[COMMENTS]=' + enc(comment),
+      'fields[SOURCE_ID]=WEB',
+      'fields[SOURCE_DESCRIPTION]=' + enc('Форма на странице Филиалы'),
+    ].join('&');
+
+    try {
+      await fetch(BASE + '?' + qs, { mode: 'no-cors' });
+    } catch (err) {
+      console.error('Bitrix24 error:', err);
+    }
+
     document.getElementById('applyForm').classList.add('hidden');
     document.getElementById('formSuccess').classList.remove('hidden');
   }

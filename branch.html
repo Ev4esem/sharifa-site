@@ -479,8 +479,31 @@
   }
 
   /* ── Form ── */
-  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
+    const form = e.target;
+    const data = Object.fromEntries(new FormData(form));
+
+    const BASE = 'https://sharifaskc.bitrix24.ru/rest/1/ogdropg76gtlwk57/crm.lead.add';
+    const comment = [data.program ? 'Программа: ' + data.program : '', data.comment || ''].filter(Boolean).join('\n');
+
+    const enc = encodeURIComponent;
+    const qs = [
+      'fields[TITLE]=' + enc('Заявка с сайта — Страница филиала'),
+      'fields[NAME]=' + enc(data.name || ''),
+      'fields[PHONE][0][VALUE]=' + enc(data.phone || ''),
+      'fields[PHONE][0][VALUE_TYPE]=WORK',
+      'fields[COMMENTS]=' + enc(comment),
+      'fields[SOURCE_ID]=WEB',
+      'fields[SOURCE_DESCRIPTION]=' + enc('Форма на странице конкретного Филиала'),
+    ].join('&');
+
+    try {
+      await fetch(BASE + '?' + qs, { mode: 'no-cors' });
+    } catch (err) {
+      console.error('Bitrix24 error:', err);
+    }
+
     document.getElementById('applyForm').classList.add('hidden');
     document.getElementById('formSuccess').classList.remove('hidden');
   }
