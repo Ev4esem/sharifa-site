@@ -73,45 +73,128 @@
     <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-2 text-center">Контакты</h1>
     <p class="text-text-muted dark:text-slate-400 text-lg text-center mb-14">Свяжитесь с нами любым удобным способом</p>
 
-    <!-- Contact Cards -->
-    <div class="grid md:grid-cols-3 gap-6 mb-16">
-      <!-- Phone -->
-      <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col items-center text-center gap-4">
-        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-          <span class="material-symbols-outlined text-3xl">call</span>
+    <!-- Email -->
+    <div class="flex justify-center mb-10">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl px-8 py-5 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+          <span class="material-symbols-outlined text-2xl">mail</span>
         </div>
         <div>
-          <p class="text-sm font-semibold text-text-muted mb-1">Телефон</p>
-          <a href="tel:+79884241515" class="text-xl font-bold hover:text-primary transition-colors">+7 (988) 424-15-15</a>
+          <p class="text-xs font-semibold text-text-muted mb-0.5">Эл. почта</p>
+          <a href="mailto:sharifa.school@mail.ru" class="text-base font-bold hover:text-primary transition-colors">sharifa.school@mail.ru</a>
         </div>
-        <a href="tel:+79884241515" class="mt-auto w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity text-center">Позвонить</a>
+        <a href="mailto:sharifa.school@mail.ru" class="ml-4 bg-primary text-white px-5 py-2.5 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity">Написать</a>
+      </div>
+    </div>
+
+    <!-- Branch Contacts -->
+    <h2 class="text-2xl font-black mb-6">Контакты филиалов</h2>
+    <div class="grid md:grid-cols-2 gap-5 mb-16">
+
+      <!-- Гамидова -->
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-4">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-xl">location_on</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-base">Sharifa — просп. Гамидова</h3>
+            <p class="text-sm text-text-muted">просп. Гамидова, 22Б, Махачкала</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-sm font-semibold">
+          <span class="material-symbols-outlined text-primary text-base">call</span>
+          <a href="tel:+79884241515" class="hover:text-primary transition-colors">+7 (988) 424-15-15</a>
+        </div>
+        <div class="flex gap-2 mt-auto">
+          <a href="tel:+79884241515" class="flex-1 flex items-center justify-center gap-2 bg-primary/10 text-primary py-2.5 rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-base">call</span> Позвонить
+          </a>
+          <a href="https://wa.me/79884241515" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-green-500 text-white py-2.5 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.012 2c-5.508 0-9.987 4.479-9.987 9.987 0 1.763.462 3.421 1.262 4.853L2.009 22l5.364-1.407c1.377.75 2.956 1.181 4.639 1.181 5.508 0 9.988-4.479 9.988-9.987 0-5.507-4.48-9.987-9.988-9.987zM6.57 16.658l-.307-.488a7.991 7.991 0 01-1.223-4.183c0-4.403 3.582-7.986 7.985-7.986s7.985 3.583 7.985 7.986-3.582 7.986-7.985 7.986c-1.52 0-3.007-.426-4.296-1.233l-.508-.318-3.185.835.834-3.11z"/></svg>
+            WhatsApp
+          </a>
+        </div>
       </div>
 
-      <!-- WhatsApp -->
-      <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col items-center text-center gap-4">
-        <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center text-green-600">
-          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12.012 2c-5.508 0-9.987 4.479-9.987 9.987 0 1.763.462 3.421 1.262 4.853L2.009 22l5.364-1.407c1.377.75 2.956 1.181 4.639 1.181 5.508 0 9.988-4.479 9.988-9.987 0-5.507-4.48-9.987-9.988-9.987zM6.57 16.658l-.307-.488a7.991 7.991 0 01-1.223-4.183c0-4.403 3.582-7.986 7.985-7.986s7.985 3.583 7.985 7.986-3.582 7.986-7.985 7.986c-1.52 0-3.007-.426-4.296-1.233l-.508-.318-3.185.835.834-3.11z"/>
-          </svg>
+      <!-- Петра I -->
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-4">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-xl">location_on</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-base">Sharifa — просп. Петра I</h3>
+            <p class="text-sm text-text-muted">просп. Петра I, 107, Махачкала</p>
+          </div>
         </div>
-        <div>
-          <p class="text-sm font-semibold text-text-muted mb-1">WhatsApp</p>
-          <a href="https://wa.me/79884241515" class="text-xl font-bold hover:text-primary transition-colors">+7 (988) 424-15-15</a>
+        <div class="flex items-center gap-2 text-sm font-semibold">
+          <span class="material-symbols-outlined text-primary text-base">call</span>
+          <a href="tel:+79884241515" class="hover:text-primary transition-colors">+7 (988) 424-15-15</a>
         </div>
-        <a href="https://wa.me/79884241515" target="_blank" class="mt-auto w-full bg-green-500 text-white py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity text-center">Написать</a>
+        <div class="flex gap-2 mt-auto">
+          <a href="tel:+79884241515" class="flex-1 flex items-center justify-center gap-2 bg-primary/10 text-primary py-2.5 rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-base">call</span> Позвонить
+          </a>
+          <a href="https://wa.me/79884241515" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-green-500 text-white py-2.5 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.012 2c-5.508 0-9.987 4.479-9.987 9.987 0 1.763.462 3.421 1.262 4.853L2.009 22l5.364-1.407c1.377.75 2.956 1.181 4.639 1.181 5.508 0 9.988-4.479 9.988-9.987 0-5.507-4.48-9.987-9.988-9.987zM6.57 16.658l-.307-.488a7.991 7.991 0 01-1.223-4.183c0-4.403 3.582-7.986 7.985-7.986s7.985 3.583 7.985 7.986-3.582 7.986-7.985 7.986c-1.52 0-3.007-.426-4.296-1.233l-.508-.318-3.185.835.834-3.11z"/></svg>
+            WhatsApp
+          </a>
+        </div>
       </div>
 
-      <!-- Email -->
-      <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col items-center text-center gap-4">
-        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-          <span class="material-symbols-outlined text-3xl">mail</span>
+      <!-- Акушинского -->
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-4">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-xl">location_on</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-base">Sharifa — 5-я Линия Акушинского</h3>
+            <p class="text-sm text-text-muted">ул. 5-я Линия Акушинского, 25, Махачкала</p>
+          </div>
         </div>
-        <div>
-          <p class="text-sm font-semibold text-text-muted mb-1">Эл. почта</p>
-          <a href="mailto:sharifa.school@mail.ru" class="text-xl font-bold hover:text-primary transition-colors">sharifa.school@mail.ru</a>
+        <div class="flex items-center gap-2 text-sm font-semibold">
+          <span class="material-symbols-outlined text-primary text-base">call</span>
+          <a href="tel:+79289999309" class="hover:text-primary transition-colors">+7 (928) 999-93-09</a>
         </div>
-        <a href="mailto:sharifa.school@mail.ru" class="mt-auto w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity text-center">Написать</a>
+        <div class="flex gap-2 mt-auto">
+          <a href="tel:+79289999309" class="flex-1 flex items-center justify-center gap-2 bg-primary/10 text-primary py-2.5 rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-base">call</span> Позвонить
+          </a>
+          <a href="https://wa.me/79289999309" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-green-500 text-white py-2.5 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.012 2c-5.508 0-9.987 4.479-9.987 9.987 0 1.763.462 3.421 1.262 4.853L2.009 22l5.364-1.407c1.377.75 2.956 1.181 4.639 1.181 5.508 0 9.988-4.479 9.988-9.987 0-5.507-4.48-9.987-9.988-9.987zM6.57 16.658l-.307-.488a7.991 7.991 0 01-1.223-4.183c0-4.403 3.582-7.986 7.985-7.986s7.985 3.583 7.985 7.986-3.582 7.986-7.985 7.986c-1.52 0-3.007-.426-4.296-1.233l-.508-.318-3.185.835.834-3.11z"/></svg>
+            WhatsApp
+          </a>
+        </div>
       </div>
+
+      <!-- Каспийск -->
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-4">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+            <span class="material-symbols-outlined text-xl">location_on</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-base">Sharifa — Каспийск</h3>
+            <p class="text-sm text-text-muted">Махачкалинская ул., 106, Каспийск</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-sm font-semibold">
+          <span class="material-symbols-outlined text-primary text-base">call</span>
+          <a href="tel:+79882105105" class="hover:text-primary transition-colors">+7 (988) 210-51-05</a>
+        </div>
+        <div class="flex gap-2 mt-auto">
+          <a href="tel:+79882105105" class="flex-1 flex items-center justify-center gap-2 bg-primary/10 text-primary py-2.5 rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-base">call</span> Позвонить
+          </a>
+          <a href="https://wa.me/79882105105" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-green-500 text-white py-2.5 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.012 2c-5.508 0-9.987 4.479-9.987 9.987 0 1.763.462 3.421 1.262 4.853L2.009 22l5.364-1.407c1.377.75 2.956 1.181 4.639 1.181 5.508 0 9.988-4.479 9.988-9.987 0-5.507-4.48-9.987-9.988-9.987zM6.57 16.658l-.307-.488a7.991 7.991 0 01-1.223-4.183c0-4.403 3.582-7.986 7.985-7.986s7.985 3.583 7.985 7.986-3.582 7.986-7.985 7.986c-1.52 0-3.007-.426-4.296-1.233l-.508-.318-3.185.835.834-3.11z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
     </div>
 
     <!-- CTA Sign Up -->
