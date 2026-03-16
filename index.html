@@ -409,6 +409,7 @@
       dBody.append('fields[COMMENTS]',           data.comment || '');
       dBody.append('fields[SOURCE_ID]',          'WEB');
       dBody.append('fields[SOURCE_DESCRIPTION]', 'Форма на главной странице');
+      dBody.append('fields[CATEGORY_ID]',        '5'); // Воронка: Каспийск
       if (cJson.result) dBody.append('fields[CONTACT_IDS][0]', cJson.result);
       const dRes  = await fetch(BASE + 'crm.deal.add', { method: 'POST', body: dBody });
       const dJson = await dRes.json();

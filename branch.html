@@ -580,11 +580,16 @@
       const cJson = await (await fetch(BASE + 'crm.contact.add', { method: 'POST', body: cBody })).json();
       if (cJson.error) console.error('Contact error:', cJson.error);
 
+      // Воронки Bitrix24: 0=Гамидова, 1=Акушинского, 3=Петра1, 5=Каспийск
+      const branchCategoryMap = { gamidova: '0', akushinskogo: '1', petra: '3', kaspiysk: '5' };
+      const categoryId = branchCategoryMap[branchId] || '0';
+
       const dBody = new URLSearchParams();
       dBody.append('fields[TITLE]',              'Заявка с сайта — ' + branchTitle);
       dBody.append('fields[COMMENTS]',           comment);
       dBody.append('fields[SOURCE_ID]',          'WEB');
       dBody.append('fields[SOURCE_DESCRIPTION]', 'Форма на странице филиала');
+      dBody.append('fields[CATEGORY_ID]',        categoryId);
       if (cJson.result) dBody.append('fields[CONTACT_IDS][0]', cJson.result);
       const dJson = await (await fetch(BASE + 'crm.deal.add', { method: 'POST', body: dBody })).json();
       if (dJson.error) console.error('Deal error:', dJson.error);

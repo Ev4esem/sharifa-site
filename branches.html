@@ -412,7 +412,16 @@
       kaspiysk:     'Каспийск, Махачкалинская ул., 106',
       any:          'Любой ближайший'
     };
-    const branchLabel = branchLabels[data.branch] || data.branch || '';
+    // Воронки Bitrix24: 0=Гамидова, 1=Акушинского, 3=Петра1, 5=Каспийск
+    const branchCategories = {
+      gamidova:     '0',
+      akushinskogo: '1',
+      petra:        '3',
+      kaspiysk:     '5',
+      any:          '0'
+    };
+    const branchLabel    = branchLabels[data.branch]    || data.branch    || '';
+    const categoryId     = branchCategories[data.branch] || '0';
     const comment = [branchLabel ? 'Филиал: ' + branchLabel : '', data.comment || ''].filter(Boolean).join('\n');
 
     const BASE = 'https://sharifaskc.bitrix24.ru/rest/1/ogdropg76gtlwk57/';
@@ -431,6 +440,7 @@
       dBody.append('fields[COMMENTS]',           comment);
       dBody.append('fields[SOURCE_ID]',          'WEB');
       dBody.append('fields[SOURCE_DESCRIPTION]', 'Форма на странице Филиалы');
+      dBody.append('fields[CATEGORY_ID]',        categoryId);
       if (cJson.result) dBody.append('fields[CONTACT_IDS][0]', cJson.result);
       const dJson = await (await fetch(BASE + 'crm.deal.add', { method: 'POST', body: dBody })).json();
       if (dJson.error) console.error('Deal error:', dJson.error);
