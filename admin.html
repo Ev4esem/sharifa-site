@@ -407,18 +407,26 @@
         ? `<a href="tel:${rawPhone}" class="text-[#1a5276] hover:underline">${phone}</a>`
         : `<span class="text-gray-400">—</span>`;
 
+      const bitrixUrl = `https://sharifaskc.bitrix24.ru/crm/deal/details/${deal.ID}/`;
+
       return `
-        <tr class="deal-row border-b border-gray-50 last:border-0">
+        <tr class="deal-row border-b border-gray-50 last:border-0 hover:bg-blue-50/40 cursor-pointer transition-colors" onclick="window.open('${bitrixUrl}', '_blank')">
           <td class="px-6 py-3.5 text-sm text-gray-500 whitespace-nowrap">
             ${date}
             <span class="text-gray-300 ml-1">${time}</span>
           </td>
           <td class="px-6 py-3.5 text-sm font-medium text-gray-900">${escHtml(name)}</td>
-          <td class="px-6 py-3.5 text-sm">${phoneLink}</td>
+          <td class="px-6 py-3.5 text-sm" onclick="event.stopPropagation()">${phoneLink}</td>
           <td class="px-6 py-3.5 text-sm">
             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${cat.color}">
               <span class="w-1.5 h-1.5 rounded-full ${cat.dot}"></span>
               ${cat.name}
+            </span>
+          </td>
+          <td class="px-4 py-3.5 text-right">
+            <span class="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-[#1a5276] transition-colors">
+              <span class="material-symbols-outlined text-base">open_in_new</span>
+              Открыть
             </span>
           </td>
         </tr>`;
