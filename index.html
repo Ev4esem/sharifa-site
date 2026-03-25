@@ -148,8 +148,8 @@
       transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    /* ── Smooth scroll ── */
-    html { scroll-behavior: smooth; }
+    /* ── Smooth scroll + prevent header jerk on scrollbar appear/disappear ── */
+    html { scroll-behavior: smooth; scrollbar-gutter: stable; }
 
     /* ── Header scroll shadow ── */
     header { transition: box-shadow 0.3s ease; }
