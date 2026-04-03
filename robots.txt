@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sharifa.school/sitemap.xml
+Sitemap: https://sharifa.ru/sitemap.xml
