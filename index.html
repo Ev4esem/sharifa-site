@@ -330,9 +330,10 @@
       <p class="text-text-muted dark:text-slate-400 max-w-xl mx-auto">У нас дети не просто учатся — они дружат, растут и с радостью приходят снова. Здесь царит тепло, уважение и настоящая любовь к знаниям</p>
     </div>
 
-    <!-- Masonry-style gallery -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[180px]" data-animate="fade-up" data-delay="100">
-      <!-- tall left -->
+    <!-- Gallery: 3 cols, чередование высокая+короткие / короткие+высокая -->
+    <div class="grid grid-cols-3 gap-3 auto-rows-[120px] md:auto-rows-[190px]" data-animate="fade-up" data-delay="100">
+
+      <!-- Блок 1: ВЫСОКАЯ слева + 4 коротких справа -->
       <div class="gallery-img row-span-2 cursor-pointer" onclick="openLightbox('photos/gamidova/photo_05.jpg')">
         <img src="photos/gamidova/photo_05.jpg" alt="Занятия в школе Sharifa" loading="lazy"/>
       </div>
@@ -342,48 +343,60 @@
       <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/akushinskogo/photo_03.jpeg')">
         <img src="photos/akushinskogo/photo_03.jpeg" alt="Филиал Sharifa" loading="lazy"/>
       </div>
-      <!-- tall right -->
-      <div class="gallery-img row-span-2 cursor-pointer" onclick="openLightbox('photos/reduktorny/photo_04.jpg')">
-        <img src="photos/reduktorny/photo_04.jpg" alt="Дети в школе Sharifa" loading="lazy"/>
-      </div>
       <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/akushinskogo/photo_06.jpeg')">
         <img src="photos/akushinskogo/photo_06.jpeg" alt="Класс Sharifa" loading="lazy"/>
       </div>
       <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/gamidova/photo_10.jpg')">
         <img src="photos/gamidova/photo_10.jpg" alt="Обучение Корану" loading="lazy"/>
       </div>
+
+      <!-- Блок 2: 4 коротких слева + ВЫСОКАЯ справа -->
       <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/reduktorny/photo_08.jpg')">
         <img src="photos/reduktorny/photo_08.jpg" alt="Занятия Sharifa" loading="lazy"/>
       </div>
       <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/akushinskogo/photo_09.jpeg')">
         <img src="photos/akushinskogo/photo_09.jpeg" alt="Ученики Sharifa" loading="lazy"/>
       </div>
+      <div class="gallery-img row-span-2 cursor-pointer" onclick="openLightbox('photos/reduktorny/photo_04.jpg')">
+        <img src="photos/reduktorny/photo_04.jpg" alt="Дети в школе Sharifa" loading="lazy"/>
+      </div>
       <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/reduktorny/photo_12.jpg')">
         <img src="photos/reduktorny/photo_12.jpg" alt="Школа Sharifa" loading="lazy"/>
       </div>
+      <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/gamidova/photo_15.jpg')">
+        <img src="photos/gamidova/photo_15.jpg" alt="Школа Sharifa" loading="lazy"/>
+      </div>
+
     </div>
 
-    <!-- Atmosphere quotes -->
-    <div class="grid md:grid-cols-3 gap-6 mt-10" data-animate="fade-up" data-delay="200">
-      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-accent-blue dark:border-slate-700 flex gap-4">
-        <span class="material-symbols-outlined text-3xl text-primary mt-1 flex-shrink-0">favorite</span>
+    <!-- Atmosphere quotes — 4 карточки -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10" data-animate="fade-up" data-delay="200">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-accent-blue dark:border-slate-700 flex gap-3">
+        <span class="material-symbols-outlined text-2xl text-primary mt-0.5 flex-shrink-0">favorite</span>
         <div>
-          <h4 class="font-bold mb-1">Дети любят сюда приходить</h4>
-          <p class="text-sm text-text-muted dark:text-slate-400 leading-relaxed">Наши ученики сами просятся на занятия — здесь хорошие друзья, добрые учителя и уютная атмосфера</p>
+          <h4 class="font-bold text-sm mb-1">Дети любят сюда приходить</h4>
+          <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed">Наши ученики сами просятся на занятия — хорошие друзья, добрые учителя и уютная атмосфера</p>
         </div>
       </div>
-      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-accent-blue dark:border-slate-700 flex gap-4">
-        <span class="material-symbols-outlined text-3xl text-primary mt-1 flex-shrink-0">groups</span>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-accent-blue dark:border-slate-700 flex gap-3">
+        <span class="material-symbols-outlined text-2xl text-primary mt-0.5 flex-shrink-0">groups</span>
         <div>
-          <h4 class="font-bold mb-1">Сообщество семей</h4>
-          <p class="text-sm text-text-muted dark:text-slate-400 leading-relaxed">Мы — большая семья. Родители общаются, дети дружат. Sharifa — это не просто школа, это окружение</p>
+          <h4 class="font-bold text-sm mb-1">Сообщество семей</h4>
+          <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed">Мы — большая семья. Родители общаются, дети дружат. Sharifa — это не просто школа, это окружение</p>
         </div>
       </div>
-      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-accent-blue dark:border-slate-700 flex gap-4">
-        <span class="material-symbols-outlined text-3xl text-primary mt-1 flex-shrink-0">star</span>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-accent-blue dark:border-slate-700 flex gap-3">
+        <span class="material-symbols-outlined text-2xl text-primary mt-0.5 flex-shrink-0">self_improvement</span>
         <div>
-          <h4 class="font-bold mb-1">Воспитание через адаб</h4>
-          <p class="text-sm text-text-muted dark:text-slate-400 leading-relaxed">Помимо Корана, дети учатся уважению, вежливости и правильным манерам — родители видят изменения сразу</p>
+          <h4 class="font-bold text-sm mb-1">Воспитание через адаб</h4>
+          <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed">Помимо Корана, дети учатся уважению и правильным манерам — родители видят изменения сразу</p>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-accent-blue dark:border-slate-700 flex gap-3">
+        <span class="material-symbols-outlined text-2xl text-primary mt-0.5 flex-shrink-0">celebration</span>
+        <div>
+          <h4 class="font-bold text-sm mb-1">Праздники и события</h4>
+          <p class="text-xs text-text-muted dark:text-slate-400 leading-relaxed">Выпускные, вручение сертификатов, совместные праздники — жизнь школы насыщена яркими моментами</p>
         </div>
       </div>
     </div>
