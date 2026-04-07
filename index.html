@@ -330,31 +330,37 @@
       <p class="text-text-muted dark:text-slate-400 max-w-xl mx-auto">У нас дети не просто учатся — они дружат, растут и с радостью приходят снова. Здесь царит тепло, уважение и настоящая любовь к знаниям</p>
     </div>
 
-    <!-- Gallery: 3 cols, чередование высокая+короткие / короткие+высокая -->
-    <div class="grid grid-cols-3 gap-3 auto-rows-[120px] md:auto-rows-[190px]" data-animate="fade-up" data-delay="100">
+    <!-- Gallery
+         Мобиль (2 кол): блок1=[ВЫСОКАЯ][кор]/[ВЫСОКАЯ][кор], блок2=[кор][ВЫСОКАЯ]/[кор][ВЫСОКАЯ]
+         Десктоп (3 кол): то же + доп. фото (hidden md:block) заполняют 3-ю колонку
+    -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3" style="grid-auto-rows:160px" data-animate="fade-up" data-delay="100">
 
-      <!-- Блок 1: ВЫСОКАЯ слева + 4 коротких справа -->
+      <!-- БЛОК 1: высокая слева -->
       <div class="gallery-img row-span-2 cursor-pointer" onclick="openLightbox('photos/gamidova/photo_05.jpg')">
         <img src="photos/gamidova/photo_05.jpg" alt="Занятия в школе Sharifa" loading="lazy"/>
       </div>
       <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/gamidova/photo_07.jpg')">
         <img src="photos/gamidova/photo_07.jpg" alt="Ученики Sharifa" loading="lazy"/>
       </div>
-      <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/akushinskogo/photo_03.jpeg')">
+      <!-- только десктоп — 3-я колонка -->
+      <div class="gallery-img cursor-pointer hidden md:block" onclick="openLightbox('photos/akushinskogo/photo_03.jpeg')">
         <img src="photos/akushinskogo/photo_03.jpeg" alt="Филиал Sharifa" loading="lazy"/>
       </div>
       <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/akushinskogo/photo_06.jpeg')">
         <img src="photos/akushinskogo/photo_06.jpeg" alt="Класс Sharifa" loading="lazy"/>
       </div>
-      <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/gamidova/photo_10.jpg')">
+      <!-- только десктоп -->
+      <div class="gallery-img cursor-pointer hidden md:block" onclick="openLightbox('photos/gamidova/photo_10.jpg')">
         <img src="photos/gamidova/photo_10.jpg" alt="Обучение Корану" loading="lazy"/>
       </div>
 
-      <!-- Блок 2: 4 коротких слева + ВЫСОКАЯ справа -->
+      <!-- БЛОК 2: высокая справа -->
       <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/reduktorny/photo_08.jpg')">
         <img src="photos/reduktorny/photo_08.jpg" alt="Занятия Sharifa" loading="lazy"/>
       </div>
-      <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/akushinskogo/photo_09.jpeg')">
+      <!-- только десктоп -->
+      <div class="gallery-img cursor-pointer hidden md:block" onclick="openLightbox('photos/akushinskogo/photo_09.jpeg')">
         <img src="photos/akushinskogo/photo_09.jpeg" alt="Ученики Sharifa" loading="lazy"/>
       </div>
       <div class="gallery-img row-span-2 cursor-pointer" onclick="openLightbox('photos/reduktorny/photo_04.jpg')">
@@ -363,7 +369,8 @@
       <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/reduktorny/photo_12.jpg')">
         <img src="photos/reduktorny/photo_12.jpg" alt="Школа Sharifa" loading="lazy"/>
       </div>
-      <div class="gallery-img cursor-pointer" onclick="openLightbox('photos/gamidova/photo_15.jpg')">
+      <!-- только десктоп -->
+      <div class="gallery-img cursor-pointer hidden md:block" onclick="openLightbox('photos/gamidova/photo_15.jpg')">
         <img src="photos/gamidova/photo_15.jpg" alt="Школа Sharifa" loading="lazy"/>
       </div>
 
