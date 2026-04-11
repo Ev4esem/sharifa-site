@@ -18,8 +18,9 @@
   <noscript><div><img src="https://mc.yandex.ru/watch/108495479" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
 
-  <title>Онлайн-обучение Корану | Школа SHARIFA — Занятия через Zoom</title>
-  <meta name="description" content="Изучайте Коран онлайн с учителями-Хафизами школы SHARIFA. Индивидуальные и групповые занятия через Zoom для детей и взрослых из любой точки мира. Бесплатный пробный урок."/>
+  <title>Онлайн школа по изучению Корана SHARIFA | Уроки через Zoom</title>
+  <meta name="description" content="Онлайн школа по изучению Корана SHARIFA. Изучайте Коран онлайн с учителями-Хафизами. Индивидуальные и групповые занятия через Zoom для детей и взрослых из любой точки мира. Бесплатный пробный урок."/>
+  <meta name="keywords" content="онлайн школа корана, онлайн обучение корану, изучение корана онлайн, уроки корана zoom, курсы корана онлайн, таджвид онлайн, шарифа онлайн, коран для детей онлайн, дистанционное обучение корану"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
@@ -27,7 +28,7 @@
   <link rel="canonical" href="https://sharifa.ru/online.html"/>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Онлайн-обучение Корану | Школа SHARIFA — Занятия через Zoom"/>
+  <meta property="og:title" content="Онлайн школа по изучению Корана SHARIFA | Уроки через Zoom"/>
   <meta property="og:description" content="Изучайте Коран онлайн с учителями-Хафизами школы SHARIFA. Индивидуальные и групповые занятия через Zoom для детей и взрослых. Бесплатный пробный урок."/>
   <meta property="og:url" content="https://sharifa.ru/online.html"/>
   <meta property="og:type" content="website"/>
@@ -36,7 +37,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Онлайн-обучение Корану — Школа SHARIFA"/>
+  <meta name="twitter:title" content="Онлайн школа по изучению Корана SHARIFA | Уроки через Zoom"/>
   <meta name="twitter:description" content="Изучайте Коран онлайн с учителями-Хафизами. Занятия через Zoom, гибкое расписание, бесплатный пробный урок."/>
 
   <!-- JSON-LD Schema -->
@@ -366,6 +367,21 @@
       <div>
         <img alt="SHARIFA" class="h-8 w-auto mb-4 brightness-0 invert" src="images/logo.png"/>
         <p class="text-sm max-w-xs leading-relaxed">Сеть школ по изучению Священного Корана.</p>
+        <!-- Соцсети -->
+        <div class="flex gap-3 mt-5">
+          <a href="https://www.instagram.com/sharifa.quran.school/" target="_blank"
+            class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+            <img src="photos/icons/instagram.svg" alt="Instagram" class="w-5 h-5" />
+          </a>
+          <a href="https://t.me/sharifaquranschool" target="_blank"
+            class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+            <img src="photos/icons/telegram.svg" alt="Telegram" class="w-5 h-5" />
+          </a>
+          <a href="https://vk.com/shkolasharifa" target="_blank"
+            class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+            <img src="photos/icons/vk.svg" alt="ВКонтакте" class="w-5 h-5" />
+          </a>
+        </div>
       </div>
       <div class="grid grid-cols-2 gap-8 text-sm">
         <div>
@@ -386,12 +402,32 @@
       </div>
     </div>
     <div class="border-t border-slate-800 mt-10 pt-6 text-sm text-center">
-      © 2024 SHARIFA. Все права защищены.
+      © 2025 SHARIFA. Все права защищены.
     </div>
   </div>
 </footer>
 
 <script>
+  function showTab(tab) {
+    // Hide all content sections
+    document.getElementById('content-formats').classList.add('hidden');
+    document.getElementById('content-process').classList.add('hidden');
+    document.getElementById('content-schedule').classList.add('hidden');
+
+    // Reset all tab buttons
+    document.getElementById('tab-formats').classList.remove('border-primary', 'text-primary');
+    document.getElementById('tab-formats').classList.add('border-transparent', 'text-slate-500');
+    document.getElementById('tab-process').classList.remove('border-primary', 'text-primary');
+    document.getElementById('tab-process').classList.add('border-transparent', 'text-slate-500');
+    document.getElementById('tab-schedule').classList.remove('border-primary', 'text-primary');
+    document.getElementById('tab-schedule').classList.add('border-transparent', 'text-slate-500');
+
+    // Show selected content and activate tab
+    document.getElementById('content-' + tab).classList.remove('hidden');
+    document.getElementById('tab-' + tab).classList.add('border-primary', 'text-primary');
+    document.getElementById('tab-' + tab).classList.remove('border-transparent', 'text-slate-500');
+  }
+
   function formatPhone(input) {
     let raw = input.value.replace(/\D/g, '');
     if (raw.length === 0) { input.value = ''; return; }

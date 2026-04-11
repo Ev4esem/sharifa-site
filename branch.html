@@ -56,6 +56,7 @@
     html { scrollbar-gutter: stable; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
   </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
@@ -100,6 +101,10 @@
     <a href="branches.html" class="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-white/30 transition-colors z-10">
       <span class="material-symbols-outlined text-base">arrow_back</span> Назад
     </a>
+    <!-- Compact donate button for mobile -->
+    <button onclick="openDonateModal()" class="md:hidden absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-white/30 transition-colors z-10">
+      <span class="material-symbols-outlined text-base">volunteer_activism</span> Садака
+    </button>
 
     <!-- Arrows -->
     <button onclick="slideChange(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 backdrop-blur-sm">
@@ -119,7 +124,35 @@
   <!-- Dots -->
   <div class="flex gap-1.5 justify-center py-3 flex-wrap" id="sliderDots"></div>
 
-  <!-- Lightbox -->
+  <!-- Donate Modal -->
+<div id="donateModal" class="fixed inset-0 z-[150] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" onclick="closeDonateModal()">
+  <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl animate-[fadeIn_0.2s_ease-out]" onclick="event.stopPropagation()">
+    <div class="text-center mb-5">
+      <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
+        <span class="material-symbols-outlined text-3xl">volunteer_activism</span>
+      </div>
+      <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">Садака Джария</h3>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        Поддерживая нашу школу, вы получаете <span class="font-semibold text-primary">непрерывную награду (Садака Джария)</span> — пока дети учатся читать Коран, вам записывается благо.
+      </p>
+    </div>
+    <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 mb-5">
+      <p class="text-xs text-slate-500 dark:text-slate-400 text-center leading-relaxed">
+        «Когда человек умирает, его дела прекращаются, кроме трёх: непрерывной милостыни, знания, которым пользуются люди, и праведного ребёнка, который молится за него»
+      </p>
+      <p class="text-xs text-slate-400 dark:text-slate-500 text-center mt-2">— Хадис (Муслим)</p>
+    </div>
+    <a id="donateWhatsApp" href="#" target="_blank" class="w-full text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 transition-colors text-sm mb-3" style="background-color: #25D366;">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Написать в WhatsApp
+    </a>
+    <button onclick="closeDonateModal()" class="w-full text-slate-500 dark:text-slate-400 font-medium py-2 text-sm hover:text-slate-700 dark:hover:text-slate-300 transition-colors">
+      Закрыть
+    </button>
+  </div>
+</div>
+
+<!-- Lightbox -->
   <div id="lightbox" class="fixed inset-0 z-[200] bg-black/95 hidden items-center justify-center" onclick="closeLightbox()">
     <button class="absolute top-5 right-5 text-white bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 flex items-center justify-center transition-colors z-10">
       <span class="material-symbols-outlined">close</span>
@@ -134,7 +167,7 @@
     <p id="lightboxCounter" class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/60 text-sm"></p>
   </div>
 
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 items-start">
     <!-- Left: Schedule + Reviews + Features -->
     <div class="lg:col-span-2 space-y-10">
 
@@ -185,71 +218,22 @@
 
       <!-- Reviews -->
       <section>
-        <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6">Отзывы студентов</h2>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
-            <div class="flex items-center gap-1 mb-3 text-yellow-400">
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-            </div>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Замечательные учителя и уютная атмосфера. Мой сын с удовольствием ходит на занятия каждую неделю.»</p>
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">А</div>
-              <div><p class="font-semibold text-sm">Айгуль М.</p><p class="text-xs text-slate-400">Родитель студента</p></div>
-            </div>
-          </div>
-          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
-            <div class="flex items-center gap-1 mb-3 text-yellow-400">
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-            </div>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Профессиональные преподаватели с огромным терпением. За полгода моя дочь уже выучила несколько сур.»</p>
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-500 font-bold text-sm">З</div>
-              <div><p class="font-semibold text-sm">Зарина К.</p><p class="text-xs text-slate-400">Родитель студентки</p></div>
-            </div>
-          </div>
-          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
-            <div class="flex items-center gap-1 mb-3 text-yellow-400">
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base">star</span>
-            </div>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Очень доволен обучением. Хороший подход к каждому студенту. Рекомендую всем желающим изучить Коран.»</p>
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">Р</div>
-              <div><p class="font-semibold text-sm">Руслан И.</p><p class="text-xs text-slate-400">Студент (взрослые)</p></div>
-            </div>
-          </div>
-          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800">
-            <div class="flex items-center gap-1 mb-3 text-yellow-400">
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-              <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">star</span>
-            </div>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">«Отличный филиал. Удобное расположение, приятная атмосфера и квалифицированные преподаватели.»</p>
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">Ф</div>
-              <div><p class="font-semibold text-sm">Фатима Д.</p><p class="text-xs text-slate-400">Студентка</p></div>
-            </div>
-          </div>
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-200">Отзывы</h2>
+          <a id="reviewButton" href="#" target="_blank" class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-xl font-semibold text-sm hover:bg-primary hover:text-white transition-colors">
+            <img src="photos/icons/yandex.svg" alt="" class="w-4 h-4" />
+            Оставить отзыв
+          </a>
+        </div>
+        <div id="reviewsContainer" class="grid md:grid-cols-2 gap-4">
+          <!-- Reviews will be injected by JS -->
         </div>
       </section>
 
     </div>
 
     <!-- Right: Contact + CTA -->
-    <div class="space-y-6">
+    <div class="space-y-6 lg:self-start">
       <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
         <h3 class="font-bold text-lg mb-4">Адрес и контакты</h3>
         <div class="space-y-4 mb-6">
@@ -273,17 +257,18 @@
         </a>
       </div>
 
-      <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+      <div id="donateBlock" class="hidden md:block bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
             <span class="material-symbols-outlined">volunteer_activism</span>
           </div>
           <h3 class="font-bold text-lg">Поддержите нас</h3>
         </div>
-        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Ваше пожертвование (Садака) поможет развитию нашего филиала и улучшению условий обучения.</p>
-        <button class="w-full bg-primary text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity text-sm">
-          <span class="material-symbols-outlined">favorite</span> Сделать пожертвование
-        </button>
+        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Ваше пожертвование — это <span class="font-semibold text-primary">Садака Джария</span>. Пока дети учатся читать Коран, вам записывается благо.</p>
+        <a id="donateWhatsAppDesktop" href="#" target="_blank" class="w-full bg-primary hover:opacity-90 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-opacity text-sm">
+          <span class="material-symbols-outlined text-lg">chat</span>
+          Написать в WhatsApp
+        </a>
       </div>
 
       <div class="bg-primary p-6 rounded-xl text-white">
@@ -334,6 +319,21 @@
       <div>
         <img alt="SHARIFA" class="h-8 w-auto mb-4 brightness-0 invert" src="images/logo.png"/>
         <p class="text-sm max-w-xs leading-relaxed">Сеть школ по изучению Священного Корана.</p>
+        <!-- Соцсети -->
+        <div class="flex gap-3 mt-5">
+          <a href="https://www.instagram.com/sharifa.quran.school/" target="_blank"
+            class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+            <img src="photos/icons/instagram.svg" alt="Instagram" class="w-5 h-5" />
+          </a>
+          <a href="https://t.me/sharifaquranschool" target="_blank"
+            class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+            <img src="photos/icons/telegram.svg" alt="Telegram" class="w-5 h-5" />
+          </a>
+          <a href="https://vk.com/shkolasharifa" target="_blank"
+            class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+            <img src="photos/icons/vk.svg" alt="ВКонтакте" class="w-5 h-5" />
+          </a>
+        </div>
       </div>
       <div class="grid grid-cols-2 gap-8 text-sm">
         <div>
@@ -355,7 +355,7 @@
       </div>
     </div>
     <div class="border-t border-slate-800 mt-10 pt-6 text-sm text-center">
-      © 2024 SHARIFA. Все права защищены.
+      © 2025 SHARIFA. Все права защищены.
     </div>
   </div>
 </footer>
@@ -363,25 +363,39 @@
 <script>
   /* ── Branch data ── */
   const BRANCHES = {
-    akushinskogo: {
-      title: 'Филиал Акушинского',
-      address: 'ул. 5-я Линия Акушинского, 25, Махачкала',
-      phone: '+79289999309',
-      phoneDisplay: '+7 (928) 999-93-09',
-      mapsUrl: 'https://yandex.ru/maps/?text=ул.+5-я+Линия+Акушинского,+25,+Махачкала&mode=routes',
-      photosDir: 'photos/akushinskogo/',
-      photoCount: 19,
-      photoExt: 'jpeg'
-    },
     gamidova: {
       title: 'Филиал Гамидова',
       address: 'просп. Гамидова, 22Б, Махачкала',
       phone: '+79884241515',
       phoneDisplay: '+7 (988) 424-15-15',
       mapsUrl: 'https://yandex.ru/maps/?text=просп.+Гамидова,+22Б,+Махачкала&mode=routes',
+      yandexReviewUrl: 'https://yandex.com/maps/-/CPr04Ojv',
       photosDir: 'photos/gamidova/',
       photoCount: 18,
-      photoExt: 'jpg'
+      photoExt: 'jpg',
+      reviews: [
+        { name: 'Асия Алиева', text: 'Преподаватели здесь настоящие профессионалы, которые с искренним теплом и вниманием подходят к каждому ребенку. Я очень благодарна школе за вклад в духовное развитие моего ребенка!', photos: ['photos/reviews/reviews_1.webp', 'photos/reviews/reviews_2.webp', 'photos/reviews/reviews_3.webp'] },
+        { name: 'Зухра Р.', text: 'В школу Корана Шарифа дети ходят с удовольствием. Нравится подход и подача материала, всё в легкой, но при этом доступной форме. Созданы условия для получения знаний.' },
+        { name: 'farida b.', text: 'Это прекрасное место, очень рада что дети смогли попасть в эту школу. Обучение, а также воспитание на высшем уровне. Больше всего нравится что проводится коллективная молитва.' },
+        { name: 'Хамза', text: 'Очень хорошая школа и преподавательский состав! С уверенностью можете доверить этим людям своих детей.', photos: ['photos/reviews/reviews_6.webp'] }
+      ]
+    },
+    akushinskogo: {
+      title: 'Филиал Акушинского',
+      address: 'ул. 5-я Линия Акушинского, 25, Махачкала',
+      phone: '+79289999309',
+      phoneDisplay: '+7 (928) 999-93-09',
+      mapsUrl: 'https://yandex.ru/maps/?text=ул.+5-я+Линия+Акушинского,+25,+Махачкала&mode=routes',
+      yandexReviewUrl: 'https://yandex.com/maps/-/CPr0aM1Y',
+      photosDir: 'photos/akushinskogo/',
+      photoCount: 19,
+      photoExt: 'jpeg',
+      reviews: [
+        { name: 'Индира Муслимова', text: 'Шикарное место для деток. Тут человек получает духовное облегчение, улучшает связь со Всевышним. А самое главное, учится читать Коран. Что может быть прекраснее этого?' },
+        { name: 'Залина И.', text: 'Очень нравится ваша школа! Двое моих детей ходили. За пару месяцев научились читать Коран. Дочка и дальше продолжает обучение, ни за что не хочет уходить.' },
+        { name: 'Хамза Ахмедов', text: 'Хочу выразить благодарность всему составу школы! Они активно вовлекают детей в учебный процесс, с большой радостью посещаем школу Шарифа.' },
+        { name: 'Рукият Рабаданова', text: 'Отличная школа для детей. Удобный график, условия для детей и родителей, учителя и подход к детям очень гибкий. Дети с удовольствием идут на уроки.' }
+      ]
     },
     petra: {
       title: 'Филиал Петра I',
@@ -389,9 +403,16 @@
       phone: '+79884241515',
       phoneDisplay: '+7 (988) 424-15-15',
       mapsUrl: 'https://yandex.ru/maps/?text=просп.+Петра+I,+107,+Махачкала&mode=routes',
+      yandexReviewUrl: 'https://yandex.com/maps/-/CPr0iKNS',
       photosDir: 'photos/reduktorny/',
       photoCount: 35,
-      photoExt: 'jpg'
+      photoExt: 'jpg',
+      reviews: [
+        { name: 'Шамиль М.', text: 'Отличная школа, всем советую! Учителя на высшем уровне. Мальчик очень доволен, каждый день идет туда с большим желанием.' },
+        { name: 'Написат Халикова', text: 'Очень хорошая школа. Хорошие результаты у ребенка, хотя ходим недолго. Учителя очень хорошие, мотивируют детей к учебе.' },
+        { name: 'Эльвира Магомедова', text: 'Школа Sharifa — самое выгодное вложение для наших детей! Атмосфера школы, преподаватели, подход, внимание к детям — это бесценно.' },
+        { name: 'Гаджимурад Магомедов', text: 'Лучшая школа по Корану для детей. Очень хорошие преподаватели. Мы очень довольны результатами. Всем советую.' }
+      ]
     },
     kaspiysk: {
       title: 'Филиал Каспийск',
@@ -399,9 +420,16 @@
       phone: '+79882105105',
       phoneDisplay: '+7 (988) 210-51-05',
       mapsUrl: 'https://yandex.ru/maps/?text=Махачкалинская,+106,+Каспийск&mode=routes',
+      yandexReviewUrl: 'https://yandex.com/maps/-/CPr0aS2J',
       photosDir: null,
       photoCount: 0,
-      photoExt: 'jpg'
+      photoExt: 'jpg',
+      reviews: [
+        { name: 'Асия Алиева', text: 'Преподаватели здесь настоящие профессионалы, которые с искренним теплом и вниманием подходят к каждому ребенку. Занятия проходят интересно и разнообразно.', photos: ['photos/reviews/reviews_4.webp', 'photos/reviews/reviews_5.webp'] },
+        { name: 'Индира Муслимова', text: 'Шикарное место для деток и не только. Тут человек получает духовное облегчение, улучшает связь со Всевышним. А самое главное, учится читать Коран.' },
+        { name: 'Залина И.', text: 'Очень нравится ваша школа! За пару месяцев дети научились читать Коран. Прекрасные преподаватели, отличный руководитель. Желаем вам процветания!' },
+        { name: 'Хамза', text: 'Очень хорошая школа и преподавательский состав! С уверенностью можете доверить этим людям своих детей.', photos: ['photos/reviews/reviews_6.webp'] }
+      ]
     }
   };
 
@@ -462,6 +490,33 @@
   phoneEl.textContent = branch.phoneDisplay;
   phoneEl.href = 'tel:' + branch.phone;
   document.getElementById('mapsLink').href = branch.mapsUrl;
+
+  // Set review button link
+  document.getElementById('reviewButton').href = branch.yandexReviewUrl || '#';
+
+  // Render reviews
+  const reviewsContainer = document.getElementById('reviewsContainer');
+  if (branch.reviews && branch.reviews.length > 0) {
+    branch.reviews.forEach(review => {
+      const div = document.createElement('div');
+      div.className = 'bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-100 dark:border-slate-800';
+
+      let photosHtml = '';
+      if (review.photos && review.photos.length > 0) {
+        photosHtml = '<div class="flex gap-1.5 mb-3 overflow-x-auto no-scrollbar">' +
+          review.photos.map(p => '<img src="' + p + '" alt="" class="w-14 h-14 rounded-lg object-cover flex-shrink-0" />').join('') +
+          '</div>';
+      }
+
+      div.innerHTML =
+        '<div class="flex gap-1 mb-3"><span class="text-yellow-400">★★★★★</span></div>' +
+        '<p class="text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">«' + review.text + '»</p>' +
+        photosHtml +
+        '<p class="font-semibold text-sm">' + review.name + '</p>';
+
+      reviewsContainer.appendChild(div);
+    });
+  }
 
   // Build slides
   const slidesContainer = document.getElementById('slidesContainer');
@@ -593,6 +648,27 @@
     }
   }
   function phoneValid(val) { return val.replace(/\D/g, '').length === 11; }
+
+  /* ── Donate modal ── */
+  function openDonateModal() {
+    const modal = document.getElementById('donateModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDonateModal() {
+    const modal = document.getElementById('donateModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  // Set WhatsApp links for donate
+  const donatePhone = branch.phone.replace('+', '');
+  const donateMsg = encodeURIComponent('Ассаламу алейкум! Хочу сделать пожертвование (Садака) для филиала ' + branch.title);
+  const donateUrl = 'https://wa.me/' + donatePhone + '?text=' + donateMsg;
+  document.getElementById('donateWhatsApp').href = donateUrl;
+  document.getElementById('donateWhatsAppDesktop').href = donateUrl;
 
   /* ── Mobile menu ── */
   function openMobileMenu() {
