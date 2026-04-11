@@ -124,35 +124,7 @@
   <!-- Dots -->
   <div class="flex gap-1.5 justify-center py-3 flex-wrap" id="sliderDots"></div>
 
-  <!-- Donate Modal -->
-<div id="donateModal" class="fixed inset-0 z-[300] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" onclick="closeDonateModal()">
-  <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl animate-[fadeIn_0.2s_ease-out]" onclick="event.stopPropagation()">
-    <div class="text-center mb-5">
-      <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
-        <span class="material-symbols-outlined text-3xl">volunteer_activism</span>
-      </div>
-      <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">Садака Джария</h3>
-      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-        Поддерживая нашу школу, вы получаете <span class="font-semibold text-primary">непрерывную награду (Садака Джария)</span> — пока дети учатся читать Коран, вам записывается благо.
-      </p>
-    </div>
-    <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 mb-5">
-      <p class="text-xs text-slate-500 dark:text-slate-400 text-center leading-relaxed">
-        «Когда человек умирает, его дела прекращаются, кроме трёх: непрерывной милостыни, знания, которым пользуются люди, и праведного ребёнка, который молится за него»
-      </p>
-      <p class="text-xs text-slate-400 dark:text-slate-500 text-center mt-2">— Хадис (Муслим)</p>
-    </div>
-    <a id="donateWhatsApp" href="#" target="_blank" class="w-full bg-primary hover:opacity-90 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 transition-opacity text-sm mb-3">
-      <span class="material-symbols-outlined text-lg">chat</span>
-      Написать в WhatsApp
-    </a>
-    <button onclick="closeDonateModal()" class="w-full text-slate-500 dark:text-slate-400 font-medium py-2 text-sm hover:text-slate-700 dark:hover:text-slate-300 transition-colors">
-      Закрыть
-    </button>
-  </div>
-</div>
-
-<!-- Lightbox -->
+  <!-- Lightbox -->
   <div id="lightbox" class="fixed inset-0 z-[200] bg-black/95 hidden items-center justify-center" onclick="closeLightbox()">
     <button class="absolute top-5 right-5 text-white bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 flex items-center justify-center transition-colors z-10">
       <span class="material-symbols-outlined">close</span>
@@ -736,5 +708,34 @@
     document.getElementById('formSuccess').classList.remove('hidden');
   }
 </script>
+
+<!-- Donate Modal -->
+<div id="donateModal" class="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" onclick="closeDonateModal()">
+  <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl animate-[fadeIn_0.2s_ease-out]" onclick="event.stopPropagation()">
+    <div class="text-center mb-5">
+      <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
+        <span class="material-symbols-outlined text-3xl">volunteer_activism</span>
+      </div>
+      <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">Садака Джария</h3>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        Поддерживая нашу школу, вы получаете <span class="font-semibold text-primary">непрерывную награду (Садака Джария)</span> — пока дети учатся читать Коран, вам записывается благо.
+      </p>
+    </div>
+    <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 mb-5">
+      <p class="text-xs text-slate-500 dark:text-slate-400 text-center leading-relaxed">
+        «Когда человек умирает, его дела прекращаются, кроме трёх: непрерывной милостыни, знания, которым пользуются люди, и праведного ребёнка, который молится за него»
+      </p>
+      <p class="text-xs text-slate-400 dark:text-slate-500 text-center mt-2">— Хадис (Муслим)</p>
+    </div>
+    <a id="donateWhatsApp" href="#" target="_blank" class="w-full bg-primary hover:opacity-90 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 transition-opacity text-sm mb-3">
+      <span class="material-symbols-outlined text-lg">chat</span>
+      Написать в WhatsApp
+    </a>
+    <button onclick="closeDonateModal()" class="w-full text-slate-500 dark:text-slate-400 font-medium py-2 text-sm hover:text-slate-700 dark:hover:text-slate-300 transition-colors">
+      Закрыть
+    </button>
+  </div>
+</div>
+
 </body>
 </html>
