@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="light" lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){
+          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108495479', 'ym');
+
+      ym(108495479, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108495479" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <title>Наши выпускники | SHARIFA — Школа Корана</title>
+  <meta name="description" content="Список учеников школы SHARIFA, которые научились читать Коран. Более 2000 выпускников." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="canonical" href="https://sharifa.ru/graduates.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    header { transition: box-shadow 0.3s ease; }
+    header.scrolled { box-shadow: 0 4px 24px rgba(50, 76, 105, 0.10); }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 font-display">
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenu"
+    class="fixed inset-0 z-[100] bg-background-dark/95 hidden flex-col items-center justify-center text-white text-xl font-bold gap-8 text-center">
+    <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-white">
+      <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+    <a href="index.html" class="hover:text-accent-light transition-colors">Главная</a>
+    <a href="branches.html" class="hover:text-accent-light transition-colors">Филиалы</a>
+    <a href="online.html" class="hover:text-accent-light transition-colors">Онлайн-обучение</a>
+    <a href="contacts.html" class="hover:text-accent-light transition-colors">Контакты</a>
+  </div>
+
+  <!-- Header -->
+  <header
+    class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 px-6 py-4 bg-white dark:bg-slate-900 sticky top-0 z-50">
+    <a href="index.html" class="flex items-center gap-3">
+      <img alt="SHARIFA" class="h-8 w-auto" src="images/logo-text.png" />
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-text-muted dark:text-slate-400">
+      <a href="index.html" class="hover:text-primary transition-colors">Главная</a>
+      <a href="branches.html" class="hover:text-primary transition-colors">Филиалы</a>
+      <a href="online.html" class="hover:text-primary transition-colors">Онлайн</a>
+      <a href="contacts.html" class="hover:text-primary transition-colors">Контакты</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="index.html#apply"
+        class="hidden md:inline-flex bg-primary text-white px-5 py-2 rounded-xl text-sm font-bold hover:opacity-90 transition-opacity">Записаться</a>
+      <button onclick="openMobileMenu()" class="md:hidden flex items-center justify-center p-2 text-primary">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="px-6 py-12 max-w-7xl mx-auto">
+
+    <!-- Заголовок -->
+    <div class="text-center mb-10">
+      <a href="index.html" class="inline-flex items-center gap-2 text-sm text-text-muted dark:text-slate-400 hover:text-primary mb-4">
+        <span class="material-symbols-outlined text-base">arrow_back</span>
+        Вернуться на главную
+      </a>
+      <h1 class="text-4xl font-extrabold tracking-tight mb-3">Наши выпускники</h1>
+      <p class="text-text-muted dark:text-slate-400 mb-2">Ученики, которые научились читать Коран в школе SHARIFA</p>
+      <p id="totalCount" class="text-primary font-bold text-xl"></p>
+    </div>
+
+    <!-- Фильтры -->
+    <div class="flex flex-wrap gap-4 mb-8 justify-center">
+      <select id="branchFilter" onchange="resetAndLoad()"
+        class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 min-w-[180px]">
+        <option value="">Все филиалы</option>
+        <option value="Акушинского">Акушинского</option>
+        <option value="Гамидова">Гамидова</option>
+        <option value="Редукторный">Редукторный</option>
+      </select>
+      <div class="relative">
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+        <input type="text" id="searchInput" placeholder="Поиск по имени..." oninput="debounceSearch()"
+          class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-12 pr-5 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 w-64">
+      </div>
+    </div>
+
+    <!-- Таблица -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden">
+      <div id="tableWrap" class="overflow-x-auto">
+        <div class="text-center py-16 text-slate-400">
+          <span class="material-symbols-outlined text-5xl block mb-2 animate-pulse">school</span>
+          <p class="text-sm">Загрузка данных...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Пагинация -->
+    <div id="pagination" class="flex justify-center gap-2 mt-8"></div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-background-dark text-white py-10 px-6 mt-16">
+    <div class="max-w-7xl mx-auto text-center">
+      <img src="images/logo-full.png" alt="SHARIFA" class="h-16 mx-auto mb-4 opacity-80" />
+      <p class="text-slate-400 text-sm">SHARIFA — Школа Корана в Махачкале и Каспийске</p>
+      <div class="border-t border-slate-800 mt-6 pt-6 text-sm">
+        &copy; 2025 SHARIFA. Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Mobile menu ── */
+    function openMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('hidden');
+      document.getElementById('mobileMenu').classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.add('hidden');
+      document.getElementById('mobileMenu').classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    /* ── Graduates ── */
+    let currentPage = 1;
+    const limit = 50;
+    let searchTimeout;
+
+    function debounceSearch() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        currentPage = 1;
+        loadGraduates();
+      }, 300);
+    }
+
+    function resetAndLoad() {
+      currentPage = 1;
+      loadGraduates();
+    }
+
+    async function loadGraduates() {
+      const branch = document.getElementById('branchFilter').value;
+      const search = document.getElementById('searchInput').value;
+
+      const params = new URLSearchParams({ page: currentPage, limit });
+      if (branch) params.append('branch', branch);
+      if (search) params.append('search', search);
+
+      try {
+        const res = await fetch(`/api/students.php?${params}`);
+        const data = await res.json();
+
+        if (data.success) {
+          renderTable(data.data, data.total, data.pages);
+        } else {
+          showError('Ошибка загрузки данных');
+        }
+      } catch (err) {
+        showError('Не удалось подключиться к серверу');
+      }
+    }
+
+    function renderTable(students, total, pages) {
+      document.getElementById('totalCount').textContent = `${total} выпускников`;
+
+      if (students.length === 0) {
+        document.getElementById('tableWrap').innerHTML = `
+          <div class="text-center py-16 text-slate-400">
+            <span class="material-symbols-outlined text-5xl block mb-2">search_off</span>
+            <p class="text-sm">Ученики не найдены</p>
+          </div>`;
+        document.getElementById('pagination').innerHTML = '';
+        return;
+      }
+
+      const rows = students.map((s, i) => `
+        <tr class="border-b border-slate-50 dark:border-slate-700 last:border-0 hover:bg-slate-50/50 dark:hover:bg-slate-700/30">
+          <td class="px-6 py-4 text-sm text-slate-400 w-16">${(currentPage - 1) * limit + i + 1}</td>
+          <td class="px-6 py-4 text-sm font-medium text-text-main dark:text-white">${escapeHtml(s.name)}</td>
+          <td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400 w-28">${s.birth_year || '—'}</td>
+          <td class="px-6 py-4 text-sm w-40">
+            <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">${escapeHtml(s.branch)}</span>
+          </td>
+        </tr>
+      `).join('');
+
+      document.getElementById('tableWrap').innerHTML = `
+        <table class="w-full">
+          <thead>
+            <tr class="bg-slate-50 dark:bg-slate-700/50 border-b border-slate-100 dark:border-slate-700">
+              <th class="px-6 py-4 text-left text-xs font-semibold text-slate-400 uppercase tracking-wide">№</th>
+              <th class="px-6 py-4 text-left text-xs font-semibold text-slate-400 uppercase tracking-wide">Имя ученика</th>
+              <th class="px-6 py-4 text-left text-xs font-semibold text-slate-400 uppercase tracking-wide">Год рождения</th>
+              <th class="px-6 py-4 text-left text-xs font-semibold text-slate-400 uppercase tracking-wide">Филиал</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>`;
+
+      // Пагинация
+      renderPagination(pages);
+    }
+
+    function renderPagination(pages) {
+      if (pages <= 1) {
+        document.getElementById('pagination').innerHTML = '';
+        return;
+      }
+
+      let html = '';
+
+      // Кнопка "Назад"
+      if (currentPage > 1) {
+        html += `<button onclick="goToPage(${currentPage - 1})" class="w-10 h-10 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 hover:bg-slate-100 flex items-center justify-center">
+          <span class="material-symbols-outlined text-lg">chevron_left</span>
+        </button>`;
+      }
+
+      // Номера страниц
+      const start = Math.max(1, currentPage - 2);
+      const end = Math.min(pages, currentPage + 2);
+
+      if (start > 1) {
+        html += `<button onclick="goToPage(1)" class="w-10 h-10 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 hover:bg-slate-100 text-sm font-medium">1</button>`;
+        if (start > 2) html += `<span class="text-slate-400 px-2">...</span>`;
+      }
+
+      for (let p = start; p <= end; p++) {
+        const active = p === currentPage
+          ? 'bg-primary text-white border-primary'
+          : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-100';
+        html += `<button onclick="goToPage(${p})" class="w-10 h-10 rounded-lg border ${active} text-sm font-medium">${p}</button>`;
+      }
+
+      if (end < pages) {
+        if (end < pages - 1) html += `<span class="text-slate-400 px-2">...</span>`;
+        html += `<button onclick="goToPage(${pages})" class="w-10 h-10 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 hover:bg-slate-100 text-sm font-medium">${pages}</button>`;
+      }
+
+      // Кнопка "Вперёд"
+      if (currentPage < pages) {
+        html += `<button onclick="goToPage(${currentPage + 1})" class="w-10 h-10 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 hover:bg-slate-100 flex items-center justify-center">
+          <span class="material-symbols-outlined text-lg">chevron_right</span>
+        </button>`;
+      }
+
+      document.getElementById('pagination').innerHTML = html;
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      loadGraduates();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showError(msg) {
+      document.getElementById('tableWrap').innerHTML = `
+        <div class="text-center py-16 text-red-400">
+          <span class="material-symbols-outlined text-5xl block mb-2">error</span>
+          <p class="text-sm">${msg}</p>
+        </div>`;
+      document.getElementById('pagination').innerHTML = '';
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Загрузить при старте
+    document.addEventListener('DOMContentLoaded', loadGraduates);
+  </script>
+
+</body>
+</html>
