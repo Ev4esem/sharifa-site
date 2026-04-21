@@ -75,14 +75,16 @@
   <main class="px-6 py-12 max-w-7xl mx-auto">
 
     <!-- Заголовок -->
-    <div class="text-center mb-10">
+    <div class="mb-10">
       <a href="index.html" class="inline-flex items-center gap-2 text-sm text-text-muted dark:text-slate-400 hover:text-primary mb-4">
         <span class="material-symbols-outlined text-base">arrow_back</span>
         Вернуться на главную
       </a>
-      <h1 class="text-4xl font-extrabold tracking-tight mb-3">Наши выпускники</h1>
-      <p class="text-text-muted dark:text-slate-400 mb-2">Ученики, которые научились читать Коран в школе SHARIFA</p>
-      <p id="totalCount" class="text-primary font-bold text-xl"></p>
+      <div class="text-center">
+        <h1 class="text-4xl font-extrabold tracking-tight mb-3">Наши выпускники</h1>
+        <p class="text-text-muted dark:text-slate-400 mb-2">Ученики, которые научились читать Коран в школе SHARIFA</p>
+        <p id="totalCount" class="text-primary font-bold text-xl"></p>
+      </div>
     </div>
 
     <!-- Фильтры -->
@@ -93,11 +95,12 @@
         <option value="Акушинского">Акушинского</option>
         <option value="Гамидова">Гамидова</option>
         <option value="Редукторный">Редукторный</option>
+        <option value="Петра I">Петра I</option>
       </select>
       <div class="relative">
-        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl pointer-events-none">search</span>
         <input type="text" id="searchInput" placeholder="Поиск по имени..." oninput="debounceSearch()"
-          class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-12 pr-5 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 w-64">
+          class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-14 pr-5 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 w-64">
       </div>
     </div>
 
