@@ -88,20 +88,26 @@
     </div>
 
     <!-- Фильтры -->
-    <div class="flex flex-wrap gap-4 mb-8 justify-center">
-      <div class="relative">
+    <div class="flex gap-3 mb-8">
+      <!-- Поиск на всю ширину -->
+      <div class="relative flex-1">
+        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Поиск по имени..." oninput="debounceSearch()"
+          class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-12 pr-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30">
+      </div>
+      <!-- Фильтр филиала -->
+      <div class="relative flex-shrink-0">
         <select id="branchFilter" onchange="resetAndLoad()"
-          class="appearance-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-4 pr-10 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 min-w-[180px] cursor-pointer">
+          class="appearance-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-4 pr-10 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 cursor-pointer">
           <option value="">Все филиалы</option>
           <option value="Акушинского">Акушинского</option>
           <option value="Петра I">Петра I</option>
         </select>
-        <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xl">expand_more</span>
-      </div>
-      <div class="relative">
-        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xl">search</span>
-        <input type="text" id="searchInput" placeholder="Поиск по имени..." oninput="debounceSearch()"
-          class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-10 pr-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 w-56">
+        <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
       </div>
     </div>
 
