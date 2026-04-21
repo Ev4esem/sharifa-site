@@ -1432,9 +1432,12 @@
       document.getElementById('appModal').classList.remove('flex');
       document.body.style.overflow = '';
     }
-    document.getElementById('appModal').addEventListener('click', function(e) {
-      if (e.target === this) closeAppModal();
-    });
+    const appModalEl = document.getElementById('appModal');
+    if (appModalEl) {
+      appModalEl.addEventListener('click', function(e) {
+        if (e.target === this) closeAppModal();
+      });
+    }
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
