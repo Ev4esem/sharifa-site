@@ -89,16 +89,19 @@
 
     <!-- Фильтры -->
     <div class="flex flex-wrap gap-4 mb-8 justify-center">
-      <select id="branchFilter" onchange="resetAndLoad()"
-        class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 min-w-[180px]">
-        <option value="">Все филиалы</option>
-        <option value="Акушинского">Акушинского</option>
-        <option value="Петра I">Петра I</option>
-      </select>
       <div class="relative">
-        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" style="font-size: 20px;">search</span>
-        <input type="text" id="searchInput" placeholder="Поиск..." oninput="debounceSearch()"
-          class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-12 pr-5 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 w-52">
+        <select id="branchFilter" onchange="resetAndLoad()"
+          class="appearance-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-4 pr-10 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 min-w-[180px] cursor-pointer">
+          <option value="">Все филиалы</option>
+          <option value="Акушинского">Акушинского</option>
+          <option value="Петра I">Петра I</option>
+        </select>
+        <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xl">expand_more</span>
+      </div>
+      <div class="relative">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xl">search</span>
+        <input type="text" id="searchInput" placeholder="Поиск по имени..." oninput="debounceSearch()"
+          class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-10 pr-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/30 w-56">
       </div>
     </div>
 
