@@ -1026,18 +1026,29 @@
         <p id="graduatesTotalCount" class="text-primary font-bold mt-2"></p>
       </div>
 
-      <!-- Список из 10 учеников -->
-      <div id="graduatesPreview" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8" data-animate="fade-up" data-delay="100">
-        <!-- Заполняется через JS -->
+      <!-- Фото выпускников -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" data-animate="fade-up" data-delay="100">
+        <img src="photos/graduates-1.jpg" alt="Выпускники SHARIFA" class="w-full h-48 md:h-56 object-cover rounded-2xl shadow-lg">
+        <img src="photos/graduates-2.jpg" alt="Выпускники SHARIFA" class="w-full h-48 md:h-56 object-cover rounded-2xl shadow-lg">
+        <img src="photos/graduates-3.jpg" alt="Выпускники SHARIFA" class="w-full h-48 md:h-56 object-cover rounded-2xl shadow-lg">
+        <img src="photos/graduates-4.jpg" alt="Выпускники SHARIFA" class="w-full h-48 md:h-56 object-cover rounded-2xl shadow-lg">
       </div>
 
-      <!-- Кнопка "Посмотреть всех" -->
-      <div class="text-center" data-animate="fade-up" data-delay="200">
-        <a href="graduates.html"
-          class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform">
-          <span class="material-symbols-outlined">groups</span>
-          Посмотреть всех выпускников
-        </a>
+      <!-- Список выпускников с градиентом -->
+      <div class="relative bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden" data-animate="fade-up" data-delay="200">
+        <div id="graduatesPreview" class="p-6 pb-20">
+          <!-- Заполняется через JS -->
+        </div>
+        <!-- Градиент снизу -->
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white dark:from-slate-800 via-white/90 dark:via-slate-800/90 to-transparent pointer-events-none"></div>
+        <!-- Кнопка поверх градиента -->
+        <div class="absolute bottom-4 left-0 right-0 text-center">
+          <a href="graduates.html"
+            class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg">
+            <span class="material-symbols-outlined">groups</span>
+            Посмотреть всех выпускников
+          </a>
+        </div>
       </div>
     </section>
 
@@ -1428,31 +1439,34 @@
         const data = await res.json();
 
         if (data.success) {
-          document.getElementById('graduatesTotalCount').textContent = `Всего: ${data.total} выпускников`;
+          document.getElementById('graduatesTotalCount').textContent = `${data.total} выпускников`;
 
           if (data.data.length === 0) {
             document.getElementById('graduatesPreview').innerHTML = `
-              <div class="col-span-full text-center py-8 text-slate-400">
+              <div class="text-center py-8 text-slate-400">
                 <p class="text-sm">Данные загружаются...</p>
               </div>`;
             return;
           }
 
-          const cards = data.data.map(s => `
-            <div class="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-100 dark:border-slate-700 text-center">
-              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span class="material-symbols-outlined text-primary">person</span>
+          const rows = data.data.map((s, i) => `
+            <div class="flex items-center gap-4 py-3 ${i < data.data.length - 1 ? 'border-b border-slate-100 dark:border-slate-700' : ''}">
+              <span class="text-slate-400 text-sm w-6">${i + 1}</span>
+              <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-primary text-lg">person</span>
               </div>
-              <p class="font-semibold text-sm text-text-main dark:text-white truncate">${escapeHtml(s.name)}</p>
-              <p class="text-xs text-text-muted dark:text-slate-400 mt-1">${escapeHtml(s.branch)}</p>
+              <div class="flex-1 min-w-0">
+                <p class="font-semibold text-text-main dark:text-white truncate">${escapeHtml(s.name)}</p>
+                <p class="text-xs text-text-muted dark:text-slate-400">${escapeHtml(s.branch)}</p>
+              </div>
             </div>
           `).join('');
 
-          document.getElementById('graduatesPreview').innerHTML = cards;
+          document.getElementById('graduatesPreview').innerHTML = rows;
         }
       } catch (err) {
         document.getElementById('graduatesPreview').innerHTML = `
-          <div class="col-span-full text-center py-8 text-slate-400">
+          <div class="text-center py-8 text-slate-400">
             <p class="text-sm">Не удалось загрузить данные</p>
           </div>`;
       }
