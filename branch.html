@@ -635,12 +635,13 @@
     document.body.style.overflow = '';
   }
 
-  // Set WhatsApp links for donate (фиксированный номер для садака)
+  // Set WhatsApp link for desktop donate button
   const donatePhone = '79884241515';
   const donateMsg = encodeURIComponent('Ассаламу алейкум! Хочу сделать пожертвование (Садака) для филиала ' + branch.title);
   const donateUrl = 'https://wa.me/' + donatePhone + '?text=' + donateMsg;
-  document.getElementById('donateWhatsApp').href = donateUrl;
   document.getElementById('donateWhatsAppDesktop').href = donateUrl;
+  // Mobile modal link is set after modal loads (see script at end of file)
+  window.donateUrl = donateUrl;
 
   /* ── Mobile menu ── */
   function openMobileMenu() {
@@ -736,6 +737,11 @@
     </button>
   </div>
 </div>
+
+<script>
+  // Set WhatsApp link for mobile donate modal (after modal is loaded)
+  document.getElementById('donateWhatsApp').href = window.donateUrl;
+</script>
 
 </body>
 </html>
