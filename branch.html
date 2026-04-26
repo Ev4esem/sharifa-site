@@ -635,8 +635,8 @@
     document.body.style.overflow = '';
   }
 
-  // Set WhatsApp links for donate
-  const donatePhone = branch.phone.replace('+', '');
+  // Set WhatsApp links for donate (фиксированный номер для садака)
+  const donatePhone = '79884241515';
   const donateMsg = encodeURIComponent('Ассаламу алейкум! Хочу сделать пожертвование (Садака) для филиала ' + branch.title);
   const donateUrl = 'https://wa.me/' + donatePhone + '?text=' + donateMsg;
   document.getElementById('donateWhatsApp').href = donateUrl;
