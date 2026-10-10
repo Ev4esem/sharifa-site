@@ -32,7 +32,20 @@ jobs:
             cp -- "$file" "deploy/$file"
           done < <(git ls-files -z)
 
+      - name: Check deployment secret
+        id: credentials
+        env:
+          BEGET_SSH_PASSWORD: ${{ secrets.BEGET_SSH_PASSWORD }}
+        run: |
+          if [[ -z "$BEGET_SSH_PASSWORD" ]]; then
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "Deployment skipped: add the BEGET_SSH_PASSWORD repository secret." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Upload website over SSH
+        if: steps.credentials.outputs.present == 'true'
         uses: appleboy/scp-action@v1
         with:
           host: marzhane.beget.tech
