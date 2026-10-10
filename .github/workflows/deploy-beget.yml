@@ -1,0 +1,44 @@
+name: Deploy to Beget
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: beget-production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare website files
+        shell: bash
+        run: |
+          mkdir -p deploy
+          while IFS= read -r -d '' file; do
+            case "$file" in
+              CLAUDE.md|.DS_Store|*/.DS_Store) continue ;;
+            esac
+            mkdir -p "deploy/$(dirname "$file")"
+            cp -- "$file" "deploy/$file"
+          done < <(git ls-files -z)
+
+      - name: Upload website over SSH
+        uses: appleboy/scp-action@v1
+        with:
+          host: marzhane.beget.tech
+          username: marzhane_sharifa
+          password: ${{ secrets.BEGET_SSH_PASSWORD }}
+          port: 22
+          source: deploy/**
+          target: .
+          strip_components: 1
