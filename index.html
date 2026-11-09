@@ -985,7 +985,6 @@
       <div class="text-center mb-10" data-animate="fade-up">
         <h2 class="text-3xl font-extrabold tracking-tight mb-2">Наши выпускники</h2>
         <p class="text-text-muted dark:text-slate-400">Ученики, которые научились читать Коран в нашей школе</p>
-        <p id="graduatesTotalCount" class="text-primary font-bold mt-2"></p>
       </div>
 
       <!-- Фото выпускников -->
@@ -1002,29 +1001,6 @@
         <div class="aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
           <img src="photos/graduates-4.jpg" alt="Выпускники НАСЛЕДИЕ" class="w-full h-full object-cover">
         </div>
-      </div>
-
-      <!-- Список выпускников с градиентом -->
-      <div class="relative" data-animate="fade-up" data-delay="200">
-        <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
-          <div id="graduatesPreview" class="p-6 pb-8 max-h-[420px] overflow-hidden">
-            <div class="text-center py-8 text-slate-400">
-              <span class="material-symbols-outlined text-4xl mb-2 block animate-pulse">hourglass_empty</span>
-              <p class="text-sm">Загрузка списка выпускников...</p>
-            </div>
-          </div>
-        </div>
-        <!-- Градиент снизу -->
-        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white dark:from-slate-800 to-transparent pointer-events-none rounded-b-2xl"></div>
-      </div>
-
-      <!-- Кнопка отдельно -->
-      <div class="text-center mt-6" data-animate="fade-up" data-delay="300">
-        <a href="graduates.html"
-          class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg">
-          <span class="material-symbols-outlined">groups</span>
-          Посмотреть всех выпускников
-        </a>
       </div>
     </section>
 
@@ -1387,46 +1363,6 @@
         closeLightbox();
       }
     });
-
-    /* ── Graduates Preview (10 учеников на главной) ── */
-    async function loadGraduatesPreview() {
-      try {
-        const res = await fetch('/api/students.php?limit=10');
-        const data = await res.json();
-        console.log('API ответ:', data);
-
-        if (data.success && data.data && data.data.length > 0) {
-          document.getElementById('graduatesTotalCount').textContent = `${data.total} выпускников`;
-
-          // Берём только первые 10 записей
-          const students = data.data.slice(0, 10);
-
-          const rows = students.map((s, i) => `
-            <div class="flex items-center gap-4 py-3 ${i < students.length - 1 ? 'border-b border-slate-100 dark:border-slate-700' : ''}">
-              <span class="text-slate-400 text-sm w-6">${i + 1}</span>
-              <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                <span class="material-symbols-outlined text-primary text-lg">person</span>
-              </div>
-              <div class="flex-1 min-w-0">
-                <p class="font-semibold text-text-main dark:text-white truncate">${escapeHtml(s.name)}</p>
-                <p class="text-xs text-text-muted dark:text-slate-400">${escapeHtml(s.branch)}</p>
-              </div>
-            </div>
-          `).join('');
-
-          document.getElementById('graduatesPreview').innerHTML = `<div class="space-y-0">${rows}</div>`;
-        }
-      } catch (err) {
-        console.error('Ошибка загрузки выпускников:', err);
-      }
-    }
-
-    function escapeHtml(str) {
-      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
-
-    // Загрузить превью выпускников при загрузке страницы
-    document.addEventListener('DOMContentLoaded', loadGraduatesPreview);
   </script>
 
 
